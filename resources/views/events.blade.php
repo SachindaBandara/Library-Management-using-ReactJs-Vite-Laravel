@@ -42,8 +42,7 @@
         <ul>
           <li><a href="/" class="">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="/courses">Courses</a></li>
           <li><a href="/events" class="active">Events</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>

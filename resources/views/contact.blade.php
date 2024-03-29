@@ -49,11 +49,10 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="/" class="">Home</a></li>
+          <li><a href="/about">About</a></li>
           <li><a href="courses.html">Courses</a></li>
-          <li><a href="trainers.html">Trainers</a></li>
-          <li><a href="events.html">Events</a></li>
+          <li><a href="/events">Events</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -101,7 +100,7 @@
               </li>
             </ul>
           </li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="/contact" class="active">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

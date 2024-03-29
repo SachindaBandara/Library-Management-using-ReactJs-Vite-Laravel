@@ -41,10 +41,8 @@
         <ul>
           <li><a href="/" class="active">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="/courses">Courses</a></li>
           <li><a href="/events">Events</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
           <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
@@ -91,13 +89,12 @@
               </li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-      <a class="btn-getstarted" href="courses.html">Log In</a>
-
+        <a class="btn-getstarted" href="{{ route('register') }}">Register</a>
+        <a class="btn-getstarted" href="{{ route('login') }}">Log In</a>
     </div>
   </header>
 
@@ -112,7 +109,7 @@
         <h2 data-aos="fade-up" data-aos-delay="100" class="">Learning Today,<br>Leading Tomorrow</h2>
         <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
         <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-          <a href="courses.html" class="btn-get-started">Get Started</a>
+          <a href="{{ route('login') }}" class="btn-get-started">Log-in</a>
         </div>
       </div>
 

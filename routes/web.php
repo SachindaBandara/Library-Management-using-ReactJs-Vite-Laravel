@@ -2,9 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/w', function () {
     return view('welcome');
 });
+
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/events', function () {
+    return view('events');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 
 Route::middleware([
     'auth:sanctum',
