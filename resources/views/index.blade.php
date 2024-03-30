@@ -1,20 +1,29 @@
-@extends('layouts.indexLayout')
+@extends('indexLayout')
+
+@section('title')
+    <title>Home</title>
+@endsection
 
 @section('nav')
     <li><a href="/" class="active">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="trainers.html">Trainers</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
 @endsection
 
 @section('main')
     <!-- Hero Section -->
     <section id="hero" class="hero section">
 
-        <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+        <img src="indexAssets/img/hero-bg.jpg" alt="" data-aos="fade-in">
 
         <div class="container">
             <h2 data-aos="fade-up" data-aos-delay="100" class="">Learning Today,<br>Leading Tomorrow</h2>
             <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
             <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-                <a href="courses.html" class="btn-get-started">Get Started</a>
+                <a href="/" class="btn-get-started">Log - In</a>
             </div>
         </div>
 
@@ -28,7 +37,7 @@
             <div class="row gy-4">
 
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                    <img src="indexAssets/img/about.jpg" class="img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
@@ -226,7 +235,7 @@
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="course-item">
-                        <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                        <img src="indexAssets/img/course-1.jpg" class="img-fluid" alt="...">
                         <div class="course-content">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <p class="category">Web Development</p>
@@ -237,7 +246,7 @@
                             <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                             <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">
-                                    <img src="assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
+                                    <img src="indexAssets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
                                     <a href="" class="trainer-link">Antonio</a>
                                 </div>
                                 <div class="trainer-rank d-flex align-items-center">
@@ -252,7 +261,7 @@
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
                     <div class="course-item">
-                        <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
+                        <img src="indexAssets/img/course-2.jpg" class="img-fluid" alt="...">
                         <div class="course-content">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <p class="category">Marketing</p>
@@ -263,7 +272,7 @@
                             <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                             <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">
-                                    <img src="assets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
+                                    <img src="indexAssets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
                                     <a href="" class="trainer-link">Lana</a>
                                 </div>
                                 <div class="trainer-rank d-flex align-items-center">
@@ -278,7 +287,7 @@
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
                     <div class="course-item">
-                        <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
+                        <img src="indexAssets/img/course-3.jpg" class="img-fluid" alt="...">
                         <div class="course-content">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <p class="category">Content</p>
@@ -289,7 +298,7 @@
                             <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                             <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">
-                                    <img src="assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
+                                    <img src="indexAssets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
                                     <a href="" class="trainer-link">Brandon</a>
                                 </div>
                                 <div class="trainer-rank d-flex align-items-center">
@@ -317,7 +326,7 @@
 
                     <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
-                            <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                            <img src="indexAssets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
                             <div class="member-content">
                                 <h4>Walter White</h4>
                                 <span>Web Development</span>
@@ -334,7 +343,7 @@
 
                     <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
                         <div class="member">
-                            <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+                            <img src="indexAssets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
                             <div class="member-content">
                                 <h4>Sarah Jhinson</h4>
                                 <span>Marketing</span>
@@ -353,7 +362,7 @@
 
                     <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
                         <div class="member">
-                            <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+                            <img src="indexAssets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
                             <div class="member-content">
                                 <h4>William Anderson</h4>
                                 <span>Content</span>
