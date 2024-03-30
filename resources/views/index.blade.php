@@ -1,4 +1,9 @@
 @extends('layouts.indexLayout')
+
+@section('nav')
+    <li><a href="/" class="active">Home</a></li>
+@endsection
+
 @section('main')
     <!-- Hero Section -->
     <section id="hero" class="hero section">
