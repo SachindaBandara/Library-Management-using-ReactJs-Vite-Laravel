@@ -2,6 +2,6 @@
 
 @section('main')
 
-<h1>Logged in</h1>
+<h1>User Logged in</h1>
 
 @endsection
