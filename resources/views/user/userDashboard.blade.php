@@ -2,6 +2,8 @@
 
 @section('main')
 
-<h1>User Logged in</h1>
+@foreach($news as $item)
+    {{ $item->title }}
+@endforeach
 
 @endsection

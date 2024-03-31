@@ -8,9 +8,9 @@ use App\Models\News;
 class NewsController extends Controller
 {
     //
-    public function index() {
+    public function getNews() {
         $news=News::all();
-        return view('t', ['news' => $news]);
+        return view('user.userDashboard', ['news' => $news]);
 
     }
 }
