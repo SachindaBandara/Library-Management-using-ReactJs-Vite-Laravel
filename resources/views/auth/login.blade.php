@@ -49,7 +49,7 @@
 
                                     <div class="credits">
                                         @if (Route::has('password.request'))
-                                            <a href="{{ route('password.request') }}" style="color:rgb(0, 0, 0);">Forgot your password?</a>
+                                            <a href="{{ route('password.request') }}">Forgot your password?</a>
                                         @endif
                                     </div>
 
@@ -64,6 +64,5 @@
             </div>
 
         </section>
-
     </div>
 @endsection
