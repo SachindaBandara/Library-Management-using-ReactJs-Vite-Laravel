@@ -62,3 +62,24 @@
         </div>
     </form>
 </section>
+
+
+
+<h5 class="card-title">Profile Information</h5>
+<p>Update your account's profile information and email address.</p>
+<form id="send-verification" method="POST" action="{{ route('verification.send') }}">
+    @csrf
+</form>
+<form method="POST" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    @csrf
+    @method('patch')
+    <div class="col-12">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="name" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name"/>
+        <div class="invalid-feedback">{{ "$errors->get('name')" }}</div>
+    </div>
+</form>
+
+
+
+
