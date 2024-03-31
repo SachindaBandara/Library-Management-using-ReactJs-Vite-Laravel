@@ -6,7 +6,7 @@
 
 @section('nav')
     <li><a href="/" class="active">Home</a></li>
-    <li><a href="/about">About</a></li>
+    <li><a href="#">About</a></li>
     <li><a href="courses.html">Courses</a></li>
     <li><a href="trainers.html">Trainers</a></li>
     <li><a href="/events">Events</a></li>
@@ -22,9 +22,13 @@
         <div class="container">
             <h2 data-aos="fade-up" data-aos-delay="100" class="">Learning Today,<br>Leading Tomorrow</h2>
             <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
-            <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-                <a href="/" class="btn-get-started">Log - In</a>
-            </div>
+            @if (Route::has('login'))
+                @auth
+                    <a class="btn-get-started" href="{{ url('/user-dashboard') }}">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="btn-get-started">Log in</a>
+                @endauth
+            @endif
         </div>
 
     </section><!-- /Hero Section -->
