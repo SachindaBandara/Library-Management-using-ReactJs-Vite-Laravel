@@ -1,1 +1,9 @@
-<h1>Admin dashboard</h1>
+@extends('user.layout')
+
+@section('main')
+
+@foreach($news as $item)
+    {{ $item->title }}
+@endforeach
+
+@endsection
