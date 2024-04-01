@@ -94,7 +94,7 @@
                      @foreach($news as $item)
                         <h4>{{ $item->title }}</h4>
                         <p>{{ $item->description }}</p>
-                    @endforeach-->
+                    @endforeach
                   </div>
               </li>
 
