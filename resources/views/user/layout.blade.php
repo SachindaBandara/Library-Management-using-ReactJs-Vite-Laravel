@@ -91,10 +91,10 @@
               <li class="notification-item">
                   <i class="bi bi-x-circle text-success"></i>
                   <div>
-                      @foreach($news as $item)
+                     @foreach($news as $item)
                         <h4>{{ $item->title }}</h4>
                         <p>{{ $item->description }}</p>
-                    @endforeach
+                    @endforeach-->
                   </div>
               </li>
 

@@ -1,9 +1,5 @@
-@extends('user.layout')
+@extends('admin.layout')
 
 @section('main')
-
-@foreach($news as $item)
-    {{ $item->title }}
-@endforeach
 
 @endsection
