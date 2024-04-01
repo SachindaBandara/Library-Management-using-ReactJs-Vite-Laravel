@@ -67,68 +67,70 @@
           </a><!-- End Notification Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+              <li class="dropdown-header">
+                  You have 4 new notifications
+                  <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              </li>
+              <li>
+                  <hr class="dropdown-divider">
+              </li>
+              <!--
+              <li class="notification-item">
+                  <i class="bi bi-exclamation-circle text-warning"></i>
+                  <div>
+                      <h4>Lorem Ipsum</h4>
+                      <p>Quae dolorem earum veritatis oditseno</p>
+                      <p>30 min. ago</p>
+                  </div>
+              </li>
 
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
+              <li>
+                  <hr class="dropdown-divider">
+              </li>-->
 
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+              <li class="notification-item">
+                  <i class="bi bi-x-circle text-success"></i>
+                  <div>
+                      @foreach($news as $item)
+                        <h4>{{ $item->title }}</h4>
+                        <p>{{ $item->description }}</p>
+                    @endforeach
+                  </div>
+              </li>
 
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
+              <!--
+              <li>
+                  <hr class="dropdown-divider">
+              </li>
 
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+              <li class="notification-item">
+                  <i class="bi bi-check-circle text-success"></i>
+                  <div>
+                      <h4>Sit rerum fuga</h4>
+                      <p>Quae dolorem earum veritatis oditseno</p>
+                      <p>2 hrs. ago</p>
+                  </div>
+              </li>
 
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
+              <li>
+                  <hr class="dropdown-divider">
+              </li>
 
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+              <li class="notification-item">
+                  <i class="bi bi-info-circle text-primary"></i>
+                  <div>
+                      <h4>Dicta reprehenderit</h4>
+                      <p>Quae dolorem earum veritatis oditseno</p>
+                      <p>4 hrs. ago</p>
+                  </div>
+              </li>
 
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
+              <li>
+                  <hr class="dropdown-divider">
+              </li>
+              <li class="dropdown-footer">
+                  <a href="#">Show all notifications</a>
+              </li>-->
 
           </ul><!-- End Notification Dropdown Items -->
 
@@ -136,114 +138,115 @@
 
         <li class="nav-item dropdown">
 
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
+            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                <i class="bi bi-chat-left-text"></i>
+                <span class="badge bg-success badge-number">3</span>
+            </a><!-- End Messages Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                <li class="dropdown-header">
+                    You have 3 new messages
+                    <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+                <li class="message-item">
+                    <a href="#">
+                        <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                        <div>
+                            <h4>Maria Hudson</h4>
+                            <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                            <p>4 hrs. ago</p>
+                        </div>
+                    </a>
+                </li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+                <li class="message-item">
+                    <a href="#">
+                        <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                        <div>
+                            <h4>Anna Nelson</h4>
+                            <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                            <p>6 hrs. ago</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
 
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
+                <li class="message-item">
+                    <a href="#">
+                        <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                        <div>
+                            <h4>David Muldon</h4>
+                            <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                            <p>8 hrs. ago</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
 
-          </ul><!-- End Messages Dropdown Items -->
+                <li class="dropdown-footer">
+                    <a href="#">Show all messages</a>
+                </li>
+
+            </ul><!-- End Messages Dropdown Items -->
 
         </li><!-- End Messages Nav -->
 
         <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
-          </a><!-- End Profile Iamge Icon -->
+            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
+            </a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>{{ Auth::user()->name }}</h6>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                <li class="dropdown-header">
+                    <h6>{{ Auth::user()->name }}</h6>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
 
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
 
-            <li>
-                <a class="dropdown-item d-flex align-items-center" href="{{route('profile.edit')}}">
-                    <i class="bi bi-gear"></i>
-                    <span>Account Settings</span>
-                </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <a class="dropdown-item d-flex align-items-center" href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>Sign Out</span>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="{{route('profile.edit')}}">
+                        <i class="bi bi-gear"></i>
+                        <span>Account Settings</span>
                     </a>
-                </form>
-            </li>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
 
-          </ul><!-- End Profile Dropdown Items -->
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a class="dropdown-item d-flex align-items-center" href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </form>
+                </li>
+
+            </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
 
       </ul>
@@ -256,90 +259,90 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link " href="{{ route('user.userDashboard') }}">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.userDashboard') }}">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tabs.html">
-              <i class="bi bi-circle"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-pagination.html">
-              <i class="bi bi-circle"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
+            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="components-alerts.html">
+                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-accordion.html">
+                        <i class="bi bi-circle"></i><span>Accordion</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-badges.html">
+                        <i class="bi bi-circle"></i><span>Badges</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-breadcrumbs.html">
+                        <i class="bi bi-circle"></i><span>Breadcrumbs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-buttons.html">
+                        <i class="bi bi-circle"></i><span>Buttons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-cards.html">
+                        <i class="bi bi-circle"></i><span>Cards</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-carousel.html">
+                        <i class="bi bi-circle"></i><span>Carousel</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-list-group.html">
+                        <i class="bi bi-circle"></i><span>List group</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-modal.html">
+                        <i class="bi bi-circle"></i><span>Modal</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-tabs.html">
+                        <i class="bi bi-circle"></i><span>Tabs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-pagination.html">
+                        <i class="bi bi-circle"></i><span>Pagination</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-progress.html">
+                        <i class="bi bi-circle"></i><span>Progress</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-spinners.html">
+                        <i class="bi bi-circle"></i><span>Spinners</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-tooltips.html">
+                        <i class="bi bi-circle"></i><span>Tooltips</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Components Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
