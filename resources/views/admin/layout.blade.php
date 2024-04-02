@@ -257,11 +257,18 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{ route('user.userDashboard') }}">
+        <a class="nav-link " href="/admin-dashboard">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="/admin-add-book">
+          <i class="bi bi-grid"></i>
+          <span>Add Book</span>
+        </a>
+      </li><!-- End Add Book Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
