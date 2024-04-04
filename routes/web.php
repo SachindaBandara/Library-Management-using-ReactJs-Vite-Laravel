@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 
 
@@ -25,9 +26,7 @@ Route::get('/admin-dashboard', [HomeController::class, 'index'])->
 middleware(['auth', 'admin']);
 
 
-Route::get('/admin-add-book', function () {
-    return view('admin.addBook');
-});
+Route::get('/admin-add-book', [BookController::class, 'getBooks'])->name('admin.addBook');
 
 
 
