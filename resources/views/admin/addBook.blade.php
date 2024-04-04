@@ -6,7 +6,7 @@
 
 @section('main')
 <div class="pagetitle">
-    <h1>Add Book</h1>
+    <h1>Add Books</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -22,63 +22,40 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Horizontal Form</h5>
-
+                    <h5 class="card-title">Add New Book</h5>
                     <!-- Add Book Form -->
                     <form>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Your Name</label>
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Book Title</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="inputText">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">ISBN</label>
                             <div class="col-sm-10">
                                 <input type="email" class="form-control" id="inputEmail">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Publication Year</label>
                             <div class="col-sm-10">
                                 <input type="password" class="form-control" id="inputPassword">
                             </div>
                         </div>
-                        <fieldset class="row mb-3">
-                            <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                            <div class="col-sm-10">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="gridRadios1">
-                                        First radio
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                    <label class="form-check-label" for="gridRadios2">
-                                        Second radio
-                                    </label>
-                                </div>
-                                <div class="form-check disabled">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                                    <label class="form-check-label" for="gridRadios3">
-                                    Third disabled radio
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
                         <div class="row mb-3">
-                            <div class="col-sm-10 offset-sm-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                    <label class="form-check-label" for="gridCheck1">
-                                        Example checkbox
-                                    </label>
-                                </div>
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword">
+                            </div>
+                        </div><div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Quantity Available</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword">
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </form>
@@ -98,48 +75,28 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Customer</th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">ISBN</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Publication Year</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Quantity Available</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row"><a href="#">#2457</a></th>
-                            <td>Brandon Jacob</td>
-                            <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                            <td>$64</td>
-                            <td><span class="badge bg-success">Approved</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><a href="#">#2147</a></th>
-                            <td>Bridie Kessler</td>
-                            <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                            <td>$47</td>
-                            <td><span class="badge bg-warning">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><a href="#">#2049</a></th>
-                            <td>Ashleigh Langosh</td>
-                            <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                            <td>$147</td>
-                            <td><span class="badge bg-success">Approved</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><a href="#">#2644</a></th>
-                            <td>Angus Grady</td>
-                            <td><a href="#" class="text-primary">Ut voluptatem id earum et</a></td>
-                            <td>$67</td>
-                            <td><span class="badge bg-danger">Rejected</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><a href="#">#2644</a></th>
-                            <td>Raheem Lehner</td>
-                            <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                            <td>$165</td>
-                            <td><span class="badge bg-success">Approved</span></td>
-                        </tr>
+                        @foreach ($books as $book)
+                            <tr>
+                                <th scope="row"><a href="#">{{ $book -> id}}</a></th>
+                                <td>{{ $book -> title}}</td>
+                                <td>{{ $book -> ISBN}}</td>
+                                <td>{{ $book -> author}}</td>
+                                <td>{{ $book -> genre}}</td>
+                                <td>{{ $book -> publicationYear}}</td>
+                                <td>{{ $book -> description}}</td>
+                                <td>{{ $book -> quantityAvailable}}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

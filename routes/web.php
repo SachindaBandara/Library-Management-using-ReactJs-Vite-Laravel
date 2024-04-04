@@ -27,6 +27,7 @@ middleware(['auth', 'admin']);
 
 
 Route::get('/admin-add-book', [BookController::class, 'getBooks'])->name('admin.addBook');
+Route::get('/admin-all-books', [BookController::class, 'getAllBooks'])->name('admin.allBooks');
 
 
 
