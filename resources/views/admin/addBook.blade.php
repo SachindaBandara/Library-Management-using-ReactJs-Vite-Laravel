@@ -82,6 +82,7 @@
                             <th scope="col">Publication Year</th>
                             <th scope="col">Description</th>
                             <th scope="col">Quantity Available</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,6 +96,12 @@
                                 <td>{{ $book -> publicationYear}}</td>
                                 <td>{{ $book -> description}}</td>
                                 <td>{{ $book -> quantityAvailable}}</td>
+                                <td>
+                                    <div class='text-center'>
+                                        <button type="submit" class="btn btn-success">Edit</button>
+                                        <button type="reset" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

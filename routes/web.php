@@ -11,24 +11,19 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/user-dashboard', function () {
-    return view('user.userDashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
+// 'user (auth)' middleware group
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/user-dashboard', [NewsController::class, 'getNews'])->name('user.userDashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/user-dashboard', [NewsController::class, 'getNews'])->name('user.userDashboard');
 });
 
-Route::get('/admin-dashboard', [HomeController::class, 'index'])->
-middleware(['auth', 'admin']);
-
-
-Route::get('/admin-add-book', [BookController::class, 'getBooks'])->name('admin.addBook');
-Route::get('/admin-all-books', [BookController::class, 'getAllBooks'])->name('admin.allBooks');
-
-
+// 'admin' middleware
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin-dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin-add-book', [BookController::class, 'getBooks'])->name('admin.addBook');
+    Route::get('/admin-all-books', [BookController::class, 'getAllBooks'])->name('admin.allBooks');
+});
 
 require __DIR__.'/auth.php';
