@@ -1,20 +1,28 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - All Books</title>
+  <title>Admin - Books</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Add Book</h1>
+    <h1>Books</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Add Book</li>
+            <li class="breadcrumb-item"><a href="/admin-dashboard">Home</a></li>
+            <li class="breadcrumb-item active">Books</li>
         </ol>
     </nav>
 </div>
 <!-- End Page Title -->
+
+<section class="section">
+    <div class='card-body'>
+        <button type="submit" class="btn btn-success"><a href="/admin-add-book">Add New</a></button>
+        <button type="reset" class="btn btn-danger"><a href="">Print Preview</a></button>
+        <button type="reset" class="btn btn-danger"><a href="">Save CSV</a></button>
+    </div>
+</section>
 
 <section class="section">
     <div class="row">

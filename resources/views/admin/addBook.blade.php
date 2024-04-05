@@ -9,7 +9,8 @@
     <h1>Add Books</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="/admin-dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/admin-all-books">Books</a></li>
             <li class="breadcrumb-item active">Add Book</li>
         </ol>
     </nav>

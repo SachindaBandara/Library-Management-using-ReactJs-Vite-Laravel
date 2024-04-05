@@ -24,7 +24,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin-add-book', [BookController::class, 'getBooks'])->name('admin.addBook');
-    Route::get('/admin-all-books', [BookController::class, 'getAllBooks'])->name('admin.allBooks');
+    Route::get('/admin-books', [BookController::class, 'getAllBooks'])->name('admin.books');
 });
 
 require __DIR__.'/auth.php';

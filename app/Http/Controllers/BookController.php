@@ -16,6 +16,6 @@ class BookController extends Controller
 
     public function getAllBooks(){
         $books=Book::all();
-        return view('admin.allBooks', ['books' => $books]);
+        return view('admin.books', ['books' => $books]);
     }
 }

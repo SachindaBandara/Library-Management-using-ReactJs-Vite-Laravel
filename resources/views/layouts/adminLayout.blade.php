@@ -264,16 +264,9 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link" href="/admin-add-book">
+        <a class="nav-link" href="/admin-books">
           <i class="bi bi-grid"></i>
-          <span>Add Book</span>
-        </a>
-      </li><!-- End Add Book Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link" href="/admin-all-books">
-          <i class="bi bi-grid"></i>
-          <span>All Book</span>
+          <span>Books</span>
         </a>
       </li><!-- End Add Book Nav -->
 
