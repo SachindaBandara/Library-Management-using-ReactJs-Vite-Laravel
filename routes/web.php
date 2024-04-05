@@ -14,6 +14,7 @@ Route::get('/', function () {
 // 'user (auth)' middleware group
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user-dashboard', [NewsController::class, 'getNews'])->name('user.userDashboard');
+    Route::get('/admin-all-books', [BookController::class, 'getAllBooks'])->name('admin.allBooks');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
