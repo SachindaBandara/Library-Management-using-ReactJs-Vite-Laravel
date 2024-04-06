@@ -9,7 +9,7 @@ class BookController extends Controller
 {
     //
 
-    public function getBooks(){
+    public function addBook(){
         $books=Book::all();
         return view('admin.addBook', ['books' => $books]);
     }
@@ -18,4 +18,5 @@ class BookController extends Controller
         $books=Book::all();
         return view('admin.books', ['books' => $books]);
     }
+
 }

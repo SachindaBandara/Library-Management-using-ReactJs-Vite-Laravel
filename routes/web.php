@@ -23,7 +23,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // 'admin' middleware
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin-add-book', [BookController::class, 'getBooks'])->name('admin.addBook');
+    Route::get('/admin-add-book', [BookController::class, 'addBook'])->name('admin.addBook');
     Route::get('/admin-books', [BookController::class, 'getAllBooks'])->name('admin.books');
 });
 
