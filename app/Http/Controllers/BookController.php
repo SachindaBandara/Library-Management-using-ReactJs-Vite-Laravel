@@ -38,5 +38,12 @@ class BookController extends Controller
         return view('admin.editBook');
     }
 
+    public function deleteBook($id){
+        $book = Book::findOrFail($id);
+        $book->delete();
+
+        return redirect(route('admin_books'))->with('success', 'Book deleted successfully');
+}
+
 
 }

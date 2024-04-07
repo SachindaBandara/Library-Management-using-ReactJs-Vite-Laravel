@@ -1,7 +1,7 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - Books</title>
+  <title>Admin - Users</title>
 @endsection
 
 @section('main')
