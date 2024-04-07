@@ -34,4 +34,9 @@ class BookController extends Controller
         return view('admin.books', ['books' => $books]);
     }
 
+    public function editBook(){
+        return view('admin.editBook');
+    }
+
+
 }

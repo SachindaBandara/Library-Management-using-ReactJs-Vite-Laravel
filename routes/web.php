@@ -22,9 +22,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // 'admin' middleware
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-dashboard', [HomeController::class, 'index'])->name('admin_dashboard');
-    Route::get('/admin-books', [BookController::class, 'getAllBooks'])->name('admin_books');
-    Route::get('/admin-add-book', [BookController::class, 'addBook'])->name('admin_addBook');
-    Route::post('/admin-add-book', [BookController::class, 'storeBook'])->name('admin_store_book');
+    Route::get('/admin-dashboard/admin-books', [BookController::class, 'getAllBooks'])->name('admin_books');
+    Route::get('/admin-dashboard/admin-books/admin-add-book', [BookController::class, 'addBook'])->name('admin_addBook');
+    Route::post('/admin-dashboard/admin-books/admin-add-book', [BookController::class, 'storeBook'])->name('admin_store_book');
+    Route::get('/admin-add-book/admin-edit-book', [BookController::class, 'editBook'])->name('admin_edit_book');
 });
 
 require __DIR__.'/auth.php';

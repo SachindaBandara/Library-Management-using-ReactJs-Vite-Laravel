@@ -276,7 +276,7 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="{{route('admin_edit_book')}}">
               <i class="bi bi-circle"></i><span>Alerts</span>
             </a>
           </li>
