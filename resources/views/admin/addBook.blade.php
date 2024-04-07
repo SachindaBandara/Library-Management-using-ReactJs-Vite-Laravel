@@ -9,9 +9,9 @@
     <h1>Add Books</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/admin-dashboard">Home</a></li>
-            <li class="breadcrumb-item"><a href="/admin-all-books">Books</a></li>
-            <li class="breadcrumb-item active">Add Book</li>
+            <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin_books')}}">Books</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_addBook')}}">Add Book</a></li>
         </ol>
     </nav>
 </div>
@@ -20,39 +20,53 @@
 <section class="section">
     <div class="row">
         <div class="col-lg-12">
-
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Add New Book</h5>
                     <!-- Add Book Form -->
-                    <form>
+                    <form method="POST" action="{{route('admin_store_book')}}">
+                        @csrf
+                        @method('post')
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Book Title</label>
+                            <label for="bookTitle" class="col-sm-2 col-form-label">Book Title</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputText">
+                                <input type="text" class="form-control" id="bookTitle" name='title'>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">ISBN</label>
+                            <label for="author" class="col-sm-2 col-form-label">Book Author</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail">
+                                <input type="text" class="form-control" id="bookAuthor" name='author'>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Publication Year</label>
+                            <label for="isbn" class="col-sm-2 col-form-label">ISBN</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword">
+                                <input type="text" class="form-control" id="isbn" name='ISBN'>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+                            <label for="genre" class="col-sm-2 col-form-label">Book Genre</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword">
+                                <input type="text" class="form-control" id="bookGenre" name='genre'>
                             </div>
-                        </div><div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Quantity Available</label>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="publicationYear" class="col-sm-2 col-form-label">Publication Year</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword">
+                                <input type="text" class="form-control" id="publicationYear" name="publicationYear">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="description" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="description" name='description'>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="quantityAvailable" class="col-sm-2 col-form-label">Quantity Available</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="quantityAvailable" name='quantityAvailable'>
                             </div>
                         </div>
                         <div class="text-center">
@@ -63,6 +77,25 @@
                     <!-- End Add Book Form -->
                 </div>
             </div>
+        </div>
+        <div class="col-12">
+            @if ($errors -> any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="bi bi-exclamation-circle"></i>
+                        {{$error}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endforeach
+            @endif
+
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="bi bi-check-circle"></i>
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
         </div>
     </div>
 </section>

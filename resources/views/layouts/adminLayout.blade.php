@@ -264,7 +264,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link" href="/admin-books">
+        <a class="nav-link" href="{{route('admin_books')}}">
           <i class="bi bi-grid"></i>
           <span>Books</span>
         </a>
@@ -496,6 +496,7 @@
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
+    <h1>Hi</h1>
     @yield('main')
   </main><!-- End #main -->
 

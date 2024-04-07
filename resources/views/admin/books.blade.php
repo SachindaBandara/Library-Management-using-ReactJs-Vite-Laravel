@@ -9,8 +9,8 @@
     <h1>Books</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/admin-dashboard">Home</a></li>
-            <li class="breadcrumb-item active">Books</li>
+            <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_books')}}">Books</li>
         </ol>
     </nav>
 </div>
@@ -18,7 +18,7 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="/admin-add-book">Add New</a></button>
+        <button type="submit" class="btn btn-success"><a href="{{route('admin_addBook')}}">Add New</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Save CSV</a></button>
     </div>
@@ -49,7 +49,7 @@
                         <tbody>
                             @foreach ($books as $book)
                                 <tr>
-                                    <th scope="row"><a href="#">{{ $book -> id}}</a></th>
+                                    <th scope="row">{{ $book -> id}}</th>
                                     <td>{{ $book -> title}}</td>
                                     <td>{{ $book -> ISBN}}</td>
                                     <td>{{ $book -> author}}</td>

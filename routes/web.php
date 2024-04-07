@@ -14,7 +14,6 @@ Route::get('/', function () {
 // 'user (auth)' middleware group
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user-dashboard', [NewsController::class, 'getNews'])->name('user.userDashboard');
-    Route::get('/admin-all-books', [BookController::class, 'getAllBooks'])->name('admin.allBooks');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -22,9 +21,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // 'admin' middleware
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin-dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin-add-book', [BookController::class, 'addBook'])->name('admin.addBook');
-    Route::get('/admin-books', [BookController::class, 'getAllBooks'])->name('admin.books');
+    Route::get('/admin-dashboard', [HomeController::class, 'index'])->name('admin_dashboard');
+    Route::get('/admin-books', [BookController::class, 'getAllBooks'])->name('admin_books');
+    Route::get('/admin-add-book', [BookController::class, 'addBook'])->name('admin_addBook');
+    Route::post('/admin-add-book', [BookController::class, 'storeBook'])->name('admin_store_book');
 });
 
 require __DIR__.'/auth.php';
