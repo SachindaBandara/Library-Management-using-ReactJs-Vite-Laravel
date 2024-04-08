@@ -34,8 +34,24 @@ class BookController extends Controller
         return view('admin.books', ['books' => $books]);
     }
 
-    public function editBook(){
-        return view('admin.editBook');
+    public function editBook(Book $book){
+        return view('admin.editBook', ['book' => $book]);
+    }
+
+    public function updateBook(Book $book, Request $request){
+        $data=$request->validate([
+            'title'=>'required',
+            'author'=>'required',
+            'ISBN'=>'required',
+            'genre'=>'required',
+            'publicationYear'=>'required',
+            'description'=>'required',
+            'quantityAvailable'=>'required'
+        ]);
+
+        $book-> update($data);
+
+        return redirect(route('admin_books'))->with('success', 'Book edited successfully');
     }
 
     public function deleteBook($id){

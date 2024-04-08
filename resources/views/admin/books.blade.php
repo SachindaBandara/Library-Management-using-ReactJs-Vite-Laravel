@@ -60,9 +60,9 @@
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">
-                                                <form method="POST" action="{{ route('admin_edit_book', $book->id) }}">
+                                                <form method="POST" action="{{ route('admin_edit_book',[ 'book'=> $book]) }}">
                                                     @csrf
-                                                    @method('DELETE')
+                                                    @method('GET')
                                                     <button type="submit" class="btn btn-success">Edit</button>
                                                 </form>
                                                 <form method="POST" action="{{ route('admin_delete_book', $book->id) }}">

@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{route('admin_books')}}">Books</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_edit_book')}}">Add Book</a></li>
+            <li class="breadcrumb-item active"><a href="">Add Book</a></li>
         </ol>
     </nav>
 </div>
@@ -24,49 +24,49 @@
                 <div class="card-body">
                     <h5 class="card-title">Edit Existing Book</h5>
                     <!-- Add Book Form -->
-                    <form method="POST" action="{{route('admin_store_book')}}">
+                    <form method="POST" action="{{route('admin_update_book', [ 'book'=> $book])}}">
                         @csrf
-                        @method('post')
+                        @method('put')
                         <div class="row mb-3">
                             <label for="bookTitle" class="col-sm-2 col-form-label">Book Title</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="bookTitle" name='title'>
+                                <input type="text" class="form-control" id="bookTitle" name='title' value="{{ $book -> title}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="author" class="col-sm-2 col-form-label">Book Author</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="bookAuthor" name='author'>
+                                <input type="text" class="form-control" id="bookAuthor" name='author' value="{{ $book -> author}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="isbn" class="col-sm-2 col-form-label">ISBN</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="isbn" name='ISBN'>
+                                <input type="text" class="form-control" id="isbn" name='ISBN' value="{{ $book -> ISBN}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="genre" class="col-sm-2 col-form-label">Book Genre</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="bookGenre" name='genre'>
+                                <input type="text" class="form-control" id="bookGenre" name='genre' value="{{ $book -> genre}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="publicationYear" class="col-sm-2 col-form-label">Publication Year</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="publicationYear" name="publicationYear">
+                                <input type="text" class="form-control" id="publicationYear" name="publicationYear" value="{{ $book -> publicationYear}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="description" class="col-sm-2 col-form-label">Description</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="description" name='description'>
+                                <input type="text" class="form-control" id="description" name='description' value="{{ $book -> description}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="quantityAvailable" class="col-sm-2 col-form-label">Quantity Available</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="quantityAvailable" name='quantityAvailable'>
+                                <input type="text" class="form-control" id="quantityAvailable" name='quantityAvailable' value="{{ $book -> quantityAvailable}}">
                             </div>
                         </div>
                         <div class="text-center">
