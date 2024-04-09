@@ -9,11 +9,11 @@ class BookController extends Controller
 {
     //
 
-    public function addBook(){
+    public function addBookAdmin(){
         return view('admin.addBook');
     }
 
-    public function storeBook(Request $request){
+    public function storeBookAdmin(Request $request){
         $data=$request->validate([
             'title'=>'required',
             'author'=>'required',
@@ -29,16 +29,16 @@ class BookController extends Controller
         return redirect(route('admin_addBook'))->with('success', 'Book added successfully');
     }
 
-    public function getAllBooks(){
+    public function getAllBooksAdmin(){
         $books=Book::all();
         return view('admin.books', ['books' => $books]);
     }
 
-    public function editBook(Book $book){
+    public function editBookAdmin(Book $book){
         return view('admin.editBook', ['book' => $book]);
     }
 
-    public function updateBook(Book $book, Request $request){
+    public function updateBookAdmin(Book $book, Request $request){
         $data=$request->validate([
             'title'=>'required',
             'author'=>'required',
@@ -54,7 +54,7 @@ class BookController extends Controller
         return redirect(route('admin_books'))->with('success', 'Book edited successfully');
     }
 
-    public function deleteBook($id){
+    public function deleteBookAdmin($id){
         $book = Book::findOrFail($id);
         $book->delete();
 
