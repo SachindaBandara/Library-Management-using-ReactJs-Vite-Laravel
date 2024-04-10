@@ -59,7 +59,12 @@ class BookController extends Controller
         $book->delete();
 
         return redirect(route('admin_books'))->with('success', 'Book deleted successfully');
-}
+    }
+
+    public function getAllBooksUser(){
+        $books=Book::all();
+        return view('user.viewBooks', ['books' => $books]);
+    }
 
 
 }

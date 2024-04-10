@@ -87,19 +87,16 @@
 
               <li>
                   <hr class="dropdown-divider">
-              </li>-->
+              </li>
 
               <li class="notification-item">
                   <i class="bi bi-x-circle text-success"></i>
                   <div>
-                     @foreach($news as $item)
-                        <h4>{{ $item->title }}</h4>
-                        <p>{{ $item->description }}</p>
-                    @endforeach
+
                   </div>
               </li>
 
-              <!--
+
               <li>
                   <hr class="dropdown-divider">
               </li>

@@ -17,7 +17,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/user-books', [BookController::class, 'getAllBooks'])->name('user_books');
+    Route::get('/user-books', [BookController::class, 'getAllBooksUser'])->name('user_books');
 });
 
 // 'admin' middleware
