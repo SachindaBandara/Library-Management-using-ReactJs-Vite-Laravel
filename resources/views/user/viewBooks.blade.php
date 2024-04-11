@@ -23,7 +23,6 @@
             <div class="card add-book overflow-auto">
                 <div class="card-body">
                     <h5 class="card-title">All Books <span></span></h5>
-
                     <table class="table table-borderless datatable">
                         <thead>
                             <tr>
