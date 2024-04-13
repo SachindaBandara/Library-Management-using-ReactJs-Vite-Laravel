@@ -1,16 +1,16 @@
 @extends('layouts.userLayout')
 
 @section('title')
-  <title>Admin - All Books</title>
+  <title>User - All Books</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Add Book</h1>
+    <h1>All Books</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Add Book</li>
+            <li class="breadcrumb-item active">All Books</li>
         </ol>
     </nav>
 </div>
