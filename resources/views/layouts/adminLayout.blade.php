@@ -496,7 +496,6 @@
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
-    <h1>Hi</h1>
     @yield('main')
   </main><!-- End #main -->
 
