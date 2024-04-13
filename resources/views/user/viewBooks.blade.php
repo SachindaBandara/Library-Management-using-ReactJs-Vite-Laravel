@@ -9,7 +9,7 @@
     <h1>All Books</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('user_dashboard') }}">Home</a></li>
             <li class="breadcrumb-item active">All Books</li>
         </ol>
     </nav>
