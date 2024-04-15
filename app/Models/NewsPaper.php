@@ -7,5 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsPaper extends Model
 {
+    protected $fillable = [
+        'title',
+        'publisher',
+        'publicationDate',
+        'totalCopies',
+        'availableCopies',
+        'shelfLocation'
+    ];
+
+    protected $dates = [
+        'publicationDate'
+    ];
+
+
     use HasFactory;
 }
