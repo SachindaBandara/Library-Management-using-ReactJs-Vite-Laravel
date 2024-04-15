@@ -18,7 +18,7 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="#">Add New</a></button>
+        <button type="submit" class="btn btn-success"><a href="{{route('admin_addUser')}}">Add New</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Save CSV</a></button>
     </div>
@@ -36,18 +36,41 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">ISBN</th>
-                                <th scope="col">Author</th>
-                                <th scope="col">Genre</th>
-                                <th scope="col">Publication Year</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Quantity Available</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">User Type</th>
+                                <th scope="col">Created</th>
+                                <th scope="col">Updated</th>
                                 <th scope="col"> </th>
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($users as $user)
+                                <tr>
+                                    <th scope="row">{{ $user -> id}}</th>
+                                    <td>{{ $user -> name}}</td>
+                                    <td>{{ $user -> email}}</td>
+                                    <td>{{ $user -> userType}}</td>
+                                    <td>{{ $user -> created_at}}</td>
+                                    <td>{{ $user -> updated_at}}</td>
+                                    <td>
+                                        <div class='text-center'>
+                                            <div class="btn-group" role="group">
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    @method('GET')
+                                                    <button type="submit" class="btn btn-success">Edit</button>
+                                                </form>
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -1,17 +1,17 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - Add Book</title>
+  <title>Admin - Add User</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Add Books</h1>
+    <h1>Add Users</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin_books')}}">Books</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_addBook')}}">Add Book</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin_users')}}">Users</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_addUser')}}">Add User</a></li>
         </ol>
     </nav>
 </div>
@@ -22,53 +22,42 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add New Book</h5>
+                    <h5 class="card-title">Add New User</h5>
                     <!-- Add Book Form -->
-                    <form method="POST" action="{{route('admin_store_book')}}">
+                    <form method="POST" action="{{route('admin_store_user')}}">
                         @csrf
                         @method('post')
                         <div class="row mb-3">
-                            <label for="bookTitle" class="col-sm-2 col-form-label">Book Title</label>
+                            <label for="name" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="bookTitle" name='title'>
+                                <input type="text" class="form-control" id="name" name='name'>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="author" class="col-sm-2 col-form-label">Book Author</label>
+                            <label for="email" class="col-sm-2 col-form-label">E-mail</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="bookAuthor" name='author'>
+                                <input type="text" class="form-control" id="email" name='email'>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="isbn" class="col-sm-2 col-form-label">ISBN</label>
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="isbn" name='ISBN'>
+                                <input type="password" class="form-control" id="password" name='password'>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="genre" class="col-sm-2 col-form-label">Book Genre</label>
+                        <fieldset class="row mb-3">
+                            <legend class="col-form-label col-sm-2 pt-0">User Type</legend>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="bookGenre" name='genre'>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="userType" id="gridRadios1" value="True" checked>
+                                <label class="form-check-label" for="gridRadios1">Common User</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="userType" id="gridRadios2" value="False">
+                                <label class="form-check-label" for="gridRadios2">Admin User</label>
+                              </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="publicationYear" class="col-sm-2 col-form-label">Publication Year</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="publicationYear" name="publicationYear">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="description" class="col-sm-2 col-form-label">Description</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="description" name='description'>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="quantityAvailable" class="col-sm-2 col-form-label">Quantity Available</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="quantityAvailable" name='quantityAvailable'>
-                            </div>
-                        </div>
+                        </fieldset>
                         <div class="text-center">
                             <button type="submit" class="btn btn-success">Add</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
@@ -101,3 +90,4 @@
 </section>
 
 @endsection
+
