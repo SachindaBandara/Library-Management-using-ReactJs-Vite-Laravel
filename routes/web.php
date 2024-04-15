@@ -6,6 +6,8 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NewsPaperController;
+
 
 
 
@@ -38,6 +40,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-add-users', [UserController::class, 'addUserAdmin'])->name('admin_addUser');
     Route::post('/admin-add-user', [UserController::class, 'storeUserAdmin'])->name('admin_store_user');
     Route::delete('/{id}/admin-delete-user', [UserController::class, 'deleteUserAdmin'])->name('admin_delete_user');
+
+    Route::get('/admin-newspapers', [NewsPaperController::class, 'getAllNewsPapersAdmin'])->name('admin_newsPapers');
+    Route::get('/admin-add-newspaper', [NewsPaperController::class, 'addNewsPaperAdmin'])->name('admin_addNewspaper');
+
 });
 
 require __DIR__.'/auth.php';

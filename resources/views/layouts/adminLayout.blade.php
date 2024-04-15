@@ -274,11 +274,20 @@
       <!-- End Add Book Nav -->
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin_users') }}">
+        <a class="nav-link" href="{{route('admin_newsPapers')}}">
+          <i class="bi bi-grid"></i>
+          <span>News Papers</span>
+        </a>
+      </li>
+      <!-- End Add NewsPaper Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('admin_users')}}">
           <i class="bi bi-grid"></i>
           <span>Users</span>
         </a>
-      </li><!-- End Add Book Nav -->
+      </li>
+      <!-- End Add User Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">

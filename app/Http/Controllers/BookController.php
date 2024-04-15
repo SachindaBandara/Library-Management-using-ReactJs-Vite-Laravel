@@ -67,5 +67,4 @@ class BookController extends Controller
         return view('user.viewBooks', ['books' => $books]);
     }
 
-
 }

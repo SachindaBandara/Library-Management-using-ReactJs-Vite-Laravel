@@ -1,16 +1,16 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - Users</title>
+  <title>Admin - News Papers</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Users</h1>
+    <h1>News Papers</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_users')}}">Users</li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_newsPapers')}}">News Papers</li>
         </ol>
     </nav>
 </div>
@@ -18,7 +18,7 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="{{route('admin_addUser')}}">Add New</a></button>
+        <button type="submit" class="btn btn-success"><a href="{{route('admin_addNewspaper')}}">Add New</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Save CSV</a></button>
     </div>
@@ -26,37 +26,44 @@
 
 <section class="section">
     <div class="row">
-        <!-- users -->
+        <!-- NewsPaper -->
         <div class="col-12">
-            <div class="card add-user overflow-auto">
+            <div class="card add-NewsPaper overflow-auto">
                 <div class="card-body">
-                    <h5 class="card-title">All Books <span></span></h5>
+                    <h5 class="card-title">All News Papers <span></span></h5>
 
                     <table class="table table-borderless datatable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">E-mail</th>
-                                <th scope="col">User Type</th>
-                                <th scope="col">Created</th>
-                                <th scope="col">Updated</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Publisher</th>
+                                <th scope="col">Publication Date</th>
+                                <th scope="col">Quantity Available</th>
+                                <th scope="col">Available Copies</th>
+                                <th scope="col">Shelf Location</th>
                                 <th scope="col"> </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($newsPapers as $newsPaper)
                                 <tr>
-                                    <th scope="row">{{ $user -> id}}</th>
-                                    <td>{{ $user -> name}}</td>
-                                    <td>{{ $user -> email}}</td>
-                                    <td>{{ $user -> userType}}</td>
-                                    <td>{{ $user -> created_at}}</td>
-                                    <td>{{ $user -> updated_at}}</td>
+                                    <th scope="row">{{ $book -> id}}</th>
+                                    <td>{{ $newsPaper -> title}}</td>
+                                    <td>{{ $newsPaper -> publisher}}</td>
+                                    <td>{{ $newsPaper -> publicationDate}}</td>
+                                    <td>{{ $newsPaper -> totalCopies}}</td>
+                                    <td>{{ $newsPaper -> availableCopies}}</td>
+                                    <td>{{ $newsPaper -> shelfLocation}}</td>
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">
-                                                <form method="POST" action="{{route('admin_delete_user', $user -> id)}}">
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    @method('GET')
+                                                    <button type="submit" class="btn btn-success">Edit</button>
+                                                </form>
+                                                <form method="POST" action="#">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -71,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <!-- End user  -->
+        <!-- End NewsPaper  -->
     </div>
 
     <div class="col-12">
