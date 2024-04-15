@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{route('admin_books')}}">Books</a></li>
-            <li class="breadcrumb-item active"><a href="">Add Book</a></li>
+            <li class="breadcrumb-item active"><a href="#">Edit Book</a></li>
         </ol>
     </nav>
 </div>

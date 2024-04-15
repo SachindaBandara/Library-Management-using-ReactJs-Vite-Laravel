@@ -34,30 +34,10 @@ class UserController extends Controller
     }
 
 
-    public function editUserAdmin(User $user){
-        return view('admin.editBook', ['book' => $book]);
-    }
+    public function deleteUserAdmin($id){
+        $user = User::findOrFail($id);
+        $user->delete();
 
-    public function updateBookAdmin(Book $book, Request $request){
-        $data=$request->validate([
-            'title'=>'required',
-            'author'=>'required',
-            'ISBN'=>'required',
-            'genre'=>'required',
-            'publicationYear'=>'required',
-            'description'=>'required',
-            'quantityAvailable'=>'required'
-        ]);
-
-        $book-> update($data);
-
-        return redirect(route('admin_books'))->with('success', 'Book edited successfully');
-    }
-
-    public function deleteBookAdmin($id){
-        $book = Book::findOrFail($id);
-        $book->delete();
-
-        return redirect(route('admin_books'))->with('success', 'Book deleted successfully');
+        return redirect(route('admin_users'))->with('success', 'User deleted successfully');
     }
 }

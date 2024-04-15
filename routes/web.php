@@ -36,7 +36,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/admin-users', [UserController::class, 'getAllUsersAdmin'])->name('admin_users');
     Route::get('/admin-add-users', [UserController::class, 'addUserAdmin'])->name('admin_addUser');
-    Route::post('/admin-add-users', [UserController::class, 'storeUserAdmin'])->name('admin_store_user');
+    Route::post('/admin-add-user', [UserController::class, 'storeUserAdmin'])->name('admin_store_user');
+    Route::delete('/{id}/admin-delete-user', [UserController::class, 'deleteUserAdmin'])->name('admin_delete_user');
 });
 
 require __DIR__.'/auth.php';
