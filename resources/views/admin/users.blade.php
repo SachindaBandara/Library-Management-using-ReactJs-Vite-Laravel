@@ -6,11 +6,11 @@
 
 @section('main')
 <div class="pagetitle">
-    <h1>Books</h1>
+    <h1>Users</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_books')}}">Books</li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_users')}}">Users</li>
         </ol>
     </nav>
 </div>
@@ -18,7 +18,7 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="{{route('admin_addBook')}}">Add New</a></button>
+        <button type="submit" class="btn btn-success"><a href="#">Add New</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Save CSV</a></button>
     </div>
@@ -47,34 +47,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($books as $book)
-                                <tr>
-                                    <th scope="row">{{ $book -> id}}</th>
-                                    <td>{{ $book -> title}}</td>
-                                    <td>{{ $book -> ISBN}}</td>
-                                    <td>{{ $book -> author}}</td>
-                                    <td>{{ $book -> genre}}</td>
-                                    <td>{{ $book -> publicationYear}}</td>
-                                    <td>{{ $book -> description}}</td>
-                                    <td>{{ $book -> quantityAvailable}}</td>
-                                    <td>
-                                        <div class='text-center'>
-                                            <div class="btn-group" role="group">
-                                                <form method="POST" action="{{ route('admin_edit_book', $book->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-success">Edit</button>
-                                                </form>
-                                                <form method="POST" action="{{ route('admin_delete_book', $book->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
+
                         </tbody>
                     </table>
                 </div>

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+
 
 
 Route::get('/', function () {
@@ -29,6 +31,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/{book}/admin-edit-book', [BookController::class, 'editBookAdmin'])->name('admin_edit_book');
     Route::put('{book}/admin-update-book', [BookController::class, 'updateBookAdmin'])->name('admin_update_book');
     Route::delete('/{id}/admin-delete-book', [BookController::class, 'deleteBookAdmin'])->name('admin_delete_book');
+    Route::get('/admin-users', [UserController::class, 'getAllUsersAdmin'])->name('admin_users');
 });
 
 require __DIR__.'/auth.php';

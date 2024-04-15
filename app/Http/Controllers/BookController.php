@@ -9,6 +9,11 @@ class BookController extends Controller
 {
     //
 
+    public function getAllBooksAdmin(){
+        $books=Book::all();
+        return view('admin.books', ['books' => $books]);
+    }
+
     public function addBookAdmin(){
         return view('admin.addBook');
     }
@@ -29,10 +34,6 @@ class BookController extends Controller
         return redirect(route('admin_addBook'))->with('success', 'Book added successfully');
     }
 
-    public function getAllBooksAdmin(){
-        $books=Book::all();
-        return view('admin.books', ['books' => $books]);
-    }
 
     public function editBookAdmin(Book $book){
         return view('admin.editBook', ['book' => $book]);

@@ -262,12 +262,21 @@
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+      </li>
+      <!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin_books')}}">
           <i class="bi bi-grid"></i>
           <span>Books</span>
+        </a>
+      </li>
+      <!-- End Add Book Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin_users') }}">
+          <i class="bi bi-grid"></i>
+          <span>Users</span>
         </a>
       </li><!-- End Add Book Nav -->
 
