@@ -51,4 +51,3 @@
 
 @endsection
 
-userCount
