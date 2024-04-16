@@ -31,31 +31,28 @@ class NewsPaperController extends Controller
     }
 
 
-    public function editNewsPaperAdmin(Book $book){
-        return view('admin.editBook', ['book' => $book]);
+    public function editNewsPaperAdmin(NewsPaper $newsPaper){
+        return view('admin.editNewsPaper', ['newsPaper' => $newsPaper]);
     }
 
-    public function updateNewsPaperAdmin(Book $book, Request $request){
+    public function updateNewsPaperAdmin(NewsPaper $newsPaper, Request $request){
         $data=$request->validate([
             'title'=>'required',
-            'author'=>'required',
-            'ISBN'=>'required',
-            'genre'=>'required',
-            'publicationYear'=>'required',
-            'description'=>'required',
-            'quantityAvailable'=>'required'
+            'publisher'=>'required',
+            'publicationDate'=>'required',
+            'shelfLocation'=>'required'
         ]);
 
-        $book-> update($data);
+        $newsPaper-> update($data);
 
-        return redirect(route('admin_books'))->with('success', 'Book edited successfully');
+        return redirect(route('admin_newsPapers'))->with('success', 'Newspaper edited successfully');
     }
 
     public function deleteNewsPaperAdmin($id){
-        $book = Book::findOrFail($id);
-        $book->delete();
+        $newsPaper = NewsPaper::findOrFail($id);
+        $newsPaper->delete();
 
-        return redirect(route('admin_books'))->with('success', 'Book deleted successfully');
+        return redirect(route('admin_newsPapers'))->with('success', 'Newspaper deleted successfully');
     }
 
     public function getAllNewsPaperUser(){

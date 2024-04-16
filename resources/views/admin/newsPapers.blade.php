@@ -54,12 +54,12 @@
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">
-                                                <form method="POST" action="#">
+                                                <form method="POST" action="{{route('admin_edit_newspaper', ['newsPaper'=> $newsPaper])}}">
                                                     @csrf
                                                     @method('GET')
                                                     <button type="submit" class="btn btn-success">Edit</button>
                                                 </form>
-                                                <form method="POST" action="#">
+                                                <form method="POST" action="{{ route('admin_delete_newspaper', $newsPaper->id) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
