@@ -7,6 +7,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NewsPaperController;
+use App\Http\Controllers\MagazineController;
 
 
 
@@ -47,6 +48,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/{newsPaper}/admin-edit-newspaper', [NewsPaperController::class, 'editNewsPaperAdmin'])->name('admin_edit_newspaper');
     Route::put('{newsPaper}/admin-update-newspaper', [NewsPaperController::class, 'updateNewsPaperAdmin'])->name('admin_update_newspaper');
     Route::delete('/{id}/admin-delete-newspaper', [NewsPaperController::class, 'deleteNewsPaperAdmin'])->name('admin_delete_newspaper');
+
+    Route::get('/admin-magazines', [MagazineController::class, 'getAllMagazinesAdmin'])->name('admin_magazines');
+
 
 });
 

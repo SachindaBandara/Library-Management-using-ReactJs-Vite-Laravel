@@ -282,6 +282,14 @@
       <!-- End Add NewsPaper Nav -->
 
       <li class="nav-item">
+        <a class="nav-link" href="{{route('admin_magazines')}}">
+          <i class="bi bi-grid"></i>
+          <span>Magazines</span>
+        </a>
+      </li>
+      <!-- End Add NewsPaper Nav -->
+
+      <li class="nav-item">
         <a class="nav-link" href="{{route('admin_users')}}">
           <i class="bi bi-grid"></i>
           <span>Users</span>
