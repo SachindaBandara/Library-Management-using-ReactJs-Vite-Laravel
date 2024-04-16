@@ -15,6 +15,6 @@ class Book extends Model
         'genre',
         'publicationYear',
         'description',
-        'quantityAvailable'
+        'shelfLocation'
     ];
 }

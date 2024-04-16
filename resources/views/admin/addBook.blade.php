@@ -64,9 +64,9 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="quantityAvailable" class="col-sm-2 col-form-label">Quantity Available</label>
+                            <label for="shelfLocation" class="col-sm-2 col-form-label">Shelf Location</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="quantityAvailable" name='quantityAvailable'>
+                                <input type="text" class="form-control" id="shelfLocation" name='shelfLocation'>
                             </div>
                         </div>
                         <div class="text-center">

@@ -42,7 +42,7 @@
                                 <th scope="col">Genre</th>
                                 <th scope="col">Publication Year</th>
                                 <th scope="col">Description</th>
-                                <th scope="col">Quantity Available</th>
+                                <th scope="col">Shelf Location</th>
                                 <th scope="col"> </th>
                             </tr>
                         </thead>
@@ -56,7 +56,7 @@
                                     <td>{{ $book -> genre}}</td>
                                     <td>{{ $book -> publicationYear}}</td>
                                     <td>{{ $book -> description}}</td>
-                                    <td>{{ $book -> quantityAvailable}}</td>
+                                    <td>{{ $book -> shelfLocation}}</td>
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">

@@ -18,7 +18,7 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="{{route('admin_addNewspaper')}}">Add New</a></button>
+        <button type="submit" class="btn btn-success"><a href="{{route('admin_addNewsPaper')}}">Add New</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Save CSV</a></button>
     </div>
@@ -39,8 +39,6 @@
                                 <th scope="col">Title</th>
                                 <th scope="col">Publisher</th>
                                 <th scope="col">Publication Date</th>
-                                <th scope="col">Quantity Available</th>
-                                <th scope="col">Available Copies</th>
                                 <th scope="col">Shelf Location</th>
                                 <th scope="col"> </th>
                             </tr>
@@ -48,12 +46,10 @@
                         <tbody>
                             @foreach ($newsPapers as $newsPaper)
                                 <tr>
-                                    <th scope="row">{{ $book -> id}}</th>
+                                    <th scope="row">{{ $newsPaper -> id}}</th>
                                     <td>{{ $newsPaper -> title}}</td>
                                     <td>{{ $newsPaper -> publisher}}</td>
                                     <td>{{ $newsPaper -> publicationDate}}</td>
-                                    <td>{{ $newsPaper -> totalCopies}}</td>
-                                    <td>{{ $newsPaper -> availableCopies}}</td>
                                     <td>{{ $newsPaper -> shelfLocation}}</td>
                                     <td>
                                         <div class='text-center'>

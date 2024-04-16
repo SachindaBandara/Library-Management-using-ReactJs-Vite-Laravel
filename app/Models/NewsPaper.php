@@ -11,8 +11,6 @@ class NewsPaper extends Model
         'title',
         'publisher',
         'publicationDate',
-        'totalCopies',
-        'availableCopies',
         'shelfLocation'
     ];
 

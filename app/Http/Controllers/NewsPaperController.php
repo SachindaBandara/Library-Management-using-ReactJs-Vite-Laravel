@@ -20,17 +20,14 @@ class NewsPaperController extends Controller
     public function storeNewsPaperAdmin(Request $request){
         $data=$request->validate([
             'title'=>'required',
-            'author'=>'required',
-            'ISBN'=>'required',
-            'genre'=>'required',
-            'publicationYear'=>'required',
-            'description'=>'required',
-            'quantityAvailable'=>'required'
+            'publisher'=>'required',
+            'publicationDate'=>'required',
+            'shelfLocation'=>'required'
         ]);
 
-        $newBook = Book::create($data);
+        $newNewsPaper = NewsPaper::create($data);
 
-        return redirect(route('admin_addBook'))->with('success', 'Book added successfully');
+        return redirect(route('admin_addNewsPaper'))->with('success', 'News Paper added successfully');
     }
 
 

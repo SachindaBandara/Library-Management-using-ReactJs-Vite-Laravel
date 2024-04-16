@@ -1,17 +1,17 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - Add User</title>
+  <title>Admin - Add Newspaper</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Add Users</h1>
+    <h1>Add Newspapers</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin_newsPapers')}}">News Papers</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_addNewspaper')}}">Add News Papers</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin_newsPapers')}}">Newspapers</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_addNewsPaper')}}">Add Newspapers</a></li>
         </ol>
     </nav>
 </div>
@@ -28,36 +28,30 @@
                         @csrf
                         @method('post')
                         <div class="row mb-3">
-                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                            <label for="title" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" name='name'>
+                                <input type="text" class="form-control" id="title" name='title'>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="email" class="col-sm-2 col-form-label">E-mail</label>
+                            <label for="publisher" class="col-sm-2 col-form-label">Publisher</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="email" name='email'>
+                                <input type="text" class="form-control" id="publisher" name='publisher'>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <label for="publicationDate" class="col-sm-2 col-form-label">Publication Date</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password" name='password'>
+                                <input type="text" class="form-control" id="publicationDate" name='publicationDate'>
                             </div>
                         </div>
-                        <fieldset class="row mb-3">
-                            <legend class="col-form-label col-sm-2 pt-0">User Type</legend>
+                        <div class="row mb-3">
+                            <label for="shelfLocation" class="col-sm-2 col-form-label">Shelf Location</label>
                             <div class="col-sm-10">
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="userType" id="gridRadios1" value="True" checked>
-                                <label class="form-check-label" for="gridRadios1">Common User</label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="userType" id="gridRadios2" value="False">
-                                <label class="form-check-label" for="gridRadios2">Admin User</label>
-                              </div>
+                                <input type="text" class="form-control" id="shelfLocation" name='shelfLocation'>
                             </div>
-                        </fieldset>
+                        </div>
+
                         <div class="text-center">
                             <button type="submit" class="btn btn-success">Add</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>

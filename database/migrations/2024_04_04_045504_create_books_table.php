@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('genre');
             $table->string('publicationYear');
             $table->string('description');
-            $table->integer('quantityAvailable');
+            $table->string('shelfLocation');
             $table->timestamps();
         });
     }

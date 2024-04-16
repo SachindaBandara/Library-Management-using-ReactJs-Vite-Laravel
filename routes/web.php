@@ -42,7 +42,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/{id}/admin-delete-user', [UserController::class, 'deleteUserAdmin'])->name('admin_delete_user');
 
     Route::get('/admin-newspapers', [NewsPaperController::class, 'getAllNewsPapersAdmin'])->name('admin_newsPapers');
-    Route::get('/admin-add-newspaper', [NewsPaperController::class, 'addNewsPaperAdmin'])->name('admin_addNewspaper');
+    Route::get('/admin-add-newspaper', [NewsPaperController::class, 'addNewsPaperAdmin'])->name('admin_addNewsPaper');
+    Route::post('/admin-add-newspaper', [NewsPaperController::class, 'storeNewsPaperAdmin'])->name('admin_store_newsPaper');
 
 });
 

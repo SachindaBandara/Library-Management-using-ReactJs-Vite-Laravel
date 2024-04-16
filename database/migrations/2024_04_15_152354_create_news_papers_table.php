@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('publisher');
             $table->date('publicationDate');
-            $table->integer('totalCopies');
-            $table->integer('availableCopies');
             $table->string('shelfLocation');
             $table->timestamps();
         });

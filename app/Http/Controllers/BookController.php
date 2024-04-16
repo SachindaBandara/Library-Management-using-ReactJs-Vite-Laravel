@@ -26,7 +26,7 @@ class BookController extends Controller
             'genre'=>'required',
             'publicationYear'=>'required',
             'description'=>'required',
-            'quantityAvailable'=>'required'
+            'shelfLocation'=>'required'
         ]);
 
         $newBook = Book::create($data);
@@ -47,7 +47,7 @@ class BookController extends Controller
             'genre'=>'required',
             'publicationYear'=>'required',
             'description'=>'required',
-            'quantityAvailable'=>'required'
+            'shelfLocation'=>'required'
         ]);
 
         $book-> update($data);
