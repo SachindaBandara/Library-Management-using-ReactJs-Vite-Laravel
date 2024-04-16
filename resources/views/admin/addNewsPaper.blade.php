@@ -42,13 +42,27 @@
                         <div class="row mb-3">
                             <label for="publicationDate" class="col-sm-2 col-form-label">Publication Date</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="publicationDate" name='publicationDate'>
+                              <input type="date" class="form-control" id="publicationDate" name='publicationDate'>
                             </div>
                         </div>
+
                         <div class="row mb-3">
                             <label for="shelfLocation" class="col-sm-2 col-form-label">Shelf Location</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="shelfLocation" name='shelfLocation'>
+                                <select class="form-select" aria-label="Default select example" id="shelfLocation" name='shelfLocation'>
+                                    <option selected>Open this select menu</option>
+                                    <option value="001">Shelf 001</option>
+                                    <option value="002">Shelf 002</option>
+                                    <option value="003">Shelf 003</option>
+                                    <option value="004">Shelf 004</option>
+                                    <option value="005">Shelf 005</option>
+                                    <option value="006">Shelf 006</option>
+                                    <option value="007">Shelf 007</option>
+                                    <option value="008">Shelf 008</option>
+                                    <option value="009">Shelf 009</option>
+                                    <option value="010">Shelf 010</option>
+                                    <option value="011">Shelf 011</option>
+                                </select>
                             </div>
                         </div>
 
