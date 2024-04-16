@@ -1,17 +1,17 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - Add Newspaper</title>
+  <title>Admin - Add Magazine</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Add Newspapers</h1>
+    <h1>Add Magazine</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin_newsPapers')}}">Newspapers</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_addNewsPaper')}}">Add Newspapers</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin_magazines')}}">Magazines</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_addMagazine')}}">Add Magazine</a></li>
         </ol>
     </nav>
 </div>
@@ -22,9 +22,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add New Newspaper</h5>
+                    <h5 class="card-title">Add New Magazine</h5>
                     <!-- Add Book Form -->
-                    <form method="POST" action="{{ route('admin_store_newsPaper')}}">
+                    <form method="POST" action="{{route('admin_store_magazine')}}">
                         @csrf
                         @method('post')
                         <div class="row mb-3">

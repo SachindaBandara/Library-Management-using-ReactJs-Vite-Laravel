@@ -14,11 +14,11 @@ class MagazineController extends Controller
         return view('admin.magazines', ['magazines' => $magazines]);
     }
 
-    public function addNewsPaperAdmin(){
-        return view('admin.addNewsPaper');
+    public function addMagazineAdmin(){
+        return view('admin.addMagazine');
     }
 
-    public function storeNewsPaperAdmin(Request $request){
+    public function storeMagazineAdmin(Request $request){
         $data=$request->validate([
             'title'=>'required',
             'publisher'=>'required',
@@ -26,17 +26,17 @@ class MagazineController extends Controller
             'shelfLocation'=>'required'
         ]);
 
-        $newNewsPaper = NewsPaper::create($data);
+        $newMagazine = Magazine::create($data);
 
-        return redirect(route('admin_addNewsPaper'))->with('success', 'News Paper added successfully');
+        return redirect(route('admin_addMagazine'))->with('success', 'Magazine added successfully');
     }
 
 
-    public function editNewsPaperAdmin(NewsPaper $newsPaper){
-        return view('admin.editNewsPaper', ['newsPaper' => $newsPaper]);
+    public function editMagazineAdmin(Magazine $magazine){
+        return view('admin.editMagazine', ['magazine' => $magazine]);
     }
 
-    public function updateNewsPaperAdmin(NewsPaper $newsPaper, Request $request){
+    public function updateMagazineAdmin(Magazine $magazine, Request $request){
         $data=$request->validate([
             'title'=>'required',
             'publisher'=>'required',
@@ -44,16 +44,16 @@ class MagazineController extends Controller
             'shelfLocation'=>'required'
         ]);
 
-        $newsPaper-> update($data);
+        $magazine-> update($data);
 
-        return redirect(route('admin_newsPapers'))->with('success', 'Newspaper edited successfully');
+        return redirect(route('admin_magazines'))->with('success', 'Magazine edited successfully');
     }
 
-    public function deleteNewsPaperAdmin($id){
-        $newsPaper = NewsPaper::findOrFail($id);
-        $newsPaper->delete();
+    public function deleteMagazineAdmin($id){
+        $magazine = Magazine::findOrFail($id);
+        $magazine->delete();
 
-        return redirect(route('admin_newsPapers'))->with('success', 'Newspaper deleted successfully');
+        return redirect(route('admin_magazines'))->with('success', 'Magazine deleted successfully');
     }
 
     public function getAllNewsPaperUser(){

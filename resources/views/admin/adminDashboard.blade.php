@@ -63,6 +63,24 @@
                 </div>
             </div>
             <!-- End Customers Card -->
+
+             <!-- Customers Card -->
+             <div class="col-xxl-4 col-xl-12">
+                <div class="card info-card customers-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Magazines <span>| Today</span></h5>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-book"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{ $magazineCount }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Customers Card -->
         </div>
     </div>
 </div>

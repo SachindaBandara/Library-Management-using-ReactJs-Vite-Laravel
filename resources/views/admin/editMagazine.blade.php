@@ -1,17 +1,17 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - Add Newspaper</title>
+  <title>Admin - Edit Magazine</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Add Newspapers</h1>
+    <h1>Edit Magazine</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin_newsPapers')}}">Newspapers</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_addNewsPaper')}}">Add Newspapers</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin_magazines')}}">Magazines</a></li>
+            <li class="breadcrumb-item active"><a href="#">Edit Magazine</a></li>
         </ol>
     </nav>
 </div>
@@ -22,56 +22,41 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add New Newspaper</h5>
-                    <!-- Add Book Form -->
-                    <form method="POST" action="{{ route('admin_store_newsPaper')}}">
+                    <h5 class="card-title">Edit Existing Magazine</h5>
+                    <!-- Add Magazine Form -->
+                    <form method="POST" action="{{route('admin_update_magazine', [ 'magazine'=> $magazine])}}">
                         @csrf
-                        @method('post')
+                        @method('put')
                         <div class="row mb-3">
-                            <label for="title" class="col-sm-2 col-form-label">Title</label>
+                            <label for="bookTitle" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name='title'>
+                                <input type="text" class="form-control" id="bookTitle" name='title' value="{{ $magazine -> title}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="publisher" class="col-sm-2 col-form-label">Publisher</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="publisher" name='publisher'>
+                                <input type="text" class="form-control" id="publisher" name='publisher' value="{{ $magazine -> publisher}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="publicationDate" class="col-sm-2 col-form-label">Publication Date</label>
                             <div class="col-sm-10">
-                              <input type="date" class="form-control" id="publicationDate" name='publicationDate'>
+                                <input type="text" class="form-control" id="publicationDate" name='publicationDate' value="{{ $magazine -> publicationDate}}">
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="shelfLocation" class="col-sm-2 col-form-label">Shelf Location</label>
                             <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example" id="shelfLocation" name='shelfLocation'>
-                                    <option selected>Open this select menu</option>
-                                    <option value="001">Shelf 001</option>
-                                    <option value="002">Shelf 002</option>
-                                    <option value="003">Shelf 003</option>
-                                    <option value="004">Shelf 004</option>
-                                    <option value="005">Shelf 005</option>
-                                    <option value="006">Shelf 006</option>
-                                    <option value="007">Shelf 007</option>
-                                    <option value="008">Shelf 008</option>
-                                    <option value="009">Shelf 009</option>
-                                    <option value="010">Shelf 010</option>
-                                    <option value="011">Shelf 011</option>
-                                </select>
+                                <input type="text" class="form-control" id="shelfLocation" name='shelfLocation' value="{{ $magazine -> shelfLocation}}">
                             </div>
                         </div>
-
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success">Add</button>
+                            <button type="submit" class="btn btn-success">Save</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </form>
-                    <!-- End Add Book Form -->
+                    <!-- End Add Magazine Form -->
                 </div>
             </div>
         </div>
@@ -98,4 +83,3 @@
 </section>
 
 @endsection
-
