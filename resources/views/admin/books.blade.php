@@ -60,6 +60,11 @@
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">
+                                                <form method="POST" action="{{route('admin_view_book', ['book' => $book])}}">
+                                                    @csrf
+                                                    @method('GET')
+                                                    <button type="submit" class="btn btn-info">View</button>
+                                                </form>
                                                 <form method="POST" action="{{ route('admin_edit_book',[ 'book'=> $book]) }}">
                                                     @csrf
                                                     @method('GET')
