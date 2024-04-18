@@ -49,6 +49,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/{newsPaper}/admin-edit-newspaper', [NewsPaperController::class, 'editNewsPaperAdmin'])->name('admin_edit_newspaper');
     Route::put('{newsPaper}/admin-update-newspaper', [NewsPaperController::class, 'updateNewsPaperAdmin'])->name('admin_update_newspaper');
     Route::delete('/{id}/admin-delete-newspaper', [NewsPaperController::class, 'deleteNewsPaperAdmin'])->name('admin_delete_newspaper');
+    Route::get('/{newsPaper}/admin-view-newspaper', [NewsPaperController::class, 'viewNewsPaperAdmin'])->name('admin_view_newspaper');
+
 
     Route::get('/admin-magazines', [MagazineController::class, 'getAllMagazinesAdmin'])->name('admin_magazines');
     Route::get('/admin-add-magazine', [MagazineController::class, 'addMagazineAdmin'])->name('admin_addMagazine');
