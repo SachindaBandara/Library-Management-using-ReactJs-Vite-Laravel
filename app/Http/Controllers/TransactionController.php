@@ -64,20 +64,23 @@ class TransactionController extends Controller
 
         $book = Book::find($book_id);
 
-        $transaction = Transaction::where('book_id', $book_id)->get();
+        $transaction = Transaction::where('book_id', $book_id)->whereNull('return_date')->first();
 
-
-        $user_id = $transaction[0]['member_id'];
-
-        $user = User::find($user_id);
-
-        $currentDate = Carbon::now();
-        $diffInDays = ceil($currentDate->diffInDays($transaction[0]['due_date']));
-
-        if($diffInDays <= -1){
-            $fine= abs($diffInDays) * 100;
+        if(is_null($transaction)){
+            return redirect(route('admin_return_book'))->with('status', 'Given transaction not found.');
         }else{
-            $fine=0;
+            $user_id = $transaction['member_id'];
+
+            $user = User::find($user_id);
+
+            $currentDate = Carbon::now();
+            $diffInDays = ceil($currentDate->diffInDays($transaction['due_date']));
+
+            if($diffInDays <= -1 && is_null($transaction['return_date'])){
+                $fine= abs($diffInDays) * 100;
+            }else{
+                $fine=0;
+            }
         }
 
         return redirect(route('admin_return_book'))->with('transaction', $transaction)->with('user', $user)->with('book', $book)->with('fine', $fine);

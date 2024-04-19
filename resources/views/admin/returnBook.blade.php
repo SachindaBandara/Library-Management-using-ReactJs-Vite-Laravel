@@ -38,16 +38,24 @@
                         </form>
                     @endif
 
+                    @if (session('status'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="bi bi-exclamation-circle"></i>
+                                {{ session('status') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <!-- Return book Form -->
                     <form method="POST" action="{{route('admin_store_return_book')}}">
                         @csrf
                         @method('post')
 
-                        @if (session('book'))
+                        @if (session('transaction'))
                             <div class="row mb-3">
                                 <label for="transaction_id" class="col-sm-2 col-form-label">Transaction ID</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{session('transaction')[0] -> id}}" name="id" id="id">
+                                    <input class="form-control" type="text" value="{{session('transaction') -> id}}" name="id" id="id">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -88,7 +96,7 @@
                             <div class="row mb-3">
                                 <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction')[0] -> member_id}}" readonly>
+                                    <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction') -> member_id}}" readonly>
                                 </div>
                             </div>
 
@@ -121,7 +129,7 @@
                         </div>
 
                         <div class="text-center">
-                            @if (session('book'))
+                            @if (session('transaction'))
                                 <button type="submit" class="btn btn-success">Add</button>
                                 <a href="{{route('admin_return_book')}}" class="btn btn-secondary">Reset</a>
                             @else
