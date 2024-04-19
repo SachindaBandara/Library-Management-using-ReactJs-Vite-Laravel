@@ -77,12 +77,14 @@
                                     <input class="form-control" type="text" placeholder="{{session('book') -> genre}}" disabled>
                                 </div>
                             </div>
-                        @else
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <i class="bi bi-exclamation-circle"></i>
-                                Book not found.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        @endif
+
+                        @if (session('status'))
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <i class="bi bi-exclamation-circle"></i>
+                                    Book not found.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                         @endif
 
                         <div class="row mb-3">

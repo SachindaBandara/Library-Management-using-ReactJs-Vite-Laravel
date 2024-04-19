@@ -30,8 +30,12 @@ class TransactionController extends Controller
 
         $book_id = $request['book_id'];
         $book = Book::find($book_id);
-
-        return redirect(route('admin_issue_book'))->with('book', $book);
+        if(is_null($book)){
+            return redirect(route('admin_issue_book'))->with('status', 'Given Book not found.');
+        }
+        else{
+            return redirect(route('admin_issue_book'))->with('book', $book);
+        }
 
     }
 
