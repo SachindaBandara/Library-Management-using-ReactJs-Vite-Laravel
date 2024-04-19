@@ -94,8 +94,13 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success">Issue Book</button>
-                            <button type="reset" class="btn btn-secondary">Reset</button>
+                            @if (session('book'))
+                                <button type="submit" class="btn btn-success">Issue Book</button>
+                                <a href="{{route('admin_issue_book')}}" class="btn btn-secondary">Reset</a>
+                            @else
+                                <button type="submit" class="btn btn-success">Issue Book</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            @endif
                         </div>
                     </form>
                     <!-- End issue Book Form -->

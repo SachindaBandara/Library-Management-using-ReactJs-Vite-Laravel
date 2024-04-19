@@ -62,12 +62,14 @@ class TransactionController extends Controller
 
         $book_id = $request['book_id'];
 
+        $book = Book::find($book_id);
+
         $transaction = Transaction::where('book_id', $book_id)->get();
+
 
         $user_id = $transaction[0]['member_id'];
 
         $user = User::find($user_id);
-        $book = Book::find($book_id);
 
         $currentDate = Carbon::now();
         $diffInDays = ceil($currentDate->diffInDays($transaction[0]['due_date']));
