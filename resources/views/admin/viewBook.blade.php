@@ -19,15 +19,9 @@
 
 <section class="section">
     <div class='card-body'>
-        <div class="btn-group" role="group">
-            <form method="POST" action="{{ route('admin_edit_book',[ 'book'=> $book]) }}">
-                @csrf
-                @method('GET')
-                <button type="submit" class="btn btn-success">Edit</button>
-            </form>
-            <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
-            <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
-        </div>
+        <button type="submit" class="btn btn-success"><a href="{{ route('admin_edit_book',[ 'book'=> $book]) }}">Edit</a></button>
+        <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
+        <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
     </div>
 </section>
 
@@ -100,14 +94,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($transactions as $transactions)
+                            @foreach ($transactions as $transaction)
                                 <tr>
-                                        <th scope="row">{{ $transactions -> id}}</th>
-                                        <td>{{ $transactions -> book_id}}</td>
-                                        <td>{{ $transactions -> member_id}}</td>
-                                        <td>{{ $transactions -> transaction_date}}</td>
-                                        <td>{{ $transactions -> due_date}}</td>
-                                        <td>{{ $transactions -> return_date}}</td>
+                                        <th scope="row">{{ $transaction -> id}}</th>
+                                        <td>{{ $transaction -> book_id}}</td>
+                                        <td>{{ $transaction -> member_id}}</td>
+                                        <td>{{ $transaction -> transaction_date}}</td>
+                                        <td>{{ $transaction -> due_date}}</td>
+                                        <td>{{ $transaction -> return_date}}</td>
                                         <td>status eka hadanna one</td>
                                 </tr>
                             @endforeach

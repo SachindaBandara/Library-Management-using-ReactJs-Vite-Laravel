@@ -37,23 +37,4 @@ return new class extends Migration
         Schema::dropIfExists('transactions');
     }
 
-    public function book()
-    {
-        return $this->belongsTo(Book::class);
-    }
-
-    public function newspaper()
-    {
-        return $this->belongsTo(NewsPaper::class);
-    }
-
-    public function magazine()
-    {
-        return $this->belongsTo(Magazine::class);
-    }
-
-    public function member()
-    {
-        return $this->belongsTo(User::class);
-    }
 };

@@ -60,6 +60,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/{id}/admin-delete-magazine', [MagazineController::class, 'deleteMagazineAdmin'])->name('admin_delete_magazine');
 
     Route::get('/admin-transactions', [TransactionController::class, 'getAllTransactionsAdmin'])->name('admin_transactions');
+    Route::get('/admin-issue-book', [TransactionController::class, 'createIssueBook'])->name('admin_issue_book');
+    Route::post('/admin-get-book', [TransactionController::class, 'getBook'])->name('admin_get_book');
+    Route::post('/admin-issue-book', [TransactionController::class, 'storeIssueBookAdmin'])->name('admin_store_issue_book');
+
 
 
 

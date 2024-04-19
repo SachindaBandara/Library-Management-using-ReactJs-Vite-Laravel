@@ -18,20 +18,9 @@
 
 <section class="section">
     <div class='card-body'>
-        <div class="btn-group" role="group">
-            <form method="POST" action="">
-                @csrf
-                @method('GET')
-                <button type="submit" class="btn btn-success">Issue Book</button>
-            </form>
-            <form method="POST" action="">
-                @csrf
-                @method('GET')
-                <button type="submit" class="btn btn-success">Receive Book</button>
-            </form>
-            <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
-            <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
-        </div>
+        <button type="submit" class="btn btn-success"><a href="{{route('admin_issue_book')}}">Issue Book</a></button>
+        <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
+        <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
     </div>
 </section>
 
@@ -45,30 +34,28 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">ISBN</th>
-                                <th scope="col">Author</th>
-                                <th scope="col">Genre</th>
-                                <th scope="col">Publication Year</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Shelf Location</th>
-                                <th scope="col"> </th>
+                                <th scope="col">Book ID</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Member ID</th>
+                                <th scope="col">Transaction Date</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Return Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($transactions as $transaction)
                                 <tr>
                                     <th scope="row">{{ $transaction -> id }}</th>
-                                    <td>{{ $transaction -> title}}</td>
-                                    <td>{{ $transaction -> title}}</td>
-                                    <td>{{ $transaction -> title}}</td>
-
+                                    <td>{{ $transaction -> book_id}}</td>
+                                    <td>{{ $transaction -> book-> title}}</td>
+                                    <td>{{ $transaction -> member_id}}</td>
+                                    <td>{{ $transaction -> transaction_date}}</td>
+                                    <td>{{ $transaction -> due_date}}</td>
+                                    <td>{{$transaction -> return_date}}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $transactions }}
-
                 </div>
             </div>
         </div>
