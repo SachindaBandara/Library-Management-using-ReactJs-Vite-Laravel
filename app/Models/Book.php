@@ -17,4 +17,9 @@ class Book extends Model
         'description',
         'shelfLocation'
     ];
+
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class);
+    }
 }

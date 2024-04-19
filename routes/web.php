@@ -63,11 +63,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-issue-book', [TransactionController::class, 'createIssueBook'])->name('admin_issue_book');
     Route::post('/admin-get-book', [TransactionController::class, 'getBook'])->name('admin_get_book');
     Route::post('/admin-issue-book', [TransactionController::class, 'storeIssueBookAdmin'])->name('admin_store_issue_book');
-
-
-
-
-
+    Route::get('/admin-return-book', [TransactionController::class, 'createReturnedBook'])->name('admin_return_book');
+    Route::post('/admin-get-transaction', [TransactionController::class, 'getTransactionAdmin'])->name('admin_get_transaction');
+    Route::post('/admin-return-book', [TransactionController::class, 'storeReturnedBookAdmin'])->name('admin_store_return_book');
 
 
 });

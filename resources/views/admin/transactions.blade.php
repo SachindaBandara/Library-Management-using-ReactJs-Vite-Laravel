@@ -19,6 +19,7 @@
 <section class="section">
     <div class='card-body'>
         <button type="submit" class="btn btn-success"><a href="{{route('admin_issue_book')}}">Issue Book</a></button>
+        <button type="submit" class="btn btn-success"><a href="{{route('admin_return_book')}}">Return Book</a></button>
         <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
     </div>

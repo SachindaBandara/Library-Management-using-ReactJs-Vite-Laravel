@@ -1,17 +1,17 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - Issue Book</title>
+  <title>Admin - Return Book</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Issue Book</h1>
+    <h1>Return Book</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{route('admin_transactions')}}">Transactions</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_issue_book')}}">Issue Book</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_return_book')}}">Return Book</a></li>
         </ol>
     </nav>
 </div>
@@ -22,10 +22,10 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Issue Book</h5>
+                    <h5 class="card-title">Return Book</h5>
 
-                    @if (!session('book'))
-                        <form action="{{route('admin_get_book')}}" method="POST">
+                    @if (!session('transaction'))
+                        <form action="{{route('admin_get_transaction')}}" method="POST">
                             @csrf
                             @method('POST')
                                 <div class="input-group mb-3">
@@ -38,15 +38,22 @@
                         </form>
                     @endif
 
-                    <!-- Issue book Form -->
-                    <form method="POST" action="{{route('admin_store_issue_book')}}">
+                    <!-- Return book Form -->
+                    <form method="POST" action="{{route('admin_store_return_book')}}">
                         @csrf
                         @method('post')
+
                         @if (session('book'))
+                            <div class="row mb-3">
+                                <label for="transaction_id" class="col-sm-2 col-form-label">Transaction ID</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="{{session('transaction')[0] -> id}}" name="id" id="id">
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <label for="bookID" class="col-sm-2 col-form-label">Book ID</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{session('book') -> id}}" name="book_id" id="book_id">
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> id}}" disabled>
                                 </div>
                             </div>
 
@@ -77,28 +84,48 @@
                                     <input class="form-control" type="text" placeholder="{{session('book') -> genre}}" disabled>
                                 </div>
                             </div>
+
+                            <div class="row mb-3">
+                                <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction')[0] -> member_id}}" readonly>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="memberName" class="col-sm-2 col-form-label">Member Name</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" placeholder="{{session('user') -> name}}" disabled>
+                                </div>
+                            </div>
+                        @endif
+
+                        @if (session('fine'))
+                            @if (session('fine') <> 0)
+                                <div class="alert alert-warning" role="alert">
+                                    Overdue book. Rs.{{ session('fine') }} Required!
+                                </div>
+                            @else
+                                <h6>no</h6>
+                                <div class="alert alert-info" role="alert">
+                                    No Fine required.
+                                </div>
+                            @endif
                         @endif
 
                         <div class="row mb-3">
-                            <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>
+                            <label for="returnDate	" class="col-sm-2 col-form-label">Return Date</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="member_id" name='member_id'>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="transactionDate" class="col-sm-2 col-form-label">Transaction Date</label>
-                            <div class="col-sm-10">
-                              <input type="date" class="form-control" id="transaction_date" name='transaction_date'>
+                              <input type="date" class="form-control" id="return_date" name='return_date'>
                             </div>
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success">Issue Book</button>
+                            <button type="submit" class="btn btn-success">Add</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </form>
-                    <!-- End issue Book Form -->
+                    <!-- End return Book Form -->
                 </div>
             </div>
         </div>

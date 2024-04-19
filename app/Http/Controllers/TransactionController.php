@@ -44,52 +44,58 @@ class TransactionController extends Controller
         ]);
 
         $carbonDate = Carbon::parse($data['transaction_date']);
-
         $due_date = $carbonDate->addDays(7)->toDateString();
-
         $data['due_date'] = $due_date;
-
         $newTransaction = Transaction::create($data);
 
         return redirect(route('admin_issue_book'))->with('success', 'Transaction created successfully.')->with('due_date', $due_date);
     }
 
-    public function show(Transaction $transaction)
-    {
-        // Return view with transaction details
-        return view('transactions.show', compact('transaction'));
+    public function createReturnedBook(){
+        return view('admin.returnBook');
     }
 
-    public function edit(Transaction $transaction)
-    {
-        // Return view for editing the transaction
-        return view('transactions.edit', compact('transaction'));
-    }
-
-    public function update(Request $request, Transaction $transaction)
-    {
-        // Validate the request data
-        $request->validate([
-            'book_id' => 'required',
-            'member_id' => 'required',
-            'transaction_date' => 'required|date',
-            'due_date' => 'required|date',
-            // Add other validation rules here
+    public function getTransactionAdmin(Request $request){
+        $request = $request->validate([
+            'book_id' => 'required'
         ]);
 
-        // Update the transaction
-        $transaction->update($request->all());
+        $book_id = $request['book_id'];
 
-        // Redirect to the index page with success message
-        return redirect()->route('transactions.index')->with('success', 'Transaction updated successfully.');
+        $transaction = Transaction::where('book_id', $book_id)->get();
+
+        $user_id = $transaction[0]['member_id'];
+
+        $user = User::find($user_id);
+        $book = Book::find($book_id);
+
+        $currentDate = Carbon::now();
+        $diffInDays = ceil($currentDate->diffInDays($transaction[0]['due_date']));
+
+        if($diffInDays <= -1){
+            $fine= abs($diffInDays) * 100;
+        }else{
+            $fine=0;
+        }
+
+        return redirect(route('admin_return_book'))->with('transaction', $transaction)->with('user', $user)->with('book', $book)->with('fine', $fine);
+
     }
 
-    public function destroy(Transaction $transaction)
+    public function storeReturnedBookAdmin(Request $request)
     {
-        // Delete the transaction
-        $transaction->delete();
+        $data = $request->validate([
+            'id' => 'required',
+            'return_date' => 'required'
+        ]);
 
-        // Redirect to the index page with success message
-        return redirect()->route('transactions.index')->with('success', 'Transaction deleted successfully.');
+        $transactionRecord = Transaction::find($data['id']);
+        $transactionRecord -> return_date = $data['return_date'];
+        $transactionRecord->save();
+
+
+        return redirect(route('admin_issue_book'))->with('success', 'Transaction updated successfully.');
     }
+
+
 }
