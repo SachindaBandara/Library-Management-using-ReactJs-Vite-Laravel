@@ -82,7 +82,7 @@
                         @if (session('status'))
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 <i class="bi bi-exclamation-circle"></i>
-                                    Book not found.
+                                    {{session('status')}}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
