@@ -8,13 +8,11 @@ use App\Models\Transaction;
 class TransactionController extends Controller
 {
     //
-    public function index()
+    public function getAllTransactionsAdmin()
     {
-        // Retrieve all transactions
         $transactions = Transaction::all();
 
-        // Return view with transactions data
-        return view('transactions.index', compact('transactions'));
+        return view('admin.transactions', ['transactions' => $transactions]);
     }
 
     public function create()

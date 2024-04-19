@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\User;
+use App\Models\Transaction;
+
 
 class BookController extends Controller
 {
@@ -63,7 +66,9 @@ class BookController extends Controller
     }
 
     public function viewBookAdmin(Book $book){
-        return view('admin.viewBook' ,['book' => $book]);
+        $book_id=$book -> id;
+        $transactions = Transaction::where('book_id', $book_id)->get();
+        return view('admin.viewBook' ,['book' => $book, 'transactions' => $transactions]);
     }
 
     public function getAllBooksUser(){

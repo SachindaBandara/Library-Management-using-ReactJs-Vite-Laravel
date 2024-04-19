@@ -8,7 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NewsPaperController;
 use App\Http\Controllers\MagazineController;
-
+use App\Http\Controllers\TransactionController;
 
 
 
@@ -58,6 +58,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/{magazine}/admin-edit-magazine', [MagazineController::class, 'editMagazineAdmin'])->name('admin_edit_magazine');
     Route::put('{magazine}/admin-update-magazine', [MagazineController::class, 'updateMagazineAdmin'])->name('admin_update_magazine');
     Route::delete('/{id}/admin-delete-magazine', [MagazineController::class, 'deleteMagazineAdmin'])->name('admin_delete_magazine');
+
+    Route::get('/admin-transactions', [TransactionController::class, 'getAllTransactionsAdmin'])->name('admin_transactions');
+
 
 
 

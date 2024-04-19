@@ -83,34 +83,37 @@
     </div>
 
     <div class="row">
-        <div class="col-xl-8">
-
+        <div class="col-lg-12">
             <div class="card">
-                <div class="card-body pt-3">
-                    <!-- Bordered Tabs -->
-                    <ul class="nav nav-tabs nav-tabs-bordered">
-                        <li class="nav-item">
-                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#issuedHistory">Issued History</button>
-                        </li>
-
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#receivedHistory">Received History</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content pt-2">
-
-                        <div class="tab-pane fade show active" id="issuedHistory">
-
-                        </div>
-
-                        <div class="tab-pane fade profile-edit pt-3" id="receivedHistory">
-                        <!-- Profile Edit Form -->
-                        </div>
-
-
-                    </div>
+                <div class="card-body">
+                    <h5 class="card-title">Transaction History</h5>
+                    <table class="table table-borderless datatable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Transaction ID</th>
+                                <th scope="col">Book ID</th>
+                                <th scope="col">Member ID</th>
+                                <th scope="col">Transaction Date</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Return date</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($transactions as $transactions)
+                                <tr>
+                                        <th scope="row">{{ $transactions -> id}}</th>
+                                        <td>{{ $transactions -> book_id}}</td>
+                                        <td>{{ $transactions -> member_id}}</td>
+                                        <td>{{ $transactions -> transaction_date}}</td>
+                                        <td>{{ $transactions -> due_date}}</td>
+                                        <td>{{ $transactions -> return_date}}</td>
+                                        <td>status eka hadanna one</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
         </div>
     </div>
