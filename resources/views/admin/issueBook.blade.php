@@ -24,6 +24,14 @@
                 <div class="card-body">
                     <h5 class="card-title">Issue Book</h5>
 
+                    @if (session('status'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="bi bi-exclamation-circle"></i>
+                                {{ session('status') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     @if (!session('book'))
                         <form action="{{route('admin_get_book')}}" method="POST">
                             @csrf
@@ -79,20 +87,13 @@
                             </div>
                         @endif
 
-                        @if (session('status'))
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <i class="bi bi-exclamation-circle"></i>
-                                    {{session('status')}}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        @endif
-
                         <div class="row mb-3">
                             <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="member_id" name='member_id'>
                             </div>
                         </div>
+
 
                         <div class="row mb-3">
                             <label for="transactionDate" class="col-sm-2 col-form-label">Transaction Date</label>

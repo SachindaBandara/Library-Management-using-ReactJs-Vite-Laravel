@@ -47,12 +47,18 @@ class TransactionController extends Controller
             'transaction_date' => 'required'
         ]);
 
-        $carbonDate = Carbon::parse($data['transaction_date']);
-        $due_date = $carbonDate->addDays(7)->toDateString();
-        $data['due_date'] = $due_date;
-        $newTransaction = Transaction::create($data);
+        $user=User::find($data['member_id']);
 
-        return redirect(route('admin_issue_book'))->with('success', 'Transaction created successfully.')->with('due_date', $due_date);
+        if(is_null($user)){
+            return redirect(route('admin_issue_book'))->with('status', 'Given Member not found.');
+        }else{
+            $carbonDate = Carbon::parse($data['transaction_date']);
+            $due_date = $carbonDate->addDays(7)->toDateString();
+            $data['due_date'] = $due_date;
+            $newTransaction = Transaction::create($data);
+
+            return redirect(route('admin_issue_book'))->with('success', 'Transaction created successfully.')->with('due_date', $due_date);
+        }
     }
 
     public function createReturnedBook(){
