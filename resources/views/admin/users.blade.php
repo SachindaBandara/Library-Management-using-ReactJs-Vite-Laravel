@@ -18,7 +18,7 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="{{route('admin_addUser')}}">Add New</a></button>
+        <button type="submit" class="btn btn-success"><a href="{{route('admin_addUser')}}"><i class="bi bi-person-add"> </i> Add New</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Save CSV</a></button>
     </div>
@@ -59,7 +59,7 @@
                                                 <form method="POST" action="{{route('admin_delete_user', $user -> id)}}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger"><i class="bi bi-person-dash"> </i> Delete</button>
                                                 </form>
                                             </div>
                                         </div>

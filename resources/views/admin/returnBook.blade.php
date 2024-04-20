@@ -130,10 +130,10 @@
 
                         <div class="text-center">
                             @if (session('transaction'))
-                                <button type="submit" class="btn btn-success">Add</button>
+                                <button type="submit" class="btn btn-success">Return Book</button>
                                 <a href="{{route('admin_return_book')}}" class="btn btn-secondary">Reset</a>
                             @else
-                                <button type="submit" class="btn btn-success">Add</button>
+                                <button type="submit" class="btn btn-success">Return Book</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>
                             @endif
                         </div>

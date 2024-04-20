@@ -266,15 +266,15 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin_books')}}">
-          <i class="bi bi-grid"></i>
-          <span>Books</span>
+            <i class="bi bi-book"></i>
+            <span>Books</span>
         </a>
       </li>
       <!-- End Add Book Nav -->
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin_newsPapers')}}">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-newspaper"></i>
           <span>News Papers</span>
         </a>
       </li>
@@ -282,7 +282,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin_magazines')}}">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-journals"></i>
           <span>Magazines</span>
         </a>
       </li>
@@ -290,7 +290,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin_users')}}">
-          <i class="bi bi-grid"></i>
+            <i class="bi bi-person"></i>
           <span>Users</span>
         </a>
       </li>
@@ -298,7 +298,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin_transactions')}}">
-          <i class="bi bi-grid"></i>
+            <i class="bi bi-arrow-left-right"></i>
           <span>Transactions</span>
         </a>
       </li>

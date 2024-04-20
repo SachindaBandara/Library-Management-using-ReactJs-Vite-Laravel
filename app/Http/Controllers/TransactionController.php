@@ -42,7 +42,7 @@ class TransactionController extends Controller
             }
         }
         else{
-            return redirect(route('admin_issue_book'))->with('status', 'Given Book borrowed by someone.');
+            return redirect(route('admin_issue_book'))->with('status', 'Given Book already borrowed by someone.');
         }
 
     }
@@ -90,6 +90,7 @@ class TransactionController extends Controller
             $user_id = $transaction['member_id'];
 
             $user = User::find($user_id);
+
             if(is_null($user)){
                 return redirect(route('admin_return_book'))->with('status', 'Given member not found.');
             }
