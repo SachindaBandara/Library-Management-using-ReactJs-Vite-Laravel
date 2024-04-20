@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\Book;
 use App\Models\User;
+use App\Models\Notification;
 use Carbon\Carbon;
 
 
@@ -42,7 +43,7 @@ class TransactionController extends Controller
             }
         }
         else{
-            return redirect(route('admin_issue_book'))->with('status', 'Given Book already borrowed by someone.');
+            return redirect(route('admin_issue_book'))->with('status', 'Given Book already borrowed by someone!');
         }
 
     }
@@ -64,6 +65,12 @@ class TransactionController extends Controller
             $due_date = $carbonDate->addDays(7)->toDateString();
             $data['due_date'] = $due_date;
             $newTransaction = Transaction::create($data);
+
+
+            $notification['member_id']=$data['member_id'];
+            $book = Book::find($data['book_id']);
+            $notification['notification']="$book book borrowed. and it should be return on or before $due_date.";
+            $newNotification = Notification::create($notification);
 
             return redirect(route('admin_issue_book'))->with('success', 'Transaction created successfully.')->with('due_date', $due_date);
         }
