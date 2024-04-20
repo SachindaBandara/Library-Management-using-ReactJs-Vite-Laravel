@@ -19,15 +19,9 @@
 
 <section class="section">
     <div class='card-body'>
-        <div class="btn-group" role="group">
-            <form method="POST" action="{{route('admin_edit_newspaper', ['newsPaper'=> $newsPaper])}}">
-                @csrf
-                @method('GET')
-                <button type="submit" class="btn btn-success">Edit</button>
-            </form>
-            <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
-            <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
-        </div>
+        <button type="submit" class="btn btn-success"><a href="{{route('admin_edit_newspaper', ['newsPaper'=> $newsPaper])}}">Edit</a></button>
+        <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
+        <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
     </div>
 </section>
 

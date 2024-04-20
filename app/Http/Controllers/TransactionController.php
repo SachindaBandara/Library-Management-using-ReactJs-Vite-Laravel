@@ -29,12 +29,20 @@ class TransactionController extends Controller
         ]);
 
         $book_id = $request['book_id'];
-        $book = Book::find($book_id);
-        if(is_null($book)){
-            return redirect(route('admin_issue_book'))->with('status', 'Given Book not found.');
+
+        $transaction = Transaction::where('book_id', $book_id)->whereNotNull('transaction_date')->whereNull('return_date')->first();
+
+        if(is_null($transaction)){
+            $book = Book::find($book_id);
+            if(is_null($book)){
+                return redirect(route('admin_issue_book'))->with('status', 'Given Book not found.');
+            }
+            else{
+                return redirect(route('admin_issue_book'))->with('book', $book);
+            }
         }
         else{
-            return redirect(route('admin_issue_book'))->with('book', $book);
+            return redirect(route('admin_issue_book'))->with('status', 'Given Book borrowed by someone.');
         }
 
     }
@@ -82,15 +90,20 @@ class TransactionController extends Controller
             $user_id = $transaction['member_id'];
 
             $user = User::find($user_id);
-
-            $currentDate = Carbon::now();
-            $diffInDays = ceil($currentDate->diffInDays($transaction['due_date']));
-
-            if($diffInDays <= -1 && is_null($transaction['return_date'])){
-                $fine= abs($diffInDays) * 100;
-            }else{
-                $fine=0;
+            if(is_null($user)){
+                return redirect(route('admin_return_book'))->with('status', 'Given member not found.');
             }
+            else{
+                $currentDate = Carbon::now();
+                $diffInDays = ceil($currentDate->diffInDays($transaction['due_date']));
+
+                if($diffInDays <= -1 && is_null($transaction['return_date'])){
+                    $fine= abs($diffInDays) * 100;
+                }else{
+                    $fine=0;
+                }
+            }
+
         }
 
         return redirect(route('admin_return_book'))->with('transaction', $transaction)->with('user', $user)->with('book', $book)->with('fine', $fine);

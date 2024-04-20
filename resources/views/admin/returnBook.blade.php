@@ -96,7 +96,7 @@
                             <div class="row mb-3">
                                 <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction') -> member_id}}" readonly>
+                                    <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction') -> member_id}}" disabled>
                                 </div>
                             </div>
 
