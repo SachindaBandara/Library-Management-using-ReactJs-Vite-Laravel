@@ -12,9 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->id();
+            $table->id() -> primary();
             $table->unsignedBigInteger('member_id');
-            $table->longText('notification');
+            $table->string('type')->nullable(); #Renew, Borrowed, Return, Paid
+            $table->string('title')->nullable();
+            $table->string('ISBN')->nullable();
+            $table->float('fine', precision:2)->nullable();
+            $table->date('due_date')->nullable();
             $table->timestamps();
 
             $table->foreign('member_id')->references('id')->on('users')->onDelete('cascade');

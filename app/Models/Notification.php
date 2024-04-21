@@ -11,7 +11,12 @@ class Notification extends Model
 
     protected $fillable = [
         'member_id',
-        'notification'
+        'notification',
+        'type',
+        'title',
+        'ISBN',
+        'fine',
+        'due_date'
     ];
 
     public function member()

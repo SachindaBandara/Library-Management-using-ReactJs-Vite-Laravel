@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 // 'user (auth)' middleware group
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/user-dashboard', [NewsController::class, 'getNews'])->name('user_dashboard');
+    Route::get('/user-dashboard', [HomeController::class, 'indexUser'])->name('user_dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -28,7 +28,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // 'admin' middleware
 Route::middleware(['auth', 'admin'])->group(function () {
 
-    Route::get('/admin-dashboard', [HomeController::class, 'index'])->name('admin_dashboard');
+    Route::get('/admin-dashboard', [HomeController::class, 'indexAdmin'])->name('admin_dashboard');
 
     Route::get('/admin-books', [BookController::class, 'getAllBooksAdmin'])->name('admin_books');
     Route::get('/admin-add-book', [BookController::class, 'addBookAdmin'])->name('admin_addBook');
