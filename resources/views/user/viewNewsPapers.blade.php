@@ -1,16 +1,16 @@
 @extends('layouts.userLayout')
 
 @section('title')
-  <title>User - All Books</title>
+  <title>User - All Newspapers</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>All Books</h1>
+    <h1>All Newspapers</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('user_dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item active">All Books</li>
+            <li class="breadcrumb-item active">All Newspapers</li>
         </ol>
     </nav>
 </div>
@@ -18,35 +18,29 @@
 
 <section class="section">
     <div class="row">
-        <!-- books -->
+        <!-- newspaper -->
         <div class="col-12">
             <div class="card add-book overflow-auto">
                 <div class="card-body">
-                    <h5 class="card-title">All Books <span></span></h5>
+                    <h5 class="card-title">All Newspapers <span></span></h5>
                     <table class="table table-borderless datatable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">ISBN</th>
-                                <th scope="col">Author</th>
-                                <th scope="col">Genre</th>
-                                <th scope="col">Publication Year</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Quantity Available</th>
+                                <th scope="col">Publisher</th>
+                                <th scope="col">Publication Date</th>
+                                <th scope="col">Shelf Location</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($books as $book)
+                            @foreach ($newsPapers as $newspaper)
                                 <tr>
-                                    <th scope="row"><a href="#">{{ $book -> id}}</a></th>
-                                    <td>{{ $book -> title}}</td>
-                                    <td>{{ $book -> ISBN}}</td>
-                                    <td>{{ $book -> author}}</td>
-                                    <td>{{ $book -> genre}}</td>
-                                    <td>{{ $book -> publicationYear}}</td>
-                                    <td>{{ $book -> description}}</td>
-                                    <td>{{ $book -> quantityAvailable}}</td>
+                                    <th scope="row"><a href="#">{{ $newspaper -> id}}</a></th>
+                                    <td>{{ $newspaper -> title}}</td>
+                                    <td>{{ $newspaper -> publisher}}</td>
+                                    <td>{{ $newspaper -> publicationDate}}</td>
+                                    <td>{{ $newspaper -> shelfLocation}}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -54,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <!-- End Book  -->
+        <!-- End newspaper  -->
     </div>
 </section>
 

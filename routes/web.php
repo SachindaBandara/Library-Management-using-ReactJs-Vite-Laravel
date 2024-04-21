@@ -23,6 +23,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/user-books', [BookController::class, 'getAllBooksUser'])->name('user_books');
+    Route::get('/user-newspapers', [NewsPaperController::class, 'getAllNewsPapersUser'])->name('user_newspapers');
+    Route::get('/user-magazines', [MagazineController::class, 'getAllMagazinesUser'])->name('user_magazines');
 });
 
 // 'admin' middleware

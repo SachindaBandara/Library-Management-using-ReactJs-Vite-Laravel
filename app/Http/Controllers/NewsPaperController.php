@@ -63,4 +63,9 @@ class NewsPaperController extends Controller
     public function viewNewsPaperAdmin(NewsPaper $newsPaper){
         return view('admin.viewNewsPaper' ,['newsPaper' => $newsPaper]);
     }
+
+    public function getAllNewsPapersUser(){
+        $newsPapers=NewsPaper::all();
+        return view('user.viewNewsPapers', ['newsPapers' => $newsPapers]);
+    }
 }

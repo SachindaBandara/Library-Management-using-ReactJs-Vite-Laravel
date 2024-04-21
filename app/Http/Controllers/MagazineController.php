@@ -56,8 +56,8 @@ class MagazineController extends Controller
         return redirect(route('admin_magazines'))->with('success', 'Magazine deleted successfully');
     }
 
-    public function getAllNewsPaperUser(){
-        $newsPapers=NewsPaper::all();
-        return view('user.viewBooks', ['newsPapers' => $newsPapers]);
+    public function getAllMagazinesUser(){
+        $magazines=Magazine::all();
+        return view('user.viewMagazines', ['magazines' => $magazines]);
     }
 }

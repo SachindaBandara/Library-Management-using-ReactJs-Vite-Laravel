@@ -273,7 +273,7 @@
         <!-- End View book Nav -->
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('user_newspapers')}}">
               <i class="bi bi-newspaper"></i>
               <span>News Papers</span>
             </a>
@@ -281,7 +281,7 @@
           <!-- End NewsPaper Nav -->
 
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('user_magazines')}}">
               <i class="bi bi-journals"></i>
               <span>Magazines</span>
             </a>
