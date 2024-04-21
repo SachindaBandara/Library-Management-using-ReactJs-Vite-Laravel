@@ -286,7 +286,7 @@
           <span>Magazines</span>
         </a>
       </li>
-      <!-- End Add NewsPaper Nav -->
+      <!-- End Add Magazines Nav -->
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin_users')}}">
