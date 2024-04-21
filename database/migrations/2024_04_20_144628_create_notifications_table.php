@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->id() -> primary();
             $table->unsignedBigInteger('member_id');
-            $table->string('type')->nullable(); #Renew, Borrowed, Return, Paid
+            $table->string('type')->nullable(); #Renew, Borrowed, Return, Pay
             $table->string('title')->nullable();
             $table->string('ISBN')->nullable();
             $table->float('fine', precision:2)->nullable();

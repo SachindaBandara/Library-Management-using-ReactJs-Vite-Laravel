@@ -1,8 +1,6 @@
 @extends('layouts.userLayout')
 
 @section('main')
-{{ $notifications }}
-
 <div class="pagetitle">
     <h1>Dashboard</h1>
     <nav>
@@ -139,13 +137,44 @@
                         </div>
                     </div><!-- End activity item-->
 
+                    @foreach ($notifications as $notification)
+                    @if ($notification['type'] == 'Borrowed')
+                        <div class="activity-item d-flex">
+                        <div class="activite-label">{{$notification['created_at']}}</div>
+                            <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                <div class="activity-content">
+                                    {{$notification['type']}} Book {{ $notification['title']}} with {{$notification['ISBN']}} ISBN. It should be return on or before {{$notification['due_date']}}.
+                                </div>
+                        </div>
+                        <!-- End activity item-->
+                    @elseif ($notification['type'] == 'Return')
+                    <div class="activity-item d-flex">
+                        <div class="activite-label">{{$notification['created_at']}}</div>
+                            <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                <div class="activity-content">
+                                    {{$notification['type']}} Book {{ $notification['title']}} with {{$notification['ISBN']}} ISBN.
+                                </div>
+                        </div>
+
+                    @elseif ($notification['type'] == 'Pay')
+                    <div class="activity-item d-flex">
+                        <div class="activite-label">{{$notification['created_at']}}</div>
+                            <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                <div class="activity-content">
+                                    Should be  {{$notification['type']}} Rs. {{ $notification['fine']}} for over due book.
+                                </div>
+                        </div>
+                    @endif
+                    @endforeach
+
                     <div class="activity-item d-flex">
                         <div class="activite-label">56 min</div>
                         <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                             <div class="activity-content">
                                 Voluptatem blanditiis blanditiis eveniet
                             </div>
-                    </div><!-- End activity item-->
+                    </div>
+                    <!-- End activity item-->
 
                     <div class="activity-item d-flex">
                         <div class="activite-label">2 hrs</div>

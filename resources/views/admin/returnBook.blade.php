@@ -106,6 +106,13 @@
                                     <input class="form-control" type="text" placeholder="{{session('user') -> name}}" disabled>
                                 </div>
                             </div>
+
+                            <div class="row mb-3">
+                                <label for="dueDate" class="col-sm-2 col-form-label">Due Date</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" placeholder="{{session('transaction') -> due_date}}" disabled>
+                                </div>
+                            </div>
                         @endif
 
                         @if (session('fine'))

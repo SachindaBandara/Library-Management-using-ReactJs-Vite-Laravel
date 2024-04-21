@@ -111,6 +111,10 @@ class TransactionController extends Controller
 
                 if($diffInDays <= -1 && is_null($transaction['return_date'])){
                     $fine= abs($diffInDays) * 100;
+                    $notification['member_id']=$user_id;
+                    $notification['type']="Pay";
+                    $notification['fine']=$fine;
+                    $newNotification = Notification::create($notification);
                 }else{
                     $fine=0;
                 }
@@ -132,6 +136,13 @@ class TransactionController extends Controller
         $transactionRecord = Transaction::find($data['id']);
         $transactionRecord -> return_date = $data['return_date'];
         $transactionRecord->save();
+
+        #$notification['member_id']=$data['member_id'];
+        #$notification['type']="Return";
+        #$notification['title']=$book['title'];
+        #$notification['ISBN']=$book['ISBN'];
+        #$notification['due_date']=$due_date;
+        #$newNotification = Notification::create($notification);
 
 
         return redirect(route('admin_issue_book'))->with('success', 'Transaction updated successfully.');
