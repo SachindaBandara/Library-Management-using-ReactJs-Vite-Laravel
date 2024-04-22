@@ -55,6 +55,40 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-xxl-4 col-xl-12">
+                <div class="card" style="width: 14rem;">
+                    <img class="card-img-top" src="assets/img/magazine.png" alt="Card image cap" >
+                    <div class="card-body">
+                    <h5 class="card-title">Total Issued Books <span>| Today</span></h5>
+                    <p class="card-text">{{$magazineCount}}</p>
+                    <a href="{{route('admin_magazines')}}" class="btn btn-primary"><i class="bi bi-eye"> See More</i></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xxl-4 col-xl-12">
+                <div class="card" style="width: 14rem;">
+                    <img class="card-img-top" src="assets/img/magazine.png" alt="Card image cap" >
+                    <div class="card-body">
+                    <h5 class="card-title">Total Returned Books <span>| Today</span></h5>
+                    <p class="card-text">{{$magazineCount}}</p>
+                    <a href="{{route('admin_magazines')}}" class="btn btn-primary"><i class="bi bi-eye"> See More</i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-4 col-xl-12">
+                <div class="card" style="width: 14rem;">
+                    <img class="card-img-top" src="assets/img/magazine.png" alt="Card image cap" >
+                    <div class="card-body">
+                    <h5 class="card-title">Not Returned Books <span>| Today</span></h5>
+                    <p class="card-text">{{$magazineCount}}</p>
+                    <a href="{{route('admin_magazines')}}" class="btn btn-primary"><i class="bi bi-eye"> See More</i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
