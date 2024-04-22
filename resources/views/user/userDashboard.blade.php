@@ -143,7 +143,7 @@
                     @elseif ($notification['type'] == 'Return')
                     <div class="activity-item d-flex">
                         <div class="activite-label">{{$notification['created_at']}}</div>
-                        <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                        <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
                         <div class="activity-content">
                             {{$notification['type']}} Book {{ $notification['title']}} with {{$notification['ISBN']}} ISBN.
                         </div>

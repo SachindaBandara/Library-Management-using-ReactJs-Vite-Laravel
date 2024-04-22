@@ -152,12 +152,12 @@ class TransactionController extends Controller
         $book -> status = 'Available';
         $book->save();
 
-        #$notification['member_id']=$data['member_id'];
-        #$notification['type']="Return";
-        #$notification['title']=$book['title'];
-        #$notification['ISBN']=$book['ISBN'];
-        #$notification['due_date']=$due_date;
-        #$newNotification = Notification::create($notification);
+        $notification['member_id']=$transactionRecord['member_id'];
+        $notification['type']="Return";
+        $notification['title']=$book['title'];
+        $notification['ISBN']=$book['ISBN'];
+        $notification['due_date']=$data['return_date'];
+        $newNotification = Notification::create($notification);
 
 
         return redirect(route('admin_issue_book'))->with('success', 'Transaction updated successfully.');
