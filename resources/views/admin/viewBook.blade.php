@@ -90,7 +90,6 @@
                                 <th scope="col">Transaction Date</th>
                                 <th scope="col">Due Date</th>
                                 <th scope="col">Return date</th>
-                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -102,7 +101,6 @@
                                         <td>{{ $transaction -> transaction_date}}</td>
                                         <td>{{ $transaction -> due_date}}</td>
                                         <td>{{ $transaction -> return_date}}</td>
-                                        <td>status eka hadanna one</td>
                                 </tr>
                             @endforeach
                         </tbody>

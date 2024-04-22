@@ -31,20 +31,23 @@ class TransactionController extends Controller
 
         $book_id = $request['book_id'];
 
-        $transaction = Transaction::where('book_id', $book_id)->whereNotNull('transaction_date')->whereNull('return_date')->first();
+        $book = Book::find($book_id);
 
-        if(is_null($transaction)){
-            $book = Book::find($book_id);
-            if(is_null($book)){
-                return redirect(route('admin_issue_book'))->with('status', 'Given Book not found.');
+        if(is_null($book)){
+            return redirect(route('admin_issue_book'))->with('status', 'Given Book not found.');
+        }
+        else{
+            if( $book['status'] == 'Borrowed'){
+                return redirect(route('admin_issue_book'))->with('status', 'Given Book already borrowed by someone!');
+            }
+            elseif($book['status'] == 'Reserved'){
+                return redirect(route('admin_issue_book'))->with('status', 'Given Book already reserved by someone!');
             }
             else{
                 return redirect(route('admin_issue_book'))->with('book', $book);
             }
         }
-        else{
-            return redirect(route('admin_issue_book'))->with('status', 'Given Book already borrowed by someone!');
-        }
+
 
     }
 
@@ -68,6 +71,8 @@ class TransactionController extends Controller
 
 
             $book = Book::find($data['book_id']);
+            $book -> status = 'Borrowed';
+            $book->save();
 
             $notification['member_id']=$data['member_id'];
             $notification['type']="Borrowed";
@@ -75,6 +80,10 @@ class TransactionController extends Controller
             $notification['ISBN']=$book['ISBN'];
             $notification['due_date']=$due_date;
             $newNotification = Notification::create($notification);
+
+            $book -> status = 'Borrowed';
+            $book->save();
+
 
             return redirect(route('admin_issue_book'))->with('success', 'Transaction created successfully.')->with('due_date', $due_date);
         }
@@ -136,6 +145,12 @@ class TransactionController extends Controller
         $transactionRecord = Transaction::find($data['id']);
         $transactionRecord -> return_date = $data['return_date'];
         $transactionRecord->save();
+
+        $book_id=$transactionRecord['book_id'];
+
+        $book = Book::find($book_id);
+        $book -> status = 'Available';
+        $book->save();
 
         #$notification['member_id']=$data['member_id'];
         #$notification['type']="Return";

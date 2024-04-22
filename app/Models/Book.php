@@ -15,7 +15,8 @@ class Book extends Model
         'genre',
         'publicationYear',
         'description',
-        'shelfLocation'
+        'shelfLocation',
+        'status'
     ];
 
     public function transaction()

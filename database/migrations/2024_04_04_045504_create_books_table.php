@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('publicationYear');
             $table->string('description');
             $table->string('shelfLocation');
+            $table->string('status')->default('Available'); #borrowed, available, reserved
             $table->timestamps();
         });
     }

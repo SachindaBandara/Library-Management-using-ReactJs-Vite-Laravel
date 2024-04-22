@@ -43,6 +43,7 @@
                                 <th scope="col">Publication Year</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Shelf Location</th>
+                                <th scope="col">Status</th>
                                 <th scope="col"> </th>
                             </tr>
                         </thead>
@@ -57,6 +58,16 @@
                                     <td>{{ $book -> publicationYear}}</td>
                                     <td>{{ $book -> description}}</td>
                                     <td>{{ $book -> shelfLocation}}</td>
+                                    <td>
+                                        @if (($book -> status) == 'Available')
+                                            <span class="badge rounded-pill bg-success">Available</span>
+                                        @elseif (($book -> status) == 'Borrowed')
+                                            <span class="badge rounded-pill bg-secondary">Borrowed</span>
+                                        @elseif (($book -> status) == 'Reserved')
+                                            <span class="badge rounded-pill bg-warning text-dark">Reserved</span>
+                                        @endif
+                                    </td>
+
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">

@@ -33,7 +33,8 @@
                                 <th scope="col">Genre</th>
                                 <th scope="col">Publication Year</th>
                                 <th scope="col">Description</th>
-                                <th scope="col">Quantity Available</th>
+                                <th scope="col">Shelf Location</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,7 +47,16 @@
                                     <td>{{ $book -> genre}}</td>
                                     <td>{{ $book -> publicationYear}}</td>
                                     <td>{{ $book -> description}}</td>
-                                    <td>{{ $book -> quantityAvailable}}</td>
+                                    <td>{{ $book -> shelfLocation}}</td>
+                                    <td>
+                                        @if (($book -> status) == 'Available')
+                                            <span class="badge rounded-pill bg-success">Available</span>
+                                        @elseif (($book -> status) == 'Borrowed')
+                                            <span class="badge rounded-pill bg-secondary">Borrowed</span>
+                                        @elseif (($book -> status) == 'Reserved')
+                                            <span class="badge rounded-pill bg-warning text-dark">Reserved</span>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
