@@ -12,75 +12,49 @@
         <div class="row">
             <!-- Customers Card -->
             <div class="col-xxl-4 col-xl-12">
-                <div class="card info-card customers-card">
+                <div class="card" style="width: 14rem;">
+                    <img class="card-img-top" src="assets/img/user.jpg" alt="Card image cap" >
                     <div class="card-body">
-                        <h5 class="card-title">Total Users <span>| Today</span></h5>
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-person"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6>{{ $userCount }}</h6>
-                            </div>
-                        </div>
+                    <h5 class="card-title">Total Registered Users <span>| Today</span></h5>
+                    <p class="card-text">{{$userCount}}</p>
+                    <a href="{{route('admin_users')}}" class="btn btn-primary"><i class="bi bi-eye"> See More</i></a>
                     </div>
                 </div>
             </div>
-            <!-- End Customers Card -->
 
-            <!-- Customers Card -->
             <div class="col-xxl-4 col-xl-12">
-                <div class="card info-card customers-card">
+                <div class="card" style="width: 14rem;">
+                    <img class="card-img-top" src="assets/img/book.jpg" alt="Card image cap" >
                     <div class="card-body">
-                        <h5 class="card-title">Total Books <span>| Today</span></h5>
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-book"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6>{{ $bookCount }}</h6>
-                            </div>
-                        </div>
+                    <h5 class="card-title">Total Books <span>| Today</span></h5>
+                    <p class="card-text">{{$userCount}}</p>
+                    <a href="{{route('admin_books')}}" class="btn btn-primary"><i class="bi bi-eye"> See More</i></a>
                     </div>
                 </div>
             </div>
-            <!-- End Customers Card -->
 
-            <!-- Customers Card -->
             <div class="col-xxl-4 col-xl-12">
-                <div class="card info-card customers-card">
+                <div class="card" style="width: 14rem;">
+                    <img class="card-img-top" src="assets/img/newspaper.png" alt="Card image cap" >
                     <div class="card-body">
-                        <h5 class="card-title">Total Newspapers <span>| Today</span></h5>
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-newspaper"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6>{{ $newsPaperCount }}</h6>
-                            </div>
-                        </div>
+                    <h5 class="card-title">Total Newspapers <span>| Today</span></h5>
+                    <p class="card-text">{{$newsPaperCount}}</p>
+                    <a href="{{route('admin_newsPapers')}}" class="btn btn-primary"><i class="bi bi-eye"> See More</i></a>
                     </div>
                 </div>
             </div>
-            <!-- End Customers Card -->
 
-             <!-- Customers Card -->
-             <div class="col-xxl-4 col-xl-12">
-                <div class="card info-card customers-card">
+
+            <div class="col-xxl-4 col-xl-12">
+                <div class="card" style="width: 14rem;">
+                    <img class="card-img-top" src="assets/img/magazine.png" alt="Card image cap" >
                     <div class="card-body">
-                        <h5 class="card-title">Total Magazines <span>| Today</span></h5>
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-journals"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6>{{ $magazineCount }}</h6>
-                            </div>
-                        </div>
+                    <h5 class="card-title">Total Magazines <span>| Today</span></h5>
+                    <p class="card-text">{{$magazineCount}}</p>
+                    <a href="{{route('admin_magazines')}}" class="btn btn-primary"><i class="bi bi-eye"> See More</i></a>
                     </div>
                 </div>
             </div>
-            <!-- End Customers Card -->
         </div>
     </div>
 </div>
