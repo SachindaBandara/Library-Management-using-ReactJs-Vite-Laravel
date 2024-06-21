@@ -289,7 +289,7 @@
           <!-- End Magazines Nav -->
 
         <li class="nav-item">
-            <a class="nav-link " href="#">
+            <a class="nav-link " href="{{ route('user_reservations')}}">
                 <i class="bi bi-check-square"></i>
                 <span>Revervations</span>
             </a>

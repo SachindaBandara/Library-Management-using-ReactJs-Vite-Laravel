@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NewsPaperController;
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ReservationController;
 
 
 
@@ -19,13 +20,21 @@ Route::get('/', function () {
 // 'user (auth)' middleware group
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user-dashboard', [HomeController::class, 'indexUser'])->name('user_dashboard');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     Route::get('/user-books', [BookController::class, 'getAllBooksUser'])->name('user_books');
+
     Route::get('/user-newspapers', [NewsPaperController::class, 'getAllNewsPapersUser'])->name('user_newspapers');
+
     Route::get('/user-magazines', [MagazineController::class, 'getAllMagazinesUser'])->name('user_magazines');
+
+    Route::get('/user-reservation', [ReservationController::class, 'reservationsUser'])->name('user_reservations');
+
 });
+
 
 // 'admin' middleware
 Route::middleware(['auth', 'admin'])->group(function () {
