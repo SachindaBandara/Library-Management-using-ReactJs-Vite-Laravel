@@ -1,4 +1,4 @@
-@extends('layouts.adminLayout')
+@extends('layouts.userLayout')
 
 @section('title')
   <title>User - Reservations</title>

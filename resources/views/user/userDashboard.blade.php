@@ -1,5 +1,9 @@
 @extends('layouts.userLayout')
 
+@section('title')
+  <title>User - Dashboard</title>
+@endsection
+
 @section('main')
 <div class="pagetitle">
     <h1>Dashboard</h1>
