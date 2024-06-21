@@ -31,8 +31,9 @@
         @endif
     </div>
 
-    <div class="col-12">
-        <button class="btn btn-primary w-100" type="submit">Save</button>
+    <div class="text-center mb-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
     </div>
 
     <div class="col-12">

@@ -21,8 +21,28 @@
         <div class="invalid-feedback">{{ "$errors->updatePassword->get('password_confirmation')" }}</div>
     </div>
 
-    <div class="col-12">
-        <button class="btn btn-primary w-100" type="submit">Save</button>
+    <div class="text-center mb-3">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteAccountModel">Save</button>
+        <!-- Change Password Modal -->
+        <div class="modal fade" id="deleteAccountModel" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Change Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                     <div class="modal-body">
+                        Ensure your account is using a long, random password to stay secure.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Change Password Modal-->
+        <button type="reset" class="btn btn-secondary">Reset</button>
     </div>
 
     <div class="col-12">
