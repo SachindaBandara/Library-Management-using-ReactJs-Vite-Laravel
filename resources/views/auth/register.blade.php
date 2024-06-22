@@ -1,52 +1,83 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('auth.layout')
+@section('main')
+    <div class="container">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+                        <div class="d-flex justify-content-center py-4">
+                            <a href="/" class="logo d-flex align-items-center w-auto">
+                                <img src="assets/img/logo.jpg" alt="">
+                                <span class="d-none d-lg-block">Register</span>
+                            </a>
+                        </div><!-- End Logo -->
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+                        <div class="card mb-3">
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+                            <div class="card-body">
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+                                <div class="pt-4 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Register as a User</h5>
+                                </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                                <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('register') }}">
+                                    @csrf
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                                    <div class="col-12">
+                                        <label for="name" class="form-label" >Name :</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter User Name" :value="old('name')" autofocus autocomplete="name" required>
+                                            <div class="invalid-feedback">
+                                                @foreach ($errors->get('name') as $error)
+                                                    {{ $error }}
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+                                    <div class="col-12">
+                                        <label for="email" class="form-label" >Email :</label>
+                                        <div class="input-group has-validation">
+                                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" :value="old('email')" autofocus autocomplete="username" required>
+                                            <div class="invalid-feedback">
+                                                @foreach ($errors->get('email') as $error)
+                                                    {{ $error }}
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+                                    <div class="col-12">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" name="password" class="form-control" id="password" autocomplete="new-password" required>
+                                        <div class="invalid-feedback">
+                                            @foreach ($errors->get('password') as $error)
+                                                    {{ $error }}
+                                            @endforeach
+                                        </div>
+                                    </div>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+                                    <div class="col-12">
+                                        <label for="password_confirmation" class="form-label">Confirm Password</label>
+                                        <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" autocomplete="new-password" required>
+                                        <div class="invalid-feedback">
+                                            @foreach ($errors->get('password_confirmation') as $error)
+                                                    {{ $error }}
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100" type="submit">Resister</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+@endsection
