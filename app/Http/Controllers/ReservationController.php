@@ -26,5 +26,9 @@ class ReservationController extends Controller
         return view('user.reservation', ['reservations' => $reservations]);
     }
 
+    public function createReservations(){
+        return view('user.makeReservation');
+    }
+
 
 }

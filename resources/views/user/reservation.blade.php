@@ -10,7 +10,7 @@
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item active"><a href="#">Reservations</li>
+            <li class="breadcrumb-item active"><a href="{{route('user_reservations')}}">Reservations</li>
         </ol>
     </nav>
 </div>
