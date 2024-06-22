@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -35,9 +36,15 @@ class UserController extends Controller
 
 
     public function deleteUserAdmin($id){
-        $user = User::findOrFail($id);
-        $user->delete();
+        $user_id=Auth::user()->id;
+        if($user_id != $id){
+            $user = User::findOrFail($id);
+            $user->delete();
+            return redirect(route('admin_users'))->with('success', 'User deleted successfully');
+        }else{
+            return redirect(route('admin_users'))->with('fail', 'Can not be delete current user.');
+        }
 
-        return redirect(route('admin_users'))->with('success', 'User deleted successfully');
+
     }
 }

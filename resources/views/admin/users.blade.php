@@ -56,10 +56,30 @@
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">
-                                                <form method="POST" action="{{route('admin_delete_user', $user -> id)}}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger"><i class="bi bi-person-dash"> </i> Delete</button>
+                                                    <form method="POST" action="{{route('admin_delete_user', $user -> id)}}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModel"><i class="bi bi-person-dash"> </i> Delete</button>
+                                                        <!-- Delete User Modal -->
+                                                        <div class="modal fade" id="deleteUserModel" tabindex="-1">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Delete User</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Once deleted, all of its resources and data will be permanently deleted. Before deleting, please download any data or information that you wish to retain.
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-danger">Delete User</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Delete User Modal-->
+                                                    </form>
                                                 </form>
                                             </div>
                                         </div>
@@ -89,6 +109,14 @@
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <i class="bi bi-check-circle"></i>
                 {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        @if (session('fail'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-circle"></i>
+                {{ session('fail') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
