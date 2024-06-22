@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('user_dashboard')}}">Home</a></li>
             <li class="breadcrumb-item active"><a href="{{route('user_reservations')}}">Reservations</li>
-            <li class="breadcrumb-item active"><a href="#">Make Reservation</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('user_make_reservations')}}">Make Reservation</a></li>
         </ol>
     </nav>
 </div>

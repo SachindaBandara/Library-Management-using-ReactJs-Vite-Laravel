@@ -32,6 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user-magazines', [MagazineController::class, 'getAllMagazinesUser'])->name('user_magazines');
 
     Route::get('/user-reservation', [ReservationController::class, 'reservationsUser'])->name('user_reservations');
+    Route::get('/user-make-reservation', [ReservationController::class, 'makeReservationsUser'])->name('user_make_reservations');
 
 });
 

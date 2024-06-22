@@ -18,7 +18,7 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="#"><i class="bi bi-file-earmark-plus"> </i>Make Reservation</a></button>
+        <button type="submit" class="btn btn-success"><a href="{{route('user_make_reservations')}}"><i class="bi bi-file-earmark-plus"> </i>Make Reservation</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-danger"><a href="">Save CSV</a></button>
     </div>
