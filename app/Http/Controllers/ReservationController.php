@@ -16,6 +16,13 @@ class ReservationController extends Controller
 
         $reservations=Reservation::where('member_id', $member_id)->get();
 
+        foreach ($reservations as $reservation){
+            $book_id=$reservation->book_id;
+            $reservation->title=Book::where('id', $book_id)->first()->title;
+            $reservation->shelfLocation=Book::where('id', $book_id)->first()->shelfLocation;
+            $reservation->status=Book::where('id', $book_id)->first()->status;
+        }
+
         return view('user.reservation', ['reservations' => $reservations]);
     }
 
