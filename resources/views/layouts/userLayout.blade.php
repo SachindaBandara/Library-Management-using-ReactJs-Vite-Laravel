@@ -67,7 +67,7 @@
                 </li>
 
                 <li>
-                    <a class="dropdown-item d-flex align-items-center" href="{{route('profile.edit')}}">
+                    <a class="dropdown-item d-flex align-items-center" href="{{route('profile_edit')}}">
                         <i class="bi bi-gear"></i>
                         <span>Account Settings</span>
                     </a>
@@ -143,7 +143,7 @@
         <!-- End Revervations Nav -->
 
         <li class="nav-item">
-            <a class="nav-link " href="{{route('profile.edit')}}">
+            <a class="nav-link " href="{{route('profile_edit')}}">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
             </a>

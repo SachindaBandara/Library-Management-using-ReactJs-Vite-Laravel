@@ -3,7 +3,7 @@
 <form id="send-verification" method="POST" action="{{ route('verification.send') }}">
     @csrf
 </form>
-<form method="POST" action="{{ route('profile.update') }}" class="row g-3 needs-validation">
+<form method="POST" action="{{ route('profile_update') }}" class="row g-3 needs-validation">
     @csrf
     @method('patch')
     <div class="col-12">

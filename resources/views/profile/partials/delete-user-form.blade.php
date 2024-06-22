@@ -1,7 +1,7 @@
 <h5 class="card-title">Delete Account</h5>
 <p>Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.</p>
 
-<form method="POST" action="{{ route('profile.destroy') }}" class="row g-3 needs-validation">
+<form method="POST" action="{{ route('profile_destroy') }}" class="row g-3 needs-validation">
     @csrf
     @method('delete')
     <div class="col-12">

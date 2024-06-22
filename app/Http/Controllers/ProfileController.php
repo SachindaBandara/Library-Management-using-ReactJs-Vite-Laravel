@@ -16,9 +16,13 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $userType=Auth::user()->userType;
+        if($userType == 'user'){
+            return view('profile.userEdit', ['user' => $request->user(),]);
+        }
+        else{
+            return view('profile.adminEdit', ['user' => $request->user(),]);
+        }
     }
 
     /**
@@ -26,6 +30,8 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        $userType=Auth::user()->userType;
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -34,7 +40,8 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile_edit')->with('status', 'profile-updated');
+
     }
 
     /**
@@ -42,9 +49,9 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
+        $userType=Auth::user()->userType;
+
+        $request->validateWithBag('userDeletion', ['password' => ['required', 'current_password'],]);
 
         $user = $request->user();
 

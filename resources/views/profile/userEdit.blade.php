@@ -9,8 +9,8 @@
         <h1>Account Settings</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{route('profile.edit')}}">Account Settings</a></li>
+                <li class="breadcrumb-item"><a href="{{route('user_dashboard')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('profile_edit')}}">Account Settings</a></li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
