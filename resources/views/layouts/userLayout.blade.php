@@ -123,16 +123,16 @@
               <i class="bi bi-newspaper"></i>
               <span>News Papers</span>
             </a>
-          </li>
+        </li>
           <!-- End NewsPaper Nav -->
 
-          <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="{{route('user_magazines')}}">
               <i class="bi bi-journals"></i>
               <span>Magazines</span>
             </a>
-          </li>
-          <!-- End Magazines Nav -->
+        </li>
+        <!-- End Magazines Nav -->
 
         <li class="nav-item">
             <a class="nav-link " href="{{ route('user_reservations')}}">
@@ -141,6 +141,14 @@
             </a>
         </li>
         <!-- End Revervations Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link " href="{{route('profile.edit')}}">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+            </a>
+        </li>
+        <!-- End Account Settings Nav -->
 
 
     </ul>
