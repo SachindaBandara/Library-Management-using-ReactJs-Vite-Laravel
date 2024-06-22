@@ -25,7 +25,7 @@
                 <img class="card-img-top" src="assets/img/book.jpg" alt="Card image cap" >
                 <div class="card-body">
                 <h5 class="card-title">Total Books <span>| Today</span></h5>
-                <p class="card-text">{{$userCount}}</p>
+                <p class="card-text">{{$bookCount}}</p>
                 <a href="{{route('admin_books')}}" class="btn btn-primary"><i class="bi bi-eye"> See More</i></a>
                 </div>
             </div>
