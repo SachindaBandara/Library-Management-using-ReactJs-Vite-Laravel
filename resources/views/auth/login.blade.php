@@ -30,14 +30,22 @@
                                         <label for="email" class="form-label" >Email :</label>
                                         <div class="input-group has-validation">
                                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" :value="old('email')" required autofocus autocomplete="username" required>
-                                            <div class="invalid-feedback">Please enter your email.</div>
+                                            <div class="invalid-feedback">
+                                                @foreach ($errors->get('email') as $error)
+                                                    {{ $error }}
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <label for="yourPassword" class="form-label">Password</label>
                                         <input type="password" name="password" class="form-control" id="password" required>
-                                        <div class="invalid-feedback">Please enter your password!</div>
+                                        <div class="invalid-feedback">
+                                            @foreach ($errors->get('password') as $error)
+                                                {{ $error }}
+                                            @endforeach
+                                        </div>
                                     </div>
 
                                     <div class="col-12">
@@ -47,7 +55,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="credits">
+                                    <div class="col-12">
                                         @if (Route::has('password.request'))
                                             <a href="{{ route('password.request') }}">Forgot your password?</a>
                                         @endif

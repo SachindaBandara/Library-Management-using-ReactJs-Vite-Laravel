@@ -35,7 +35,11 @@
                                         <label for="email" class="form-label" >Email :</label>
                                         <div class="input-group has-validation">
                                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" :value="old('email')" required autofocus autocomplete="username" required>
-                                            <div class="invalid-feedback">Please enter your email.</div>
+                                            <div class="invalid-feedback">
+                                                @foreach ($errors->get('email') as $error)
+                                                    {{ $error }}
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
 
