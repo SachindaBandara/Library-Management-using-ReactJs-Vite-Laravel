@@ -30,5 +30,30 @@ class ReservationController extends Controller
         return view('user.makeReservation');
     }
 
+    public function getBookUser(Request $request){
+        $request = $request->validate([
+            'title' => 'required'
+        ]);
+
+        $book_title = $request['title'];
+
+        $book = Book::find($book_title);
+
+        #if(is_null($book)){
+            #return redirect(route('admin_issue_book'))->with('status', 'Given Book not found.');
+        #}
+        #else{
+            #if( $book['status'] == 'Borrowed'){
+                #return redirect(route('admin_issue_book'))->with('status', 'Given Book already borrowed by someone!');
+            #}
+            #elseif($book['status'] == 'Reserved'){
+            #    return redirect(route('admin_issue_book'))->with('status', 'Given Book already reserved by someone!');
+            #}
+            #else{
+            #    return redirect(route('admin_issue_book'))->with('book', $book);
+            #}
+        #}
+    }
+
 
 }

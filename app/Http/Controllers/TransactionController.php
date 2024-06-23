@@ -47,8 +47,6 @@ class TransactionController extends Controller
                 return redirect(route('admin_issue_book'))->with('book', $book);
             }
         }
-
-
     }
 
     public function storeIssueBookAdmin(Request $request)
