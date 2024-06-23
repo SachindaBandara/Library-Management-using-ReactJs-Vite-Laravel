@@ -67,7 +67,7 @@
                                                     @method('GET')
                                                     <button type="submit" class="btn btn-info">View</button>
                                                 </form>
-                                                <form method="POST" action="#">
+                                                <form method="POST" action="{{ route('user_delete_reservation', $reservation->id)}}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRevervationsModel">Delete</button>

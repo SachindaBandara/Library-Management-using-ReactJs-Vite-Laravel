@@ -28,6 +28,10 @@ class ReservationController extends Controller
     }
 
     public function makeReservationsUser(){
+        $member_id=Auth::user()->id;
+
+        $reservationCount=Reservation::where('member_id', $member_id)->get()->count();
+
         return view('user.makeReservation');
     }
 
@@ -83,6 +87,20 @@ class ReservationController extends Controller
 
         return redirect(route('user_make_reservations'))->with('success', 'Reservation created successfully.');
 
+    }
+
+    public function deleteReservationUser($id){
+        $reservation = Reservation::findOrFail($id);
+        $book_id=$reservation['book_id'];
+
+        $reservation->delete();
+
+        $book_id=$reservation['book_id'];
+        $book = Book::find($book_id);
+        $book['status']="Available";
+        $book->save();
+
+        return redirect(route('user_reservations'))->with('success', 'Reservation deleted successfully');
     }
 
 
