@@ -53,7 +53,7 @@
                                 <div class="row mb-3">
                                     <label for="bookID" class="col-sm-2 col-form-label">Book ID</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="{{session('book') -> id}}" name="book_id" id="book_id">
+                                        <input class="form-control" type="text" value="{{session('book') -> id}}" name="book_id" id="book_id" disabled>
                                     </div>
                                 </div>
 

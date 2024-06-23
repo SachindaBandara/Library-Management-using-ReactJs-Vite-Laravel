@@ -54,7 +54,7 @@
                                 <div class="row mb-3">
                                     <label for="transaction_id" class="col-sm-2 col-form-label">Transaction ID</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="{{session('transaction') -> id}}" name="id" id="id">
+                                        <input class="form-control" type="text" value="{{session('transaction') -> id}}" name="id" id="id" disabled>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

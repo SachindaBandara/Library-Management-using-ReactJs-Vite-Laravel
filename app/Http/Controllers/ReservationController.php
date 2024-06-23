@@ -35,24 +35,27 @@ class ReservationController extends Controller
             'title' => 'required'
         ]);
 
-        $book_title = $request['title'];
+        $title = $request['title'];
 
-        $book = Book::find($book_title);
+        $book = Book::where('title', $title)->first();
 
-        #if(is_null($book)){
-            #return redirect(route('admin_issue_book'))->with('status', 'Given Book not found.');
-        #}
-        #else{
-            #if( $book['status'] == 'Borrowed'){
-                #return redirect(route('admin_issue_book'))->with('status', 'Given Book already borrowed by someone!');
-            #}
-            #elseif($book['status'] == 'Reserved'){
-            #    return redirect(route('admin_issue_book'))->with('status', 'Given Book already reserved by someone!');
-            #}
-            #else{
-            #    return redirect(route('admin_issue_book'))->with('book', $book);
-            #}
-        #}
+        if(is_null($book)){
+            return redirect(route('user_make_reservations'))->with('status', 'Given Book not found.');
+        }
+        else{
+            if( $book['status'] == 'Borrowed'){
+                return redirect(route('user_make_reservations'))->with('status', 'Given Book already borrowed by someone!');
+            }
+            elseif($book['status'] == 'Reserved'){
+                return redirect(route('user_make_reservations'))->with('status', 'Given Book already reserved by someone!');
+            }
+            else{
+                return redirect(route('user_make_reservations'))->with('book', $book);
+            }
+        }
+
+        return redirect(route('user_make_reservations'))->with('book', $book);
+
     }
 
 
