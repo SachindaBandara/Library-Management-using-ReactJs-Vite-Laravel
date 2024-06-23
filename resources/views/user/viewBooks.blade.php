@@ -35,6 +35,7 @@
                                 <th scope="col">Description</th>
                                 <th scope="col">Shelf Location</th>
                                 <th scope="col">Status</th>
+                                <th scope="col"> </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,6 +56,19 @@
                                             <span class="badge rounded-pill bg-secondary">Borrowed</span>
                                         @elseif (($book -> status) == 'Reserved')
                                             <span class="badge rounded-pill bg-warning text-dark">Reserved</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if (($book -> status) == 'Available')
+                                            <div class='text-center'>
+                                                <div class="btn-group" role="group">
+                                                    <form method="POST" action="#">
+                                                        @csrf
+                                                        @method('GET')
+                                                        <button type="submit" class="btn btn-warning">Reverve</button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         @endif
                                     </td>
                                 </tr>
