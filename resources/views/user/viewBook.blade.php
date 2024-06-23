@@ -19,9 +19,13 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="#">Edit</a></button>
-        <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
-        <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
+        @if (($book -> status) == 'Available')
+            <form method="POST" action="{{ route('user_store_reservations')}}">
+                @csrf
+                @method('POST')
+                <button type="submit" class="btn btn-warning">Reverve</button>
+            </form>
+        @endif
     </div>
 </section>
 
