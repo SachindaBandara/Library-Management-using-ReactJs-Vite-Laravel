@@ -85,7 +85,7 @@ class ReservationController extends Controller
 
         $book->save();
 
-        return redirect(route('user_make_reservations'))->with('success', 'Reservation created successfully.');
+        return redirect(route('user_reservations'))->with('success', 'Reservation created successfully.');
 
     }
 
