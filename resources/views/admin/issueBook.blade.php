@@ -102,13 +102,8 @@
                             </div>
 
                             <div class="text-center">
-                                @if (session('book'))
-                                    <button type="submit" class="btn btn-success">Issue Book</button>
-                                    <a href="{{route('admin_issue_book')}}" class="btn btn-secondary">Reset</a>
-                                @else
-                                    <button type="submit" class="btn btn-success">Issue Book</button>
-                                    <button type="reset" class="btn btn-secondary">Reset</button>
-                                @endif
+                                <button type="submit" class="btn btn-success">Issue Book</button>
+                                <a href="{{route('admin_issue_book')}}" class="btn btn-secondary">Reset</a>
                             </div>
                         </form>
                         <!-- End issue Book Form -->
