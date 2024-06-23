@@ -67,7 +67,6 @@
                                             <span class="badge rounded-pill bg-warning text-dark">Reserved</span>
                                         @endif
                                     </td>
-
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">

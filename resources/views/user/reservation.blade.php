@@ -40,12 +40,13 @@
                                 <th scope="col">Shelf Location</th>
                                 <th scope="col">Reserved date</th>
                                 <th scope="col">Status</th>
+                                <th scope="col"> </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($reservations as $reservation)
                                 <tr>
-                                    <th scope="row"><a href="#">{{ $reservation -> id}}</a></th>
+                                    <th scope="row">{{ $reservation -> id}}</th>
                                     <td>{{ $reservation -> title}}</td>
                                     <td>{{ $reservation -> shelfLocation}}</td>
                                     <td>{{ $reservation -> reserved_date}}</td>
@@ -57,6 +58,41 @@
                                         @elseif (($reservation -> status) == 'Reserved')
                                             <span class="badge rounded-pill bg-warning text-dark">Reserved</span>
                                         @endif
+                                    </td>
+                                    <td>
+                                        <div class='text-center'>
+                                            <div class="btn-group" role="group">
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    @method('GET')
+                                                    <button type="submit" class="btn btn-info">View</button>
+                                                </form>
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRevervationsModel">Delete</button>
+                                                    <!-- Delete Revervations Modal -->
+                                                    <div class="modal fade" id="deleteRevervationsModel" tabindex="-1">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">Delete Revervation</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Once deleted, all of its resources and data will be permanently deleted. Before deleting, please download any data or information that you wish to retain.
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-danger">Delete Revervation</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Delete Revervations Modal-->
+                                                </form>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
