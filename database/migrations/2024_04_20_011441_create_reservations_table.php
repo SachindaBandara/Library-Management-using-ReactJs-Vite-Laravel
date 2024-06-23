@@ -16,7 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('member_id');
             $table->date('reserved_date');
-            $table->string('status'); # pending, active, canceled
+            $table->date('cancel_date')->nullable();
+            $table->string('status');
             $table->timestamps();
 
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');

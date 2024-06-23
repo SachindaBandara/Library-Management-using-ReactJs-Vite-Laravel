@@ -39,6 +39,7 @@
                                 <th scope="col">Book Title</th>
                                 <th scope="col">Shelf Location</th>
                                 <th scope="col">Reserved date</th>
+                                <th scope="col">Canceled date</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"> </th>
                             </tr>
@@ -50,6 +51,7 @@
                                     <td>{{ $reservation -> title}}</td>
                                     <td>{{ $reservation -> shelfLocation}}</td>
                                     <td>{{ $reservation -> reserved_date}}</td>
+                                    <td>{{ $reservation -> cancel_date}}</td>
                                     <td>
                                         @if (($reservation -> status) == 'Available')
                                             <span class="badge rounded-pill bg-success">Available</span>
@@ -73,7 +75,7 @@
                                                     <form method="POST" action="{{ route('user_delete_reservation', $reservation->id)}}">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelRevervationsModel">CAncel</button>
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelRevervationsModel">Cancel</button>
                                                         <!-- cancel Revervations Modal -->
                                                         <div class="modal fade" id="cancelRevervationsModel" tabindex="-1">
                                                             <div class="modal-dialog">

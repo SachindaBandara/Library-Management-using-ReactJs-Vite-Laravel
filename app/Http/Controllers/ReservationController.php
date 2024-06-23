@@ -91,6 +91,7 @@ class ReservationController extends Controller
     public function deleteReservationUser($id){
         $reservation = Reservation::find($id);
         $reservation['status']="Canceled";
+        $reservation['cancel_date'] = Carbon::now();
         $book_id=$reservation['book_id'];
         $reservation->save();
 
@@ -100,7 +101,7 @@ class ReservationController extends Controller
         $book['status']="Available";
         $book->save();
 
-        return redirect(route('user_reservations'))->with('success', 'Reservation deleted successfully');
+        return redirect(route('user_reservations'))->with('success', 'Reservation canceled successfully');
     }
 
 
