@@ -57,6 +57,8 @@
                                             <span class="badge rounded-pill bg-secondary">Borrowed</span>
                                         @elseif (($reservation -> status) == 'Reserved')
                                             <span class="badge rounded-pill bg-warning text-dark">Reserved</span>
+                                        @elseif (($reservation -> status) == 'Canceled')
+                                            <span class="badge rounded-pill bg-secondary text-dark">Canceled</span>
                                         @endif
                                     </td>
                                     <td>
@@ -67,30 +69,32 @@
                                                     @method('GET')
                                                     <button type="submit" class="btn btn-info">View</button>
                                                 </form>
-                                                <form method="POST" action="{{ route('user_delete_reservation', $reservation->id)}}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRevervationsModel">Delete</button>
-                                                    <!-- Delete Revervations Modal -->
-                                                    <div class="modal fade" id="deleteRevervationsModel" tabindex="-1">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title">Delete Revervation</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    Once deleted, all of its resources and data will be permanently deleted. Before deleting, please download any data or information that you wish to retain.
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-danger">Delete Revervation</button>
+                                                @if ((($reservation -> status) == 'Reserved'))
+                                                    <form method="POST" action="{{ route('user_delete_reservation', $reservation->id)}}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelRevervationsModel">CAncel</button>
+                                                        <!-- cancel Revervations Modal -->
+                                                        <div class="modal fade" id="cancelRevervationsModel" tabindex="-1">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Cancel Revervation</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Once deleted, all of its resources and data will be permanently deleted. Before deleting, please download any data or information that you wish to retain.
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-danger">Cancel Revervation</button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- Delete Revervations Modal-->
-                                                </form>
+                                                        <!-- Cancel Revervations Modal-->
+                                                    </form>
+                                                @endif
                                             </div>
                                         </div>
                                     </td>

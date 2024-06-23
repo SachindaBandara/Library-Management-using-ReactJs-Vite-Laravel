@@ -21,7 +21,6 @@ class ReservationController extends Controller
             $book_id=$reservation->book_id;
             $reservation->title=Book::where('id', $book_id)->first()->title;
             $reservation->shelfLocation=Book::where('id', $book_id)->first()->shelfLocation;
-            $reservation->status=Book::where('id', $book_id)->first()->status;
         }
 
         return view('user.reservation', ['reservations' => $reservations]);
@@ -90,10 +89,11 @@ class ReservationController extends Controller
     }
 
     public function deleteReservationUser($id){
-        $reservation = Reservation::findOrFail($id);
+        $reservation = Reservation::find($id);
+        $reservation['status']="Canceled";
         $book_id=$reservation['book_id'];
+        $reservation->save();
 
-        $reservation->delete();
 
         $book_id=$reservation['book_id'];
         $book = Book::find($book_id);
