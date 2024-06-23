@@ -36,7 +36,7 @@
                         <tbody>
                             @foreach ($newsPapers as $newspaper)
                                 <tr>
-                                    <th scope="row"><a href="#">{{ $newspaper -> id}}</a></th>
+                                    <th scope="row">{{ $newspaper -> id}}</th>
                                     <td>{{ $newspaper -> title}}</td>
                                     <td>{{ $newspaper -> publisher}}</td>
                                     <td>{{ $newspaper -> publicationDate}}</td>

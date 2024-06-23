@@ -40,7 +40,7 @@
                         <tbody>
                             @foreach ($books as $book)
                                 <tr>
-                                    <th scope="row"><a href="#">{{ $book -> id}}</a></th>
+                                    <th scope="row">{{ $book -> id}}</th>
                                     <td>{{ $book -> title}}</td>
                                     <td>{{ $book -> ISBN}}</td>
                                     <td>{{ $book -> author}}</td>

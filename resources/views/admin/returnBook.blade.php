@@ -44,108 +44,108 @@
                                 {{ session('status') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @endif
+                    @else
+                        <!-- Return book Form -->
+                        <form method="POST" action="{{route('admin_store_return_book')}}">
+                            @csrf
+                            @method('post')
 
-                    <!-- Return book Form -->
-                    <form method="POST" action="{{route('admin_store_return_book')}}">
-                        @csrf
-                        @method('post')
-
-                        @if (session('transaction'))
-                            <div class="row mb-3">
-                                <label for="transaction_id" class="col-sm-2 col-form-label">Transaction ID</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{session('transaction') -> id}}" name="id" id="id">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="bookID" class="col-sm-2 col-form-label">Book ID</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> id}}" disabled>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="bookTitle" class="col-sm-2 col-form-label">Book Title</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> title}}" disabled>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="bookAuthor" class="col-sm-2 col-form-label">Book Author</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> author}}" disabled>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="bookISBN" class="col-sm-2 col-form-label">ISBN</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> ISBN}}" disabled>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="bookGenre" class="col-sm-2 col-form-label">Book Genre</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> genre}}" disabled>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction') -> member_id}}" disabled>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="memberName" class="col-sm-2 col-form-label">Member Name</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('user') -> name}}" disabled>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="dueDate" class="col-sm-2 col-form-label">Due Date</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('transaction') -> due_date}}" disabled>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if (session('fine'))
-                            @if (session('fine') <> 0)
-                                <div class="alert alert-warning" role="alert">
-                                    Overdue book. Rs.{{ session('fine') }} Required!
-                                </div>
-                            @else
-                                <h6>no</h6>
-                                <div class="alert alert-info" role="alert">
-                                    No Fine required.
-                                </div>
-                            @endif
-                        @endif
-
-                        <div class="row mb-3">
-                            <label for="returnDate	" class="col-sm-2 col-form-label">Return Date</label>
-                            <div class="col-sm-10">
-                              <input type="date" class="form-control" id="return_date" name='return_date'>
-                            </div>
-                        </div>
-
-                        <div class="text-center">
                             @if (session('transaction'))
-                                <button type="submit" class="btn btn-success">Return Book</button>
-                                <a href="{{route('admin_return_book')}}" class="btn btn-secondary">Reset</a>
-                            @else
-                                <button type="submit" class="btn btn-success">Return Book</button>
-                                <button type="reset" class="btn btn-secondary">Reset</button>
+                                <div class="row mb-3">
+                                    <label for="transaction_id" class="col-sm-2 col-form-label">Transaction ID</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" value="{{session('transaction') -> id}}" name="id" id="id">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="bookID" class="col-sm-2 col-form-label">Book ID</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" placeholder="{{session('book') -> id}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="bookTitle" class="col-sm-2 col-form-label">Book Title</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" placeholder="{{session('book') -> title}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="bookAuthor" class="col-sm-2 col-form-label">Book Author</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" placeholder="{{session('book') -> author}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="bookISBN" class="col-sm-2 col-form-label">ISBN</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" placeholder="{{session('book') -> ISBN}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="bookGenre" class="col-sm-2 col-form-label">Book Genre</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" placeholder="{{session('book') -> genre}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction') -> member_id}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="memberName" class="col-sm-2 col-form-label">Member Name</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" placeholder="{{session('user') -> name}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="dueDate" class="col-sm-2 col-form-label">Due Date</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" placeholder="{{session('transaction') -> due_date}}" disabled>
+                                    </div>
+                                </div>
+
+                                @if (session('fine'))
+                                    @if (session('fine') <> 0)
+                                        <div class="alert alert-warning" role="alert">
+                                            Overdue book. Rs.{{ session('fine') }} Required!
+                                        </div>
+                                    @else
+                                        <h6>no</h6>
+                                        <div class="alert alert-info" role="alert">
+                                            No Fine required.
+                                        </div>
+                                    @endif
+                                @endif
+
+                                <div class="row mb-3">
+                                    <label for="returnDate	" class="col-sm-2 col-form-label">Return Date</label>
+                                    <div class="col-sm-10">
+                                    <input type="date" class="form-control" id="return_date" name='return_date'>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    @if (session('transaction'))
+                                        <button type="submit" class="btn btn-success">Return Book</button>
+                                        <a href="{{route('admin_return_book')}}" class="btn btn-secondary">Reset</a>
+                                    @else
+                                        <button type="submit" class="btn btn-success">Return Book</button>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                    @endif
+                                </div>
                             @endif
-                        </div>
-                    </form>
-                    <!-- End return Book Form -->
+                        </form>
+                        <!-- End return Book Form -->
+                    @endif
                 </div>
             </div>
         </div>

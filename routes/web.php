@@ -33,6 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/user-reservation', [ReservationController::class, 'reservationsUser'])->name('user_reservations');
     Route::get('/user-make-reservation', [ReservationController::class, 'makeReservationsUser'])->name('user_make_reservations');
+    Route::post('/user-get-book', [ReservationController::class, 'getBookUser'])->name('user_get_book');
 
 });
 
