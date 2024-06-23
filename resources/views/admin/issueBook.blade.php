@@ -52,35 +52,35 @@
                             <div class="row mb-3">
                                 <label for="bookID" class="col-sm-2 col-form-label">Book ID</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{session('book') -> id}}" name="book_id" id="book_id">
+                                    <input class="form-control" type="text" value="{{session('book') -> id}}" name="book_id" id="book_id" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="bookTitle" class="col-sm-2 col-form-label">Book Title</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> title}}" disabled>
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> title}}" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="bookAuthor" class="col-sm-2 col-form-label">Book Author</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> author}}" disabled>
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> author}}" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="bookISBN" class="col-sm-2 col-form-label">ISBN</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> ISBN}}" disabled>
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> ISBN}}" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="bookGenre" class="col-sm-2 col-form-label">Book Genre</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="{{session('book') -> genre}}" disabled>
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> genre}}" readonly>
                                 </div>
                             </div>
 
