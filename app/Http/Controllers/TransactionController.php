@@ -82,7 +82,6 @@ class TransactionController extends Controller
             $book -> status = 'Borrowed';
             $book->save();
 
-
             return redirect(route('admin_issue_book'))->with('success', 'Transaction created successfully.')->with('due_date', $due_date);
         }
     }

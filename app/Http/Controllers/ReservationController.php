@@ -7,6 +7,7 @@ use App\Models\Reservation;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
@@ -55,6 +56,32 @@ class ReservationController extends Controller
         }
 
         return redirect(route('user_make_reservations'))->with('book', $book);
+
+    }
+
+    public function storeReservationBookUser(Request $request){
+        $request = $request->validate([
+            'book_id' => 'required'
+        ]);
+
+        $book_id=$request['book_id'];
+
+        $book = Book::find($book_id);
+
+        $member_id=Auth::user()->id;
+
+        $reservation['book_id']=$book_id;
+        $reservation['member_id']=$member_id;
+        $reservation['reserved_date'] = Carbon::now();
+        $reservation['status']="Reserved";
+
+        $newReservation = Reservation::create($reservation);
+
+        $book['status']="Reserved";
+
+        $book->save();
+
+        return redirect(route('user_make_reservations'))->with('success', 'Reservation created successfully.');
 
     }
 

@@ -46,7 +46,7 @@
                                 <div class="row mb-3">
                                     <label for="transaction_id" class="col-sm-2 col-form-label">Transaction ID</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="{{session('transaction') -> id}}" name="id" id="id" disabled>
+                                        <input class="form-control" type="text" value="{{session('transaction') -> id}}" name="id" id="id">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -87,7 +87,7 @@
                                 <div class="row mb-3">
                                     <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction') -> member_id}}" disabled>
+                                        <input type="text" class="form-control" id="member_id" name='member_id' value="{{session('transaction') -> member_id}}">
                                     </div>
                                 </div>
 
