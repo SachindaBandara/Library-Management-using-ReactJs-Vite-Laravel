@@ -66,7 +66,7 @@
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">
-                                                <form method="POST" action="#">
+                                                <form method="POST" action="{{route('user_view_reservation', ['reservation' => $reservation])}}">
                                                     @csrf
                                                     @method('GET')
                                                     <button type="submit" class="btn btn-info">View</button>

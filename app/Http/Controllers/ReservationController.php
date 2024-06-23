@@ -105,6 +105,9 @@ class ReservationController extends Controller
     }
 
     public function viewReservationUser(Reservation $reservation){
+        $book_id=$reservation->book_id;
+        $reservation->title=Book::where('id', $book_id)->first()->title;
+
         return view('user.viewReservation', ['reservation' => $reservation]);
     }
 

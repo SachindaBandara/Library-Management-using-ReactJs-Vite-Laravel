@@ -25,48 +25,28 @@
                 <div class="card-body">
                     <h5 class="card-title">View Existing Reservation</h5>
                     <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">ID</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> id}} </div>
+                        <div class="col-lg-3 col-md-4 label ">Reservation ID</div>
+                        <div class="col-lg-9 col-md-8"> {{ $reservation -> id }} </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Title</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> title}} </div>
+                        <div class="col-lg-3 col-md-4 label ">Book ID</div>
+                        <div class="col-lg-9 col-md-8"> {{ $reservation -> book_id}} </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Author</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> author}} </div>
+                        <div class="col-lg-3 col-md-4 label ">Book Title</div>
+                        <div class="col-lg-9 col-md-8"> {{ $reservation -> title}}  </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">ISBN</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> ISBN}}  </div>
+                        <div class="col-lg-3 col-md-4 label ">Reserved Date</div>
+                        <div class="col-lg-9 col-md-8"> {{ $reservation -> reserved_date}} </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Genre</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> genre}} </div>
+                        <div class="col-lg-3 col-md-4 label ">Status</div>
+                        <div class="col-lg-9 col-md-8"> {{ $reservation -> status}} </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Publication Year</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> publicationYear}}  </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Description</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> description}}  </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Shelf Location</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> shelfLocation}}  </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Availability</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> status}}  </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Created</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> created_at}}  </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-lg-3 col-md-4 label ">Updated</div>
-                        <div class="col-lg-9 col-md-8"> {{ $book -> updated_at}}  </div>
+                        <div class="col-lg-3 col-md-4 label ">Cancel date</div>
+                        <div class="col-lg-9 col-md-8"> {{ $reservation -> cancel_date}}  </div>
                     </div>
                 </div>
             </div>
