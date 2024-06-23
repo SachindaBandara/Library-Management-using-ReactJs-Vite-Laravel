@@ -59,17 +59,22 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if (($book -> status) == 'Available')
-                                            <div class='text-center'>
-                                                <div class="btn-group" role="group">
+                                        <div class='text-center'>
+                                            <div class="btn-group" role="group">
+                                                @if (($book -> status) == 'Available')
                                                     <form method="POST" action="#">
                                                         @csrf
                                                         @method('GET')
                                                         <button type="submit" class="btn btn-warning">Reverve</button>
                                                     </form>
-                                                </div>
+                                                @endif
+                                                <form method="POST" action="{{route('user_view_book', ['book' => $book])}}">
+                                                    @csrf
+                                                    @method('GET')
+                                                    <button type="submit" class="btn btn-info">View</button>
+                                                </form>
                                             </div>
-                                        @endif
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

@@ -1,7 +1,7 @@
-@extends('layouts.adminLayout')
+@extends('layouts.userLayout')
 
 @section('title')
-  <title>Admin - View Book</title>
+  <title>User - View Book</title>
 @endsection
 
 @section('main')
@@ -9,8 +9,8 @@
     <h1>View Book</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin_books')}}">Books</a></li>
+            <li class="breadcrumb-item"><a href="{{route('user_dashboard')}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route('user_books')}}">Books</a></li>
             <li class="breadcrumb-item active"><a href="#">View Book</a></li>
         </ol>
     </nav>
@@ -19,7 +19,7 @@
 
 <section class="section">
     <div class='card-body'>
-        <button type="submit" class="btn btn-success"><a href="{{ route('admin_edit_book',[ 'book'=> $book]) }}">Edit</a></button>
+        <button type="submit" class="btn btn-success"><a href="#">Edit</a></button>
         <button type="reset" class="btn btn-primary"><a href="">Print Preview</a></button>
         <button type="reset" class="btn btn-dark"><a href="">Save CSV</a></button>
     </div>
@@ -75,40 +75,6 @@
                         <div class="col-lg-3 col-md-4 label ">Updated</div>
                         <div class="col-lg-9 col-md-8"> {{ $book -> updated_at}}  </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Transaction History</h5>
-                    <table class="table table-borderless datatable">
-                        <thead>
-                            <tr>
-                                <th scope="col">Transaction ID</th>
-                                <th scope="col">Book ID</th>
-                                <th scope="col">Member ID</th>
-                                <th scope="col">Transaction Date</th>
-                                <th scope="col">Due Date</th>
-                                <th scope="col">Return date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($transactions as $transaction)
-                                <tr>
-                                        <th scope="row">{{ $transaction -> id}}</th>
-                                        <td>{{ $transaction -> book_id}}</td>
-                                        <td>{{ $transaction -> member_id}}</td>
-                                        <td>{{ $transaction -> transaction_date}}</td>
-                                        <td>{{ $transaction -> due_date}}</td>
-                                        <td>{{ $transaction -> return_date}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

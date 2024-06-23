@@ -77,4 +77,10 @@ class BookController extends Controller
         return view('user.viewBooks', ['books' => $books]);
     }
 
+
+    public function viewBookUser(Book $book){
+
+        return view('user.viewBook' ,['book' => $book]);
+    }
+
 }

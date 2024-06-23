@@ -26,6 +26,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile_destroy');
 
     Route::get('/user-books', [BookController::class, 'getAllBooksUser'])->name('user_books');
+    Route::get('/{book}/user-view-book', [BookController::class, 'viewBookUser'])->name('user_view_book');
 
     Route::get('/user-newspapers', [NewsPaperController::class, 'getAllNewsPapersUser'])->name('user_newspapers');
 
