@@ -62,9 +62,10 @@
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">
                                                 @if (($book -> status) == 'Available')
-                                                    <form method="POST" action="#">
+                                                    <form method="POST" action="{{ route('user_store_reservations')}}">
                                                         @csrf
-                                                        @method('GET')
+                                                        @method('POST')
+                                                        <input class="form-control" type="hidden" value="{{ $book -> id }}" name="book_id" id="book_id">
                                                         <button type="submit" class="btn btn-warning">Reverve</button>
                                                     </form>
                                                 @endif

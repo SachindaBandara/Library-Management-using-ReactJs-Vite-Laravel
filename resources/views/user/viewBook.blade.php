@@ -23,6 +23,7 @@
             <form method="POST" action="{{ route('user_store_reservations')}}">
                 @csrf
                 @method('POST')
+                <input class="form-control" type="hidden" value="{{ $book -> id }}" name="book_id" id="book_id">
                 <button type="submit" class="btn btn-warning">Reverve</button>
             </form>
         @endif
