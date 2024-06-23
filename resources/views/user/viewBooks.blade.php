@@ -61,6 +61,11 @@
                                     <td>
                                         <div class='text-center'>
                                             <div class="btn-group" role="group">
+                                                <form method="POST" action="{{route('user_view_book', ['book' => $book])}}">
+                                                    @csrf
+                                                    @method('GET')
+                                                    <button type="submit" class="btn btn-info">View</button>
+                                                </form>
                                                 @if (($book -> status) == 'Available')
                                                     <form method="POST" action="{{ route('user_store_reservations')}}">
                                                         @csrf
@@ -69,11 +74,6 @@
                                                         <button type="submit" class="btn btn-warning">Reverve</button>
                                                     </form>
                                                 @endif
-                                                <form method="POST" action="{{route('user_view_book', ['book' => $book])}}">
-                                                    @csrf
-                                                    @method('GET')
-                                                    <button type="submit" class="btn btn-info">View</button>
-                                                </form>
                                             </div>
                                         </div>
                                     </td>

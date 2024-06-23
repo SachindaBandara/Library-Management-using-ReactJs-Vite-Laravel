@@ -104,5 +104,9 @@ class ReservationController extends Controller
         return redirect(route('user_reservations'))->with('success', 'Reservation canceled successfully');
     }
 
+    public function viewReservationUser(Reservation $reservation){
+        return view('user.viewReservation', ['reservation' => $reservation]);
+    }
+
 
 }
