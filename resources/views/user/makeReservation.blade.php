@@ -109,6 +109,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-12">
             @if ($errors -> any())
                 @foreach ($errors->all() as $error)

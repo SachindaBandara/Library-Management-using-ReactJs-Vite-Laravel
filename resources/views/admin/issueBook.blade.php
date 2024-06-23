@@ -49,42 +49,40 @@
                         <form method="POST" action="{{route('admin_store_issue_book')}}">
                             @csrf
                             @method('post')
-                            @if (session('book'))
-                                <div class="row mb-3">
-                                    <label for="bookID" class="col-sm-2 col-form-label">Book ID</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="{{session('book') -> id}}" name="book_id" id="book_id" disabled>
-                                    </div>
+                            <div class="row mb-3">
+                                <label for="bookID" class="col-sm-2 col-form-label">Book ID</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="{{session('book') -> id}}" name="book_id" id="book_id" disabled>
                                 </div>
+                            </div>
 
-                                <div class="row mb-3">
-                                    <label for="bookTitle" class="col-sm-2 col-form-label">Book Title</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" placeholder="{{session('book') -> title}}" disabled>
-                                    </div>
+                            <div class="row mb-3">
+                                <label for="bookTitle" class="col-sm-2 col-form-label">Book Title</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> title}}" disabled>
                                 </div>
+                            </div>
 
-                                <div class="row mb-3">
-                                    <label for="bookAuthor" class="col-sm-2 col-form-label">Book Author</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" placeholder="{{session('book') -> author}}" disabled>
-                                    </div>
+                            <div class="row mb-3">
+                                <label for="bookAuthor" class="col-sm-2 col-form-label">Book Author</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> author}}" disabled>
                                 </div>
+                            </div>
 
-                                <div class="row mb-3">
-                                    <label for="bookISBN" class="col-sm-2 col-form-label">ISBN</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" placeholder="{{session('book') -> ISBN}}" disabled>
-                                    </div>
+                            <div class="row mb-3">
+                                <label for="bookISBN" class="col-sm-2 col-form-label">ISBN</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> ISBN}}" disabled>
                                 </div>
+                            </div>
 
-                                <div class="row mb-3">
-                                    <label for="bookGenre" class="col-sm-2 col-form-label">Book Genre</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" placeholder="{{session('book') -> genre}}" disabled>
-                                    </div>
+                            <div class="row mb-3">
+                                <label for="bookGenre" class="col-sm-2 col-form-label">Book Genre</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" placeholder="{{session('book') -> genre}}" disabled>
                                 </div>
-                            @endif
+                            </div>
 
                             <div class="row mb-3">
                                 <label for="memberID" class="col-sm-2 col-form-label">Member ID</label>

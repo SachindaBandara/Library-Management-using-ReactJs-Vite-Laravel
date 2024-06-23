@@ -36,14 +36,6 @@
                                     </div>
                                 </div>
                         </form>
-                    @endif
-
-                    @if (session('status'))
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <i class="bi bi-exclamation-circle"></i>
-                                {{ session('status') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
                     @else
                         <!-- Return book Form -->
                         <form method="POST" action="{{route('admin_store_return_book')}}">
@@ -140,6 +132,14 @@
                             @endif
                         </form>
                         <!-- End return Book Form -->
+                    @endif
+
+                    @if (session('status'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="bi bi-exclamation-circle"></i>
+                                {{ session('status') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     @endif
                 </div>
             </div>
