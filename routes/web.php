@@ -36,7 +36,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user-make-reservation', [ReservationController::class, 'makeReservationsUser'])->name('user_make_reservations');
     Route::post('/user-get-book', [ReservationController::class, 'getBookUser'])->name('user_get_book');
     Route::post('/user-store-reservation', [ReservationController::class, 'storeReservationBookUser'])->name('user_store_reservations');
-    Route::delete('/{id}/admin-delete-reservation', [ReservationController::class, 'deleteReservationUser'])->name('user_delete_reservation');
+    Route::delete('/{id}/user-delete-reservation', [ReservationController::class, 'deleteReservationUser'])->name('user_delete_reservation');
     Route::get('/{reservation}/user-view-reservation', [ReservationController::class, 'viewReservationUser'])->name('user_view_reservation');
 
 });
@@ -44,7 +44,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // 'admin' middleware
 Route::middleware(['auth', 'admin'])->group(function () {
-
     Route::get('/admin-dashboard', [HomeController::class, 'indexAdmin'])->name('admin_dashboard');
 
     Route::get('/admin-books', [BookController::class, 'getAllBooksAdmin'])->name('admin_books');
@@ -83,7 +82,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-return-book', [TransactionController::class, 'createReturnedBook'])->name('admin_return_book');
     Route::post('/admin-get-transaction', [TransactionController::class, 'getTransactionAdmin'])->name('admin_get_transaction');
     Route::post('/admin-return-book', [TransactionController::class, 'storeReturnedBookAdmin'])->name('admin_store_return_book');
-
 
 });
 
