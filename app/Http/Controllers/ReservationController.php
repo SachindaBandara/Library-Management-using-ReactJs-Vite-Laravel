@@ -73,14 +73,14 @@ class ReservationController extends Controller
 
         $member_id=Auth::user()->id;
 
-        $reservation['book_id']=$book_id;
-        $reservation['member_id']=$member_id;
-        $reservation['reserved_date'] = Carbon::now();
-        $reservation['status']="Reserved";
+        $reservation->book_id=$book_id;
+        $reservation->member_id=$member_id;
+        $reservation->reserved_date=Carbon::now();
+        $reservation->status="Reserved";
 
         $newReservation = Reservation::create($reservation);
 
-        $book['status']="Reserved";
+        $book->status="Reserved";
 
         $book->save();
 
@@ -90,15 +90,15 @@ class ReservationController extends Controller
 
     public function deleteReservationUser($id){
         $reservation = Reservation::find($id);
-        $reservation['status']="Canceled";
-        $reservation['cancel_date'] = Carbon::now();
-        $book_id=$reservation['book_id'];
+        $reservation->status="Canceled";
+        $reservation->cancel_date=Carbon::now();
+        $book_id=$reservation->book_id;
         $reservation->save();
 
 
-        $book_id=$reservation['book_id'];
+        $book_id=$reservation->book_id;
         $book = Book::find($book_id);
-        $book['status']="Available";
+        $book->status="Available";
         $book->save();
 
         return redirect(route('user_reservations'))->with('success', 'Reservation canceled successfully');
