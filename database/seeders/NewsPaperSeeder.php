@@ -17,7 +17,7 @@ class NewsPaperSeeder extends Seeder
             NewsPaper::create([
                 'title' => 'title'.$index,
                 'publisher' => 'publisher'.$index,
-                'publicationDate'=> 2012,
+                'publicationDate'=> '2012-12-05',
                 'shelfLocation'=> rand(1, 8),
             ]);
         }

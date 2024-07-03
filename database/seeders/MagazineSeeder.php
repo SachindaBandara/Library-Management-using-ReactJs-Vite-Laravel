@@ -17,7 +17,7 @@ class MagazineSeeder extends Seeder
             Magazine::create([
                 'title' => 'title'.$index,
                 'publisher' => 'publisher'.$index,
-                'publicationDate'=> 2012,
+                'publicationDate'=> '2015-10-25',
                 'shelfLocation'=> rand(1, 8),
             ]);
         }
