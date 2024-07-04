@@ -113,28 +113,9 @@ class TransactionController extends Controller
             if(is_null($user)){
                 return redirect(route('admin_return_book'))->with('status', 'Given member not found.');
             }
-            else{
-                $currentDate = Carbon::now();
-                $diffInDays = ceil($currentDate->diffInDays($transaction['due_date']));
-
-                if($diffInDays <= -1 && is_null($transaction['return_date'])){
-                    $calculatedFine= abs($diffInDays) * 100;
-                    $notification['member_id']=$member_id;
-                    $notification['type']="Pay";
-                    $notification['fine']=$calculatedFine;
-                    $fine['member_id']=$member_id;
-                    $fine['transaction_id']=$transaction['id'];
-                    $fine['amount']=$calculatedFine;
-
-                    $newFine=Fine::create(($fine));
-                    $newNotification = Notification::create($notification);
-                }else{
-                    $calculatedFine=0;
-                }
-            }
         }
 
-        return redirect(route('admin_return_book'))->with('transaction', $transaction)->with('user', $user)->with('book', $book)->with('calculatedFine', $calculatedFine);
+        return redirect(route('admin_return_book'))->with('transaction', $transaction)->with('user', $user)->with('book', $book);
 
     }
 
@@ -145,15 +126,10 @@ class TransactionController extends Controller
             'return_date' => 'required'
         ]);
 
-        $fineRecord=Fine::where('transaction_id', $data['id'])->whereNull('paid_at')->first();
-
-        if(!(is_null($fineRecord))){
-            $fineRecord['paid_at']= $data['return_date'];
-            $fineRecord->save();
-        }
+        $returnDate=Carbon::parse($data['return_date']);
 
         $transactionRecord = Transaction::find($data['id']);
-        $transactionRecord -> return_date = $data['return_date'];
+        $transactionRecord -> return_date = $returnDate->toDateString();
         $transactionRecord->save();
 
         $book_id=$transactionRecord['book_id'];
@@ -166,11 +142,30 @@ class TransactionController extends Controller
         $notification['type']="Return";
         $notification['title']=$book['title'];
         $notification['ISBN']=$book['ISBN'];
-        $notification['due_date']=$data['return_date'];
-        $newNotification = Notification::create($notification);
+        $notification['due_date']=$returnDate->toDateString();
+        Notification::create($notification);
 
 
-        return redirect(route('admin_issue_book'))->with('success', 'Transaction updated successfully.');
+        $diffInDays = abs(ceil($returnDate->diffInDays($transactionRecord['due_date'])));
+
+        if($diffInDays >= 1 && is_null($transactionRecord['return_date'])){
+            $calculatedFine= $diffInDays * 100;
+            $fineNotification['member_id']=$transactionRecord['member_id'];
+            $fineNotification['type']="Pay";
+            $fineNotification['fine']=$calculatedFine;
+            $fineRecord['member_id']=$transactionRecord['member_id'];
+            $fineRecord['transaction_id']=$transactionRecord['id'];
+            $fineRecord['amount']=$calculatedFine;
+            $fineRecord['paid_at']= $returnDate->toDateString();
+
+            Fine::create(($fineRecord));
+            Notification::create($fineNotification);
+        }else{
+            $calculatedFine=0;
+        }
+
+
+        return redirect(route('admin_issue_book'))->with('success', 'Transaction updated successfully.')->with('calculatedFine', $calculatedFine);
     }
 
     public function getTransactionsUser(){
