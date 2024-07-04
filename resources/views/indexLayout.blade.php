@@ -45,7 +45,11 @@
             </nav>
             @if (Route::has('login'))
                 @auth
-                    <a class="btn-getstarted" href="{{ url('/user-dashboard') }}">Dashboard</a>
+                    @if ((Auth::user()->userType == 'admin'))
+                        <a class="btn-getstarted" href="{{ route('admin_dashboard') }}">Dashboard</a>
+                    @else
+                        <a class="btn-getstarted" href="{{ route('user_dashboard') }}">Dashboard</a>
+                    @endif
                 @else
                     <a href="{{ route('login') }}" class="btn-getstarted">Log in</a>
 
