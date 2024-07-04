@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('paid_at');
             $table->timestamps();
 
-            $table->foreign('member_id')->references('id')->on('books')->onDelete('cascade');
+            $table->foreign('member_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
         });
     }
