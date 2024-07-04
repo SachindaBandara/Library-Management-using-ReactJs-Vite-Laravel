@@ -129,10 +129,9 @@ class TransactionController extends Controller
                     $newFine=Fine::create(($fine));
                     $newNotification = Notification::create($notification);
                 }else{
-                    $fine=0;
+                    $calculatedFine=0;
                 }
             }
-
         }
 
         return redirect(route('admin_return_book'))->with('transaction', $transaction)->with('user', $user)->with('book', $book)->with('calculatedFine', $calculatedFine);
@@ -145,6 +144,13 @@ class TransactionController extends Controller
             'id' => 'required',
             'return_date' => 'required'
         ]);
+
+        $fineRecord=Fine::where('transaction_id', $data['id'])->whereNull('paid_at')->first();
+
+        if(!(is_null($fineRecord))){
+            $fineRecord['paid_at']= $data['return_date'];
+            $fineRecord->save();
+        }
 
         $transactionRecord = Transaction::find($data['id']);
         $transactionRecord -> return_date = $data['return_date'];
