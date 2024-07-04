@@ -41,6 +41,7 @@
                                 <th scope="col">Transaction Date</th>
                                 <th scope="col">Due Date</th>
                                 <th scope="col">Return Date</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,6 +54,13 @@
                                     <td>{{ $transaction -> transaction_date}}</td>
                                     <td>{{ $transaction -> due_date}}</td>
                                     <td>{{$transaction -> return_date}}</td>
+                                    <td>
+                                        @if (is_null($transaction -> return_date))
+                                            <span class="badge rounded-pill bg-secondary">Borrowed</span>
+                                        @else
+                                            <span class="badge rounded-pill bg-success">Returned</span>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
