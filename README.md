@@ -4,50 +4,50 @@ This project is a web application built with Laravel.
 
 ## Installation
 
-Clone the repository:
+1. Clone the repository:
 ```
 https://github.com/pinilDissanayaka/libraryManagement.git
 ```
 
-Install dependencies:
+2. Install dependencies:
 ```
 composer install
 ```
 
-Copy the .env.example file to .env:
+3. Copy the .env.example file to .env:
 ```
 cp .env.example .env
 ```
 
-Generate application key:
+4. Generate application key:
 ```
 php artisan key:generate
 ```
 
-Configure your .env file with your database credentials and other settings.
+5. Configure your .env file with your database credentials and other settings.
 
 
-Run database migrations:
+6. Run database migrations:
 ```
 php artisan migrate
 ```
 
-Run database seeds:
+7. Run database seeds:
 ```
 php artisan db:seed
 ```
 
-Install npm dependencies:
+8. Install npm dependencies:
 ```
 npm install
 ```
 
-Compile assets:
+9. Compile assets:
 ```
 npm run dev
 ```
 
-Start the server:
+10. Start the server:
 ```
 php artisan serve
 ```
