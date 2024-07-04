@@ -1,4 +1,4 @@
-@extends('indexLayout')
+@extends('layouts.indexLayout')
 
 @section('title')
     <title>Home</title>

@@ -34,7 +34,7 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
-                <h1 class="">Mentor</h1>
+                <h1 class="">ShelfSpace</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
