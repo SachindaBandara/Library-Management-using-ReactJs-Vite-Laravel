@@ -142,6 +142,14 @@
         <!-- End Revervations Nav -->
 
         <li class="nav-item">
+            <a class="nav-link " href="#">
+                <i class="bi bi-arrow-left-right"></i>
+                <span>Transactions</span>
+            </a>
+        </li>
+        <!-- End Revervations Nav -->
+
+        <li class="nav-item">
             <a class="nav-link " href="{{route('profile_edit')}}">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
