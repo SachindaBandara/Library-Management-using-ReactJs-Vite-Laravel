@@ -167,7 +167,7 @@ class TransactionController extends Controller
         $transactions=Transaction::where('member_id', $member_id)->get();
 
         foreach ($transactions as $transaction){
-            $book_id=$transactions->book_id;
+            $book_id=$transaction->book_id;
             $transaction->title=Book::where('id', $book_id)->first()->title;
         }
 
