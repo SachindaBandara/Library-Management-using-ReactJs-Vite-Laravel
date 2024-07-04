@@ -6,7 +6,7 @@ This project is a web application built with Laravel.
 
 Clone the repository:
 ```
-    git clone https://github.com/D-Binara/PHP-Web-Project.git
+https://github.com/pinilDissanayaka/libraryManagement.git
 ```
 
 Install dependencies:
