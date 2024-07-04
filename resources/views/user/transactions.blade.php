@@ -41,7 +41,6 @@
                                     <th scope="row">{{ $transaction -> id }}</th>
                                     <td>{{ $transaction -> book_id}}</td>
                                     <td>{{ $transaction -> book-> title}}</td>
-                                    <td>{{ $transaction -> member_id}}</td>
                                     <td>{{ $transaction -> transaction_date}}</td>
                                     <td>{{ $transaction -> due_date}}</td>
                                     <td>{{$transaction -> return_date}}</td>

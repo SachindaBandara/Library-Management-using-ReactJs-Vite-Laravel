@@ -7,6 +7,7 @@ use App\Models\Transaction;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Notification;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 
@@ -158,6 +159,19 @@ class TransactionController extends Controller
 
 
         return redirect(route('admin_issue_book'))->with('success', 'Transaction updated successfully.');
+    }
+
+    public function getTransactionsUser(){
+        $member_id=Auth::user()->id;
+
+        $transactions=Transaction::where('member_id', $member_id)->get();
+
+        foreach ($transactions as $transaction){
+            $book_id=$transactions->book_id;
+            $transaction->title=Book::where('id', $book_id)->first()->title;
+        }
+
+        return view('user.transactions', ['transactions' => $transactions]);
     }
 
 

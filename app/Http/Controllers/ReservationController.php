@@ -58,8 +58,6 @@ class ReservationController extends Controller
             }
         }
 
-        return redirect(route('user_make_reservations'))->with('book', $book);
-
     }
 
     public function storeReservationBookUser(Request $request){
