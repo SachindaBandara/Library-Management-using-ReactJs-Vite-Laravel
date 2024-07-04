@@ -142,7 +142,7 @@
         <!-- End Revervations Nav -->
 
         <li class="nav-item">
-            <a class="nav-link " href="#">
+            <a class="nav-link " href="{{ route('user_transactions') }}">
                 <i class="bi bi-arrow-left-right"></i>
                 <span>Transactions</span>
             </a>

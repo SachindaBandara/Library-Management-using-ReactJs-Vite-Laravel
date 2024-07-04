@@ -39,6 +39,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/{id}/user-delete-reservation', [ReservationController::class, 'deleteReservationUser'])->name('user_delete_reservation');
     Route::get('/{reservation}/user-view-reservation', [ReservationController::class, 'viewReservationUser'])->name('user_view_reservation');
 
+    Route::get('/user-transactions', [TransactionController::class, 'getTransactionsUser'])->name('user_transactions');
+
 });
 
 
