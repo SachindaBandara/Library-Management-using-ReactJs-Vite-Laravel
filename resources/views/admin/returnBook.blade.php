@@ -105,10 +105,10 @@
                                     </div>
                                 </div>
 
-                                @if (session('fine'))
-                                    @if (session('fine') <> 0)
+                                @if (session('calculatedFine'))
+                                    @if (session('calculatedFine') <> 0)
                                         <div class="alert alert-warning" role="alert">
-                                            Overdue book. Rs.{{ session('fine') }} Required!
+                                            Overdue book. Rs.{{ session('calculatedFine') }} Required!
                                         </div>
                                     @else
                                         <h6>no</h6>

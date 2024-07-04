@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('transaction_id');
             $table->float('amount');
-            $table->date('paid_at');
+            $table->date('paid_at')->nullable(true);
             $table->timestamps();
 
             $table->foreign('member_id')->references('id')->on('users')->onDelete('cascade');

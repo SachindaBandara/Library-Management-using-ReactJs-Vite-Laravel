@@ -13,5 +13,6 @@ class Fine extends Model
         'amount',
         'paid_at'
     ];
+
     use HasFactory;
 }

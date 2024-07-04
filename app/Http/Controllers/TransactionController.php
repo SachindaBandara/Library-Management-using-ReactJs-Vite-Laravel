@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\Book;
 use App\Models\User;
+use App\Models\Fine;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -105,9 +106,9 @@ class TransactionController extends Controller
         if(is_null($transaction)){
             return redirect(route('admin_return_book'))->with('status', 'Given transaction not found.');
         }else{
-            $user_id = $transaction['member_id'];
+            $member_id = $transaction['member_id'];
 
-            $user = User::find($user_id);
+            $user = User::find($member_id);
 
             if(is_null($user)){
                 return redirect(route('admin_return_book'))->with('status', 'Given member not found.');
@@ -117,10 +118,15 @@ class TransactionController extends Controller
                 $diffInDays = ceil($currentDate->diffInDays($transaction['due_date']));
 
                 if($diffInDays <= -1 && is_null($transaction['return_date'])){
-                    $fine= abs($diffInDays) * 100;
-                    $notification['member_id']=$user_id;
+                    $calculatedFine= abs($diffInDays) * 100;
+                    $notification['member_id']=$member_id;
                     $notification['type']="Pay";
-                    $notification['fine']=$fine;
+                    $notification['fine']=$calculatedFine;
+                    $fine['member_id']=$member_id;
+                    $fine['transaction_id']=$transaction['id'];
+                    $fine['amount']=$calculatedFine;
+
+                    $newFine=Fine::create(($fine));
                     $newNotification = Notification::create($notification);
                 }else{
                     $fine=0;
@@ -129,7 +135,7 @@ class TransactionController extends Controller
 
         }
 
-        return redirect(route('admin_return_book'))->with('transaction', $transaction)->with('user', $user)->with('book', $book)->with('fine', $fine);
+        return redirect(route('admin_return_book'))->with('transaction', $transaction)->with('user', $user)->with('book', $book)->with('calculatedFine', $calculatedFine);
 
     }
 
