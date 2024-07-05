@@ -86,7 +86,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin-get-transaction', [TransactionController::class, 'getTransactionAdmin'])->name('admin_get_transaction');
     Route::post('/admin-return-book', [TransactionController::class, 'storeReturnedBookAdmin'])->name('admin_store_return_book');
 
-    Route::get('admin-get-fine-details', [FineController::class, 'showFineDetailsAdmin'])->name('admin_get_fine_details');
+    Route::get('/admin-get-fine-details', [FineController::class, 'showFineDetailsAdmin'])->name('admin_get_fine_details');
+    Route::post('/admin-store-paid-fine', [FineController::class, 'storePaidFineAdmin'])->name('admin_store_paid_fine');
 
 });
 

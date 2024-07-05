@@ -125,27 +125,19 @@ class TransactionController extends Controller
             'return_date' => 'required'
         ]);
 
-        $returnDate=Carbon::parse($data['return_date']);
 
         $transactionRecord = Transaction::find($data['id']);
 
+
+        $returnDate=Carbon::parse($data['return_date']);
         $diffInDays = abs(ceil($returnDate->diffInDays($transactionRecord['due_date'])));
 
         if($diffInDays >= 1 && is_null($transactionRecord['return_date'])){
-            return redirect(route('admin_get_fine_details'));
-            #$calculatedFine= $diffInDays * 100;
-            #$fineNotification['member_id']=$transactionRecord['member_id'];
-            #$fineNotification['type']="Pay";
-           # $fineNotification['fine']=$calculatedFine;
-           # $fineRecord['member_id']=$transactionRecord['member_id'];
-           # $fineRecord['transaction_id']=$transactionRecord['id'];
-            #$fineRecord['amount']=$calculatedFine;
-           # $fineRecord['paid_at']= $returnDate->toDateString();
-
-            #Fine::create(($fineRecord));
-          #  Notification::create($fineNotification);
+            $transaction=$transactionRecord;
+            $transaction['amount']=$diffInDays * 100;
+            return redirect(route('admin_get_fine_details'))->with('transaction', $transaction);
         }else{
-            $transactionRecord -> return_date = $returnDate->toDateString();
+            $transactionRecord -> return_date = $data['return_date'];
             $transactionRecord->save();
 
             $book_id=$transactionRecord['book_id'];

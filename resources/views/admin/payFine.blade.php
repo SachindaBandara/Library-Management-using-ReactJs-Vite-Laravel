@@ -12,7 +12,7 @@
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{route('admin_transactions')}}">Transactions</a></li>
             <li class="breadcrumb-item active"><a href="{{route('admin_return_book')}}">Return Book</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin_return_book')}}">Pay Fine</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin_get_fine_details')}}">Pay Fine</a></li>
         </ol>
     </nav>
 </div>
@@ -26,35 +26,35 @@
                     <h5 class="card-title">Pay Fine</h5>
 
                     <!-- Pay Fine Form -->
-                    <form method="POST" action="#">
+                    <form method="POST" action="{{ route('admin_store_paid_fine') }}">
                         @csrf
                         @method('post')
 
                         <div class="row mb-3">
                             <label for="transactionId" class="col-sm-2 col-form-label">Transaction ID</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" value="{{session('fine') -> id}}" name="id" id="id" readonly>
+                                <input class="form-control" type="text" value="{{ session('transaction') -> id }}" name="transaction_id" id="transaction_id" readonly>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="memberId" class="col-sm-2 col-form-label">Member ID</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" placeholder="{{session('fine') -> member_id}}" readonly>
+                                <input class="form-control" type="text" value="{{ session('transaction') -> member_id }}" name="member_id" id="member_id" readonly>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="bookAmount" class="col-sm-2 col-form-label">Amount</label>
+                            <label for="fineAmount" class="col-sm-2 col-form-label">Amount</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" placeholder="{{session('fine') -> amount}}" readonly>
+                                <input class="form-control" type="text" value="{{ session('transaction') -> amount }}" id="amount" name="amount" readonly>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="returnDate" class="col-sm-2 col-form-label">Return Date</label>
+                            <label for="payDate" class="col-sm-2 col-form-label">Pay Date</label>
                             <div class="col-sm-10">
-                            <input type="date" class="form-control" id="return_date" name='return_date'>
+                            <input type="date" class="form-control" id="paid_at" name='paid_at'>
                             </div>
                         </div>
 
@@ -93,15 +93,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-
-            @if (session('due_date'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="bi bi-check-circle"></i>
-                        Book should be returned on {{ session('due_date') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-
         </div>
     </div>
 </section>
