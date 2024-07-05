@@ -105,19 +105,6 @@
                                     </div>
                                 </div>
 
-                                @if (session('calculatedFine'))
-                                    @if (session('calculatedFine') <> 0)
-                                        <div class="alert alert-warning" role="alert">
-                                            Overdue book. Rs.{{ session('calculatedFine') }} Required!
-                                        </div>
-                                    @else
-                                        <h6>no</h6>
-                                        <div class="alert alert-info" role="alert">
-                                            No Fine required.
-                                        </div>
-                                    @endif
-                                @endif
-
                                 <div class="row mb-3">
                                     <label for="returnDate	" class="col-sm-2 col-form-label">Return Date</label>
                                     <div class="col-sm-10">
@@ -162,15 +149,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-
-            @if (session('due_date'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="bi bi-check-circle"></i>
-                        Book should be returned on {{ session('due_date') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-
         </div>
     </div>
 </section>
