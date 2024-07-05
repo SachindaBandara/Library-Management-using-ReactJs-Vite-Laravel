@@ -11,6 +11,8 @@ use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\FineController;
+use App\Http\Controllers\WishListController;
+
 
 
 
@@ -41,6 +43,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/{reservation}/user-view-reservation', [ReservationController::class, 'viewReservationUser'])->name('user_view_reservation');
 
     Route::get('/user-transactions', [TransactionController::class, 'getTransactionsUser'])->name('user_transactions');
+
+    Route::post('/user-add-wishlist', [WishListController::class, 'addWishlistUser'])->name('user_add_wishlist');
+
 
 });
 

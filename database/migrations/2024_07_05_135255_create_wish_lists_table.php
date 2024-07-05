@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wishlist', function (Blueprint $table) {
+        Schema::create('wish_lists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('book_id');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wishlist');
+        Schema::dropIfExists('wish_lists');
     }
 };
