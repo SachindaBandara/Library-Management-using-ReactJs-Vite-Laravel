@@ -43,32 +43,30 @@
                                     <td>{{ $item -> added_at }}</td>
                                     <td>
                                         <div class='text-center'>
-                                            <div class="btn-group" role="group">
-                                                <form method="POST" action="{{ route('user_remove_wishlist', $item->book_id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeWishlistModel">Remove</button>
-                                                    <!-- Remove Wishlist Modal -->
-                                                    <div class="modal fade" id="removeWishlistModel" tabindex="-1">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title">Remove From Wishlist</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    Once deleted, all of its resources and data will be permanently deleted. Before deleting, please download any data or information that you wish to retain.
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-danger">Remove</button>
-                                                                </div>
+                                            <form method="POST" action="{{ route('user_remove_wishlist', $item->book_id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeWishlistModel">Remove</button>
+                                                <!-- Remove Wishlist Modal -->
+                                                <div class="modal fade" id="removeWishlistModel" tabindex="-1">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Remove From Wishlist</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Once deleted, all of its resources and data will be permanently deleted. Before deleting, please download any data or information that you wish to retain.
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-danger">Remove</button>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Remove Wishlist Modal-->
-                                                </form>
-                                            </div>
+                                                </div>
+                                                <!--Remove Wishlist Modal-->
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>
@@ -93,11 +91,20 @@
             @endif
 
             @if (session('status'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="bi bi-check-circle"></i>
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                @if (session('status') == 'Successfully added to the wishlist')
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="bi bi-check-circle"></i>
+                        {{ session('status') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if (session('status') == 'Given book already added to the wishlist')
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <i class="bi bi-check-circle"></i>
+                        {{ session('status') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
             @endif
         </div>
     </div>

@@ -74,6 +74,12 @@
                                                         <button type="submit" class="btn btn-warning">Reverve</button>
                                                     </form>
                                                 @endif
+                                                <form method="POST" action="{{ route('user_add_wishlist') }}">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <input class="form-control" type="hidden" value="{{ $book -> id }}" name="book_id" id="book_id">
+                                                    <button type="submit" class="btn btn-primary">Add Wishlist</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>
