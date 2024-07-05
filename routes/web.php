@@ -46,6 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/user-add-wishlist', [WishListController::class, 'addWishlistUser'])->name('user_add_wishlist');
     Route::get('/user-get-wishlist', [WishListController::class, 'wishlistUser'])->name('user_get_wishlist');
+    Route::delete('/{id}/user-remove-wishlist', [WishListController::class, 'removeFromWishlistUser'])->name('user_remove_wishlist');
 
 
 
