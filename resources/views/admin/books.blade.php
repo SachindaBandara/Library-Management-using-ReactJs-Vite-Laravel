@@ -82,7 +82,7 @@
                                                 </form>
                                                 <form method="POST" action="{{ route('admin_delete_book', $book->id) }}">
                                                     @csrf
-                                                     @method('DELETE')
+                                                    @method('DELETE')
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteBookModel">Delete</button>
                                                     <!-- Delete book Modal -->
                                                     <div class="modal fade" id="deleteBookModel" tabindex="-1">
