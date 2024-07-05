@@ -1,16 +1,16 @@
 @extends('layouts.adminLayout')
 
 @section('title')
-  <title>Admin - Fines</title>
+  <title>Admin - Fine History</title>
 @endsection
 
 @section('main')
 <div class="pagetitle">
-    <h1>Fines</h1>
+    <h1>Fine History</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin_transactions')}}">Fines</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin_get_fine_history')}}">Fine History</a></li>
         </ol>
     </nav>
 </div>
@@ -35,15 +35,14 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Member ID</th>
                                 <th scope="col">Transaction ID</th>
-                                <th scope="col">Amount</th>
+                                <th scope="col">Amount(LKR)</th>
                                 <th scope="col">Paid At</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($fines as $fine)
                                 <tr>
-                                    <th scope="row">{{ $transaction -> id }}</th>
-                                    <td>{{ $fine -> book_id}}</td>
+                                    <th scope="row">{{ $fine -> id }}</th>
                                     <td>{{ $fine -> member_id}}</td>
                                     <td>{{ $fine -> transaction_id}}</td>
                                     <td>{{ $fine -> amount}}</td>

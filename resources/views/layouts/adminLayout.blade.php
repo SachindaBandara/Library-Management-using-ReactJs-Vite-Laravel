@@ -142,7 +142,17 @@
                     <span>Transactions</span>
                 </a>
             </li>
-            <!-- End Add User Nav -->
+            <!-- End Add Transaction Nav -->
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin_get_fine_history')}}">
+                    <i class="bi bi-cash"></i>
+                    <span>Fine History</span>
+                </a>
+            </li>
+            <!-- End Fine History Nav -->
+
             <li class="nav-item">
                 <a class="nav-link " href="{{route('profile_edit')}}">
                     <i class="bi bi-gear"></i>

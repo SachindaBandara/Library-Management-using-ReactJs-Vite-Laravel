@@ -88,6 +88,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/admin-get-fine-details', [FineController::class, 'showFineDetailsAdmin'])->name('admin_get_fine_details');
     Route::post('/admin-store-paid-fine', [FineController::class, 'storePaidFineAdmin'])->name('admin_store_paid_fine');
+    Route::get('/admin-get-fine-history', [FineController::class, 'getFineHistoryAdmin'])->name('admin_get_fine_history');
 
 });
 
