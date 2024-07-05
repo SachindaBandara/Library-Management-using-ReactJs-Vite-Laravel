@@ -45,6 +45,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user-transactions', [TransactionController::class, 'getTransactionsUser'])->name('user_transactions');
 
     Route::post('/user-add-wishlist', [WishListController::class, 'addWishlistUser'])->name('user_add_wishlist');
+    Route::get('/user-get-wishlist', [WishListController::class, 'wishlistUser'])->name('user_get_wishlist');
+
 
 
 });

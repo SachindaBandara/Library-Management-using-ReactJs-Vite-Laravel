@@ -142,6 +142,14 @@
         <!-- End Revervations Nav -->
 
         <li class="nav-item">
+            <a class="nav-link " href="{{ route('user_get_wishlist')}}">
+                <i class="bi bi-heart"></i>
+                <span>Wishlist</span>
+            </a>
+        </li>
+        <!-- End Wishlist Nav -->
+
+        <li class="nav-item">
             <a class="nav-link " href="{{ route('user_transactions') }}">
                 <i class="bi bi-arrow-left-right"></i>
                 <span>Transactions</span>
