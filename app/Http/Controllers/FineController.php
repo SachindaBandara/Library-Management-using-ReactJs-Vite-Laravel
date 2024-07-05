@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Notification;
+use Laravel\Sail\Console\PublishCommand;
 
 
 class FineController extends Controller
@@ -45,6 +46,11 @@ class FineController extends Controller
         Notification::create($fineNotification);
 
         return redirect(route('admin_return_book'))->with('success', 'Transaction updated successfully.');
+    }
+
+    Public function getFineHistoryAdmin (){
+        $fines=Fine::all();
+        return view('admin.fines', ['fines' => $fines]);
     }
 
 
