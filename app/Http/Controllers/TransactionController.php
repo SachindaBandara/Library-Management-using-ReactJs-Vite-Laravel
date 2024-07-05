@@ -165,7 +165,7 @@ class TransactionController extends Controller
         }
 
 
-        return redirect(route('admin_issue_book'))->with('success', 'Transaction updated successfully.')->with('calculatedFine', $calculatedFine);
+        return redirect(route('admin_return_book'))->with('success', 'Transaction updated successfully.')->with('calculatedFine', $calculatedFine);
     }
 
     public function getTransactionsUser(){
