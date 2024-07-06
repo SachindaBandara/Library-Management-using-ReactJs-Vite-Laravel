@@ -43,7 +43,7 @@
                                     <td>{{ $item -> added_at }}</td>
                                     <td>
                                         <div class='text-center'>
-                                            <form method="POST" action="{{ route('user_remove_wishlist', $item->book_id) }}">
+                                            <form method="POST" action="{{ route('user_remove_wishlist', $item->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeWishlistModel">Remove</button>

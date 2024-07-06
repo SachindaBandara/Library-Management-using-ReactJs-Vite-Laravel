@@ -45,9 +45,9 @@ class WishListController extends Controller
 
 
     public function removeFromWishlistUser($id){
-        $book = Book::findOrFail($id);
+        $wishlistItem=WishList::findOrFail($id);
 
-        $book->delete();
+        $wishlistItem->delete();
 
         return redirect(route('user_get_wishlist'))->with('success', 'Remove item successfully');
     }
