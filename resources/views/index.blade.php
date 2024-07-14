@@ -20,8 +20,7 @@
         <img src="indexAssets/img/hero-bg.jpg" alt="" data-aos="fade-in">
 
         <div class="container">
-            <h2 data-aos="fade-up" data-aos-delay="100" class="">Learning Today,<br>Leading Tomorrow</h2>
-            <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
+            <h2 data-aos="fade-up" data-aos-delay="100" class="">Reading Today,<br>Leading Tomorrow</h2>
             @if (Route::has('login'))
                 @auth
                     <a class="btn-get-started" href="{{ url('/user-dashboard') }}">Dashboard</a>
